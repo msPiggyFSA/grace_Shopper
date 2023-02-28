@@ -21,6 +21,24 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) => {
+  try {
+    const product = await Product.findByPk(req.params.id);
+
+    res.status(200).json({
+      status: "success",
+      data: {
+        product,
+      },
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "error",
+      message: err.message,
+    });
+  }
+});
+
 // router.get("/:category", async (req, res, next) => {
 
 // });
