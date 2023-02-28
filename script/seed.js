@@ -15,6 +15,7 @@ const users = [
     username: "johndoe",
     password: "password",
     email: "johndoe@example.com",
+    admin: false,
   },
   {
     fName: "Jane",
@@ -254,7 +255,9 @@ const seed = async () => {
     );
     await Promise.all(
       categories.map((cat) => {
-        return Category.create(cat);
+        const created = Category.create(cat);
+
+        return created;
       })
     );
 

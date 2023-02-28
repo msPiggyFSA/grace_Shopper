@@ -20,9 +20,9 @@ if (process.env.DATABASE_URL) {
     },
   };
 }
-
+// `postgres://grace_db_ulq1_user:qZv5AJSpF0WqK75RP0jZoQphoGuITjc7@dpg-cfv5p7l3t39doaohcdlg-a/grace_db_ulq1?ssl:true`
 const db = new Sequelize(
-	process.env.DATABASE_URL || `postgres://grace_db_ulq1_user:qZv5AJSpF0WqK75RP0jZoQphoGuITjc7@dpg-cfv5p7l3t39doaohcdlg-a/grace_db_ulq1?ssl:true`,
-	config
+  process.env.DATABASE_URL || "postgres://localhost:5432/wikistack",
+  config
 );
 module.exports = db;
