@@ -21,10 +21,7 @@ const AppRoutes = () => {
 
   return (
 		<div>
-			<Routes>
-				<Route path="/men" element={<Men />} />
-				<Route path=''="/women" element={<Women />} />
-			</Routes>
+			
 			{isLoggedIn ? (
 				<Routes>
 					<Route path="/*" element={<Home />} />
@@ -44,6 +41,8 @@ const AppRoutes = () => {
 						path="/signup"
 						element={<AuthForm name="signup" displayName="Sign Up" />}
 					/>
+        <Route path="/men" element={<Men />} />
+				<Route path="/women" element={<Women />} />
 				</Routes>
 			)}
 		</div>
