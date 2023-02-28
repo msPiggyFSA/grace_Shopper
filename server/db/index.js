@@ -12,8 +12,8 @@ const User = require('./models/User')
 Product.belongsToMany(Category, {through: 'Category_Product'});
 Category.belongsToMany(Product, { through: "Category_Product" });
 
-Cart.belongsToMany(Product, { through: "Cart_Prodcut" });
-Product.belongsToMany(Cart, { through: "Cart_Prodcut" });
+Cart.belongsToMany(Product, { through: "Cart_Product" });
+Product.belongsToMany(Cart, { through: "Cart_Product" });
 
 Cart.belongsTo(User)
 User.hasMany(Cart, {foreignKey:'userId'})
