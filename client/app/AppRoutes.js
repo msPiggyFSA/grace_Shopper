@@ -23,7 +23,7 @@ const AppRoutes = () => {
 		<div>
 			<Routes>
 				<Route path="/men" element={<Men />} />
-				<Route to="/women" element={<Women />} />
+				<Route path=''="/women" element={<Women />} />
 			</Routes>
 			{isLoggedIn ? (
 				<Routes>
