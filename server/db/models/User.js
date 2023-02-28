@@ -5,16 +5,25 @@ const bcrypt = require('bcrypt');
 
 const SALT_ROUNDS = 5;
 
-const User = db.define('user', {
-  username: {
-    type: Sequelize.STRING,
-    unique: true,
-    allowNull: false
-  },
-  password: {
-    type: Sequelize.STRING,
-  }
-})
+const User = db.define("user", {
+	username: {
+		type: Sequelize.STRING,
+		unique: true,
+		allowNull: false,
+	},
+	password: {
+		type: Sequelize.STRING,
+	},
+	email: {
+		type: Sequelize.STRING,
+		allowNull: false,
+		isEmail: true,
+	},
+	admin: {
+		type: Sequelize.BOOLEAN,
+		defaultValue: false,
+	},
+});
 
 module.exports = User
 
