@@ -38,13 +38,13 @@ const Product = db.define("product", {
 			notEmpty: true,
 		},
 	},
-	categoryId: {
-		type: Sequelize.INTEGER,
-		// allowNull: false,
-		validate: {
-			notEmpty: true,
-		},
-	},
+	// categoryId: {
+	// 	type: Sequelize.INTEGER,
+	// 	// allowNull: false,
+	// 	validate: {
+	// 		notEmpty: true,
+	// 	},
+	// },
 	description: {
 		type: Sequelize.TEXT,
 	},

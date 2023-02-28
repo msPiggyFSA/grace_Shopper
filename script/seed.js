@@ -221,17 +221,19 @@ const cart = [
 const categories = [
 	{ name: "Men" },
 	{ name: "Women" },
-	{ name: "Top" },
-	{ name: "Bottom" },
-	{ name: "Glasses" },
+	// { name: "Top" },
+	// { name: "Bottom" },
+	// { name: "Glasses" },
 ];
+
+let cat_product = [{product: 1, categoryId: 1}]
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
  */
 const seed = async () => {
 	try {
-		await db.sync({ force: true });
+		await db.sync();
 		await Promise.all(
 			users.map((user) => {
 				return User.create(user);
@@ -252,6 +254,7 @@ const seed = async () => {
 				return Category.create(cat);
 			})
 		);
+
 
 		console.log("Seeding success!");
 		db.close();
