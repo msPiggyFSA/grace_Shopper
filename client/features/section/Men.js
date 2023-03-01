@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAllProducts } from "../../app/slices/productsSlice";
+
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
@@ -38,9 +39,7 @@ const Men = (props) => {
               <p>{product.imageUrl}</p>
               <p>{product.price}</p>
               <p>{product.description}</p>
-              <button key={uuidv4()} to={`/products/${product.id}`}>
-                product Details
-              </button>
+              <button>product Details</button>
             </div>
           </>
         );
