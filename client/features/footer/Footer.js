@@ -1,16 +1,33 @@
 import React from "react";
-import { Link, Routes, Route } from "react-router-dom";
-import About from "./About";
-import Contact from "./Contact";
-import Refund from "./Refund";
+import { Link } from "react-router-dom";
+import { ExternalLink } from "react-external-link";
 import "./Footer.css";
 
 const Footer = () => {
   return (
     <footer className="footer">
-      <Link to="/about">About</Link>
-      <Link to="/contact">Contact</Link>
-      <Link to="/refund">Refund</Link>
+      <div>
+        <Link to="/about" className="footer-link">
+          About
+        </Link>
+        <Link to="/contact" className="footer-link">
+          Contact
+        </Link>
+        <Link to="/refund" className="footer-link">
+          Refund
+        </Link>
+      </div>
+      <div className="logo-container">
+        <ExternalLink href="https://www.twitter.com">
+          <img src="assets/img/twitter.png" className="footer-logo" />
+        </ExternalLink>
+        <ExternalLink href="https://www.facebook.com">
+          <img src="assets/img/facebook.png" className="footer-logo" />
+        </ExternalLink>
+        <ExternalLink href="https://www.instagram.com">
+          <img src="assets/img/insta.jpg" className="insta-logo" />
+        </ExternalLink>
+      </div>
     </footer>
   );
 };
