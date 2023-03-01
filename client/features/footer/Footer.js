@@ -25,7 +25,7 @@ const Footer = () => {
           <img src="assets/img/facebook.png" className="footer-logo" />
         </ExternalLink>
         <ExternalLink href="https://www.instagram.com">
-          <img src="assets/img/insta.jpg" className="insta-logo" />
+          <img src="assets/img/insta.jpg" className="footer-logo" />
         </ExternalLink>
       </div>
     </footer>
