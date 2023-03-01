@@ -4,7 +4,7 @@ import Contact from "../footer/Contact";
 import About from "../footer/About";
 import Refund from "../footer/Refund";
 import Home from "../home/Home";
-import SingleProduct from "../SingleProduct/SingleProduct";
+import SingleProductView from "../SingleProduct/SingleProductView";
 
 const ReactRoute = () => {
   return (
@@ -13,7 +13,7 @@ const ReactRoute = () => {
       <Route path="/about" element={<About />} />
       <Route path="/refund" element={<Refund />} />
       <Route path="/home" element={<Home />} />
-      <Route path="/product/:id" element={<SingleProduct />} />
+      <Route path="/product/:id" element={<SingleProductView />} />
     </Routes>
   );
 };

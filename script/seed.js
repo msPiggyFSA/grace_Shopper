@@ -228,8 +228,8 @@ const cart = [
 ];
 //victor
 const categories = [
-  { name: "Top" },
-  { name: "Bottom" },
+  { name: "men" },
+  { name: "women" },
   // { name: "Top" },
   // { name: "Bottom" },
   // { name: "Glasses" },

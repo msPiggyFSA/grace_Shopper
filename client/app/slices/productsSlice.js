@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const initialState = { products: [], singleProduct: [] };
+const initialState = { products: [], singleProduct: {} };
 
 export const fetchAllProducts = createAsyncThunk("allproducts", async () => {
   try {
@@ -18,7 +18,7 @@ export const fetchSingleProduct = createAsyncThunk(
   async (id) => {
     try {
       const response = await axios.get(
-        "http://localhost:8080/api/products" + id
+        "http://localhost:8080/api/products/" + id
       );
       const data = response.data;
       console.log(data);
@@ -42,10 +42,10 @@ const productSlice = createSlice({
         state.products.push(action.payload);
       })
       .addCase(fetchSingleProduct.pending, (state, action) => {
-        state.singleProduct.length = 0;
+        state.singleProduct = {};
       })
       .addCase(fetchSingleProduct.fulfilled, (state, action) => {
-        state.singleProduct.push(action.payload);
+        state.singleProduct = action.payload;
       });
   },
 });
