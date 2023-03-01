@@ -118,75 +118,75 @@ const users = [
 ];
 //raza
 const products = [
-  {
-    name: "t-shirt",
-    imageUrl:
-      "https://static.nike.com/a/videos/t_PDP_1280_v1/f_auto,q_auto:eco,so_0.1/0e744966-f8f8-4aae-97a5-2761f14798a6/dri-fit-mens-fitness-t-shirt-nhgSHx.jpg",
+	{
+		name: "t-shirt",
+		imageUrl:
+			"https://static.nike.com/a/videos/t_PDP_1280_v1/f_auto,q_auto:eco,so_0.1/0e744966-f8f8-4aae-97a5-2761f14798a6/dri-fit-mens-fitness-t-shirt-nhgSHx.jpg",
 
-    size: "xs",
-    price: 5,
-    rating: 4.5,
-    quantity: 100,
-    category: "1",
-    description: "this is new addition to collection",
-  },
-  {
-    name: "t-shirt",
-    imageUrl:
-      "https://static.nike.com/a/videos/t_PDP_1280_v1/f_auto,q_auto:eco,so_0.1/0e744966-f8f8-4aae-97a5-2761f14798a6/dri-fit-mens-fitness-t-shirt-nhgSHx.jpg",
+		size: "xs",
+		price: 5,
+		rating: 4.5,
+		quantity: 100,
+		description: "this is new addition to collection",
+		categoryId: 1,
+	},
+	{
+		name: "t-shirt",
+		imageUrl:
+			"https://static.nike.com/a/videos/t_PDP_1280_v1/f_auto,q_auto:eco,so_0.1/0e744966-f8f8-4aae-97a5-2761f14798a6/dri-fit-mens-fitness-t-shirt-nhgSHx.jpg",
 
-    size: "s",
-    price: 500,
-    rating: 3.5,
-    quantity: 10,
-    category: "2",
-    description: "this is new addition to collection",
-  },
-  {
-    name: "jeans",
-    imageUrl:
-      "https://static.nike.com/a/videos/t_PDP_1280_v1/f_auto,q_auto:eco,so_0.1/0e744966-f8f8-4aae-97a5-2761f14798a6/dri-fit-mens-fitness-t-shirt-nhgSHx.jpg",
+		size: "s",
+		price: 500,
+		rating: 3.5,
+		quantity: 10,
+		description: "this is new addition to collection",
+		categoryId: 2,
+	},
+	{
+		name: "jeans",
+		imageUrl:
+			"https://static.nike.com/a/videos/t_PDP_1280_v1/f_auto,q_auto:eco,so_0.1/0e744966-f8f8-4aae-97a5-2761f14798a6/dri-fit-mens-fitness-t-shirt-nhgSHx.jpg",
 
-    size: "l",
-    price: 5,
-    rating: 4.5,
-    quantity: 100,
-    category: "3",
-    description: "this is new addition to collection",
-  },
-  {
-    name: "Dress Shirt",
-    imageUrl:
-      "https://static.nike.com/a/videos/t_PDP_1280_v1/f_auto,q_auto:eco,so_0.1/0e744966-f8f8-4aae-97a5-2761f14798a6/dri-fit-mens-fitness-t-shirt-nhgSHx.jpg",
-    size: "xl",
-    price: 55,
-    rating: 5.0,
-    quantity: 10,
-    category: "1",
-    description: "this is new addition to Shirts",
-  },
-  {
-    name: "Polo Shirt",
-    imageUrl:
-      "https://static.nike.com/a/videos/t_PDP_1280_v1/f_auto,q_auto:eco,so_0.1/0e744966-f8f8-4aae-97a5-2761f14798a6/dri-fit-mens-fitness-t-shirt-nhgSHx.jpg",
-    size: "m",
-    price: 55,
-    rating: 5.0,
-    quantity: 150,
-    category: "3",
-    description: "this is new addition to Shirts",
-  },
-  {
-    name: "Short-Sleeve",
-    imageUrl:
-      "https://static.nike.com/a/videos/t_PDP_1280_v1/f_auto,q_auto:eco,so_0.1/0e744966-f8f8-4aae-97a5-2761f14798a6/dri-fit-mens-fitness-t-shirt-nhgSHx.jpg",
-    size: "l",
-    price: 150,
-    rating: 3.0,
-    quantity: 50,
-    category: "2",
-    description: "this is new addition to Shirts",
-  },
+		size: "l",
+		price: 5,
+		rating: 4.5,
+		quantity: 100,
+		description: "this is new addition to collection",
+		categoryId: 2,
+	},
+	{
+		name: "Dress Shirt",
+		imageUrl:
+			"https://static.nike.com/a/videos/t_PDP_1280_v1/f_auto,q_auto:eco,so_0.1/0e744966-f8f8-4aae-97a5-2761f14798a6/dri-fit-mens-fitness-t-shirt-nhgSHx.jpg",
+		size: "xl",
+		price: 55,
+		rating: 5.0,
+		quantity: 10,
+		description: "this is new addition to Shirts",
+		categoryId: 1,
+	},
+	{
+		name: "Polo Shirt",
+		imageUrl:
+			"https://static.nike.com/a/videos/t_PDP_1280_v1/f_auto,q_auto:eco,so_0.1/0e744966-f8f8-4aae-97a5-2761f14798a6/dri-fit-mens-fitness-t-shirt-nhgSHx.jpg",
+		size: "m",
+		price: 55,
+		rating: 5.0,
+		quantity: 150,
+		description: "this is new addition to Shirts",
+		categoryId: 1,
+	},
+	{
+		name: "Short-Sleeve",
+		imageUrl:
+			"https://static.nike.com/a/videos/t_PDP_1280_v1/f_auto,q_auto:eco,so_0.1/0e744966-f8f8-4aae-97a5-2761f14798a6/dri-fit-mens-fitness-t-shirt-nhgSHx.jpg",
+		size: "l",
+		price: 150,
+		rating: 3.0,
+		quantity: 50,
+		description: "this is new addition to Shirts",
+		categoryId: 2,
+	},
 ];
 //Jon
 const cart = [
@@ -230,7 +230,7 @@ const categories = [
   // { name: "Glasses" },
 ];
 
-let cat_product = [{ product: 1, categoryId: 1 }];
+// let cat_product = [{ product: 1, categoryId: 1 }];
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
@@ -244,6 +244,12 @@ const seed = async () => {
       })
     );
 
+      await Promise.all(
+				categories.map((cat) => {
+					return Category.create(cat);
+				})
+			);
+      
     await Promise.all(
       products.map((product) => {
         return Product.create(product);
@@ -256,13 +262,7 @@ const seed = async () => {
       })
     );
 
-    const createdCategories = await Promise.all(
-      categories.map((cat) => {
-        const created = Category.create(cat);
-
-        return created;
-      })
-    );
+ 
     /* Below Code establishes a relationship between products */
     // const shoes = await Product.create({
     //   name: "Polo Shirt",

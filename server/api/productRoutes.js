@@ -2,10 +2,13 @@ const router = require("express").Router();
 const {
   models: { Product },
 } = require("../db");
+const Category = require("../db/models/Category");
 
 router.get("/", async (req, res) => {
   try {
-    const allProducts = await Product.findAll();
+    const allProducts = await Product.findAll({
+      include: Category
+    });
     console.log(allProducts);
     res.status(200).json({
       status: "success",

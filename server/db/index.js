@@ -9,8 +9,8 @@ const User = require('./models/User')
 
 //associations could go here!
 
-Product.belongsToMany(Category, {through: 'Category_Product'});
-Category.belongsToMany(Product, { through: "Category_Product" });
+Product.belongsTo(Category);
+Category.hasMany(Product, {foreignKey: 'categoryId'} );
 
 Cart.belongsToMany(Product, { through: "Cart_Product" });
 Product.belongsToMany(Cart, { through: "Cart_Product" });
