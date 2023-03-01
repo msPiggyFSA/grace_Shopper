@@ -10,12 +10,7 @@ router.get("/", async (req, res) => {
       include: Category,
     });
     console.log(allProducts);
-    res.status(200).json({
-      status: "success",
-      data: {
-        allProducts,
-      },
-    });
+    res.send(allProducts);
   } catch (err) {
     res.status(404).json({
       status: "error",
@@ -26,8 +21,8 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
-    const product = await Product.findByPk(req.params.id,{
-      include: Category
+    const product = await Product.findByPk(req.params.id, {
+      include: Category,
     });
 
     res.status(200).json({
