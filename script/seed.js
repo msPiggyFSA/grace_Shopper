@@ -223,8 +223,8 @@ const cart = [
 ];
 //victor
 const categories = [
-  { name: "Men" },
-  { name: "Women" },
+  { name: "Top" },
+  { name: "Bottom" },
   // { name: "Top" },
   // { name: "Bottom" },
   // { name: "Glasses" },
@@ -256,13 +256,14 @@ const seed = async () => {
       })
     );
 
-    const createdCategories = await Promise.all(
+    await Promise.all(
       categories.map((cat) => {
         const created = Category.create(cat);
 
         return created;
       })
     );
+
     /* Below Code establishes a relationship between products */
     // const shoes = await Product.create({
     //   name: "Polo Shirt",
