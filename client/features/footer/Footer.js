@@ -11,11 +11,6 @@ const Footer = () => {
       <Link to="/about">About</Link>
       <Link to="/contact">Contact</Link>
       <Link to="/refund">Refund</Link>
-      <Routes>
-        <Route path="/about" element={<About />}></Route>
-        <Route path="/contact" element={<Contact />}></Route>
-        <Route path="/refund" element={<Refund />}></Route>
-      </Routes>
     </footer>
   );
 };
