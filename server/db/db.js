@@ -21,9 +21,9 @@ if (process.env.DATABASE_URL) {
   };
 }
 
-// `postgres://grace_db_ulq1_user:qZv5AJSpF0WqK75RP0jZoQphoGuITjc7@dpg-cfv5p7l3t39doaohcdlg-a/grace_db_ulq1?ssl:true`
+// "postgres://localhost:5432/backupGrace"
 const db = new Sequelize(
-  process.env.DATABASE_URL || "postgres://localhost:5432/backupGrace",
+  process.env.DATABASE_URL || `postgres://grace_db_ulq1_user:qZv5AJSpF0WqK75RP0jZoQphoGuITjc7@dpg-cfv5p7l3t39doaohcdlg-a/grace_db_ulq1?ssl:true`,
   config
 );
 module.exports = db;
