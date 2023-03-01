@@ -26,7 +26,9 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
-    const product = await Product.findByPk(req.params.id);
+    const product = await Product.findByPk(req.params.id,{
+      include: Category
+    });
 
     res.status(200).json({
       status: "success",
