@@ -127,8 +127,8 @@ const products = [
     price: 5,
     rating: 4.5,
     quantity: 100,
-    category: "1",
     description: "this is new addition to collection",
+    categoryId: 1,
   },
   {
     name: "t-shirt",
@@ -139,8 +139,8 @@ const products = [
     price: 500,
     rating: 3.5,
     quantity: 10,
-    category: "2",
     description: "this is new addition to collection",
+    categoryId: 2,
   },
   {
     name: "jeans",
@@ -151,8 +151,8 @@ const products = [
     price: 5,
     rating: 4.5,
     quantity: 100,
-    category: "3",
     description: "this is new addition to collection",
+    categoryId: 2,
   },
   {
     name: "Dress Shirt",
@@ -162,8 +162,8 @@ const products = [
     price: 55,
     rating: 5.0,
     quantity: 10,
-    category: "1",
     description: "this is new addition to Shirts",
+    categoryId: 1,
   },
   {
     name: "Polo Shirt",
@@ -173,8 +173,8 @@ const products = [
     price: 55,
     rating: 5.0,
     quantity: 150,
-    category: "3",
     description: "this is new addition to Shirts",
+    categoryId: 1,
   },
   {
     name: "Short-Sleeve",
@@ -184,8 +184,8 @@ const products = [
     price: 150,
     rating: 3.0,
     quantity: 50,
-    category: "2",
     description: "this is new addition to Shirts",
+    categoryId: 2,
   },
 ];
 //Jon
@@ -230,7 +230,7 @@ const categories = [
   // { name: "Glasses" },
 ];
 
-let cat_product = [{ product: 1, categoryId: 1 }];
+// let cat_product = [{ product: 1, categoryId: 1 }];
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
@@ -245,6 +245,12 @@ const seed = async () => {
     );
 
     await Promise.all(
+      categories.map((cat) => {
+        return Category.create(cat);
+      })
+    );
+
+    await Promise.all(
       products.map((product) => {
         return Product.create(product);
       })
@@ -253,14 +259,6 @@ const seed = async () => {
     await Promise.all(
       cart.map((cart) => {
         return Cart.create(cart);
-      })
-    );
-
-    await Promise.all(
-      categories.map((cat) => {
-        const created = Category.create(cat);
-
-        return created;
       })
     );
 
