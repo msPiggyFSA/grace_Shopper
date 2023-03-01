@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAllProducts } from "../../app/slices/productsSlice";
+import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+import SingleProduct from "../SingleProduct/SingleProduct";
 
 /**
  * COMPONENT
@@ -26,7 +28,11 @@ const Home = (props) => {
     >
       <h3>Welcome, {username}</h3>
       {products.map((product) => {
-        return <div key={uuidv4()}>{product.name}</div>;
+        return (
+          <Link key={uuidv4()} to={`/product/${product.id}`}>
+            {product.name}
+          </Link>
+        );
       })}
     </div>
   );

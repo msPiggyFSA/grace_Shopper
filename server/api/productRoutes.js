@@ -25,12 +25,7 @@ router.get("/:id", async (req, res) => {
       include: Category,
     });
 
-    res.status(200).json({
-      status: "success",
-      data: {
-        product,
-      },
-    });
+    res.send(product);
   } catch (err) {
     res.status(404).json({
       status: "error",
