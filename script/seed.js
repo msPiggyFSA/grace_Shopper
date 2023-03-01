@@ -195,30 +195,35 @@ const cart = [
     billAddress: "123 Sesame St. New York, NY 10001",
     shipAddress: "123 Sesame St. New York, NY 10001",
     total: 100.0,
+    userId: 1
   },
   {
     purchased: true,
     billAddress: "1428 Elm St. Springwood, OH 43212",
     shipAddress: "1428 Elm St. Springwood, OH 43212",
     total: 50.0,
+    userId: 3
   },
   {
     purchased: true,
     billAddress: "124 Conch St., Bikini Bottom, Pacific Ocean",
     shipAddress: "124 Conch St., Bikini Bottom, Pacific Ocean",
     total: 25.0,
+    userId: 2
   },
   {
     purchased: false,
     billAddress: "742 Evergreen Terrace, Springfield, USA",
     shipAddress: "742 Evergreen Terrace, Springfield, USA",
     total: 75.0,
+    userId: 5
   },
   {
     purchased: false,
     billAddress: "31 Spooner Street, Quahog, Rhode Island",
     shipAddress: "31 Spooner Street, Quahog, Rhode Island",
     total: 69.69,
+    userId: 10
   },
 ];
 //victor
@@ -277,7 +282,7 @@ const seed = async () => {
 
     // const category = await Category.create({ name: "Accessory" });
 
-    // await category.addProduct(shoes);
+    // await cart.addProduct(id);
 
     // createdCategories.forEach((category) => {
     //   category.addProduct(shoes);
