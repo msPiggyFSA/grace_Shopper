@@ -9,8 +9,8 @@ const App = () => {
     <div>
       <Navbar />
       <AppRoutes />
-      <Footer />
       <ReactRoutes />
+      <Footer />
     </div>
   );
 };

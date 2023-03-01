@@ -4,6 +4,7 @@ import { fetchAllProducts } from "../../app/slices/productsSlice";
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import SingleProduct from "../SingleProduct/SingleProduct";
+import Add2Cart from "../cart/Add2Cart";
 
 /**
  * COMPONENT
@@ -28,11 +29,7 @@ const Home = (props) => {
     >
       <h3>Welcome, {username}</h3>
       {products.map((product) => {
-        return (
-          <Link key={uuidv4()} to={`/product/${product.id}`}>
-            {product.name}
-          </Link>
-        );
+        return <SingleProduct key={uuidv4()} props={product} />;
       })}
     </div>
   );
