@@ -243,23 +243,46 @@ const seed = async () => {
         return User.create(user);
       })
     );
+
     await Promise.all(
       products.map((product) => {
         return Product.create(product);
       })
     );
+
     await Promise.all(
       cart.map((cart) => {
         return Cart.create(cart);
       })
     );
-    await Promise.all(
+
+    const createdCategories = await Promise.all(
       categories.map((cat) => {
         const created = Category.create(cat);
 
         return created;
       })
     );
+    /* Below Code establishes a relationship between products */
+    // const shoes = await Product.create({
+    //   name: "Polo Shirt",
+    //   imageUrl:
+    //     "https://static.nike.com/a/videos/t_PDP_1280_v1/f_auto,q_auto:eco,so_0.1/0e744966-f8f8-4aae-97a5-2761f14798a6/dri-fit-mens-fitness-t-shirt-nhgSHx.jpg",
+    //   size: "m",
+    //   price: 55,
+    //   rating: 5.0,
+    //   quantity: 150,
+    //   category: "3",
+    //   description: "this is new addition to Shirts",
+    // });
+
+    // const category = await Category.create({ name: "Accessory" });
+
+    // await category.addProduct(shoes);
+
+    // createdCategories.forEach((category) => {
+    //   category.addProduct(shoes);
+    // });
 
     console.log("Seeding success!");
     db.close();
