@@ -20,6 +20,7 @@ const Men = (props) => {
       product.categoryId === 2;
     });
     console.log("filtered products", state.products.products);
+    console.log("filtered products", products);
     return state.products.products.flat();
   });
 
