@@ -10,10 +10,12 @@ import Category from "../section/Category";
 const ReactRoute = () => {
   return (
     <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/home" element={<Home />} />
+
       <Route path="/contact" element={<Contact />} />
       <Route path="/about" element={<About />} />
       <Route path="/refund" element={<Refund />} />
-      <Route path="/home" element={<Home />} />
       <Route path="/product/:id" element={<SingleProductView />} />
       <Route path="/category/:id" element={<Category />} />
     </Routes>

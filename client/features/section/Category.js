@@ -9,12 +9,9 @@ const Category = () => {
   console.log(params.id);
   return (
     <div>
-      <div>hello</div>
-      {id === 1 ? (
-        <Men />
-      ) : id === 2 ? (
-        <Women />
-      ) : (
+      {id === 1 && <Men />}
+      {id === 2 && <Women />}
+      {id > 2 && (
         <div>
           Sorry, but the page you requested could not be found, nerd. 😂 😂 😈
         </div>

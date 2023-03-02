@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
     const allProducts = await Product.findAll({
       include: Category,
     });
-    console.log(allProducts);
+    // console.log(allProducts);
     res.send(allProducts);
   } catch (err) {
     res.status(404).json({
