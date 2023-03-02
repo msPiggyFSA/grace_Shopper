@@ -8,7 +8,7 @@ const CartLength = () => {
 
   return (
     <div>
-      <p>{cartState.length} items in your cart</p>
+      <p> Cart ({cartState.length})</p>
     </div>
   );
 };

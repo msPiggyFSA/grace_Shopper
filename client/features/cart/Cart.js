@@ -6,9 +6,9 @@ const Cart = () => {
   const navigate = useNavigate();
 
   return (
-    <div onClick={() => navigate("/cart")}>
+    <button onClick={() => navigate("/cart")}>
       <CartLength />
-    </div>
+    </button>
   );
 };
 
