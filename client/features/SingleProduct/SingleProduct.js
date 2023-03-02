@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Add2Cart from "../cart/Add2Cart";
 import XButton from "../cart/XButton";
 import "./css/SingleProduct.css";
+import CartDelete from "../cart/CartDelete";
 
 const SingleProduct = (props) => {
   const product = props.props;
@@ -17,7 +18,7 @@ const SingleProduct = (props) => {
   const params = useParams();
   const dispatch = useDispatch();
   const admin = useSelector((state) => state.auth.me.admin);
- 
+
   const handleDelete = (id) => {
     dispatch(deleteProduct(id));
     dispatch(fetchAllProducts());
@@ -27,6 +28,7 @@ const SingleProduct = (props) => {
     <div className="product-list">
       <div onClick={() => navigate(`/product/${product.id}`)}>
         {product.name}
+        {product.price}
       </div>
 
       {admin === true ? (
@@ -35,7 +37,7 @@ const SingleProduct = (props) => {
           <button onClick={() => handleDelete(product.id)}>X</button>
         </>
       ) : props.cart === "cart" ? (
-        <XButton />
+        <CartDelete props={product} />
       ) : (
         <Add2Cart props={product} />
       )}

@@ -12,7 +12,7 @@ const Home = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchAllProducts())
+    dispatch(fetchAllProducts());
     //make sure this dispatch isnt calling another dispatch (infinte loop);
   }, []);
 
@@ -24,10 +24,10 @@ const Home = (props) => {
   return (
     <div>
       <h3>Welcome, {username}</h3>
-      //insert check system here, if prod exist ... 
-      {products.map((product) => {
-        return <SingleProduct key={uuidv4()} props={product} />
-      })}
+      {products &&
+        products.map((product) => {
+          return <SingleProduct key={uuidv4()} props={product} />;
+        })}
     </div>
   );
 };
