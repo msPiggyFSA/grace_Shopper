@@ -21,11 +21,7 @@ const Home = (props) => {
   });
 
   return (
-    <div
-      onClick={() => {
-        console.log(products);
-      }}
-    >
+    <div>
       <h3>Welcome, {username}</h3>
       {products.map((product) => {
         return <SingleProduct key={uuidv4()} props={product} />;

@@ -33,8 +33,5 @@ if (process.env.DATABASE_URL) {
 //LOCAL
 //"postgres://localhost:5432/backupGrace"
 
-const db = new Sequelize(
-  process.env.DATABASE_URL || "postgres://localhost:5432/backupGrace",
-  config
-);
+const db = new Sequelize(process.env.DATABASE_URL, config);
 module.exports = db;

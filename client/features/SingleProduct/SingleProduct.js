@@ -25,7 +25,7 @@ const SingleProduct = (props) => {
         {product.name}
       </div>
 
-      <Add2Cart />
+      <Add2Cart props={product} />
     </div>
   );
 };
