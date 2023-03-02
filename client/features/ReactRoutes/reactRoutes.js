@@ -7,6 +7,7 @@ import Home from "../home/Home";
 import SingleProductView from "../SingleProduct/SingleProductView";
 import Category from "../section/Category";
 import CartView from "../cart/CartView";
+import AddProduct from "../admin/AddProduct";
 
 const ReactRoute = () => {
   return (
