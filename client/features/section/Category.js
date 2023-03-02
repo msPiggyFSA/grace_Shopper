@@ -2,17 +2,23 @@ import React from "react";
 import Men from "./Men.js";
 import Women from "./Women.js";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 const Category = () => {
   const params = useParams();
-  const products = useSelector((state) => {
-    return state.products.products.flat();
-  });
+  const id = Number(params.id);
+  console.log(params.id);
   return (
     <div>
-      {params.id === 1 ?? <Men />}
-      {params.id === 2 ?? <Women />}
+      <div>hello</div>
+      {id === 1 ? (
+        <Men />
+      ) : id === 2 ? (
+        <Women />
+      ) : (
+        <div>
+          Sorry, but the page you requested could not be found, nerd. 😂 😂 😈
+        </div>
+      )}
     </div>
   );
 };
