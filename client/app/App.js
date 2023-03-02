@@ -10,7 +10,7 @@ const App = () => {
     <>
       <div className="body">
         <Navbar />
-        <AppRoutes />
+        {/* <AppRoutes /> */}
         <ReactRoutes />
       </div>
       <Footer />

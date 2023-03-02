@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { fetchSingleProduct, deleteProduct, fetchAllProducts } from "../../app/slices/productsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Add2Cart from "../cart/Add2Cart";
+import DeleteProduct from "../admin/DeleteProduct"
 import "./css/SingleProduct.css";
 
 const SingleProduct = (props) => {
@@ -33,6 +34,7 @@ const SingleProduct = (props) => {
       <div onClick={() => navigate(`/product/${product.id}`)}>
         {product.name}
       </div>
+
       <Add2Cart props={product} />
       <button onClick={() => handleDelete(product.id)}>X</button>
     </div>

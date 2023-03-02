@@ -8,19 +8,24 @@ import SingleProductView from "../SingleProduct/SingleProductView";
 import Category from "../section/Category";
 import CartView from "../cart/CartView";
 import AddProduct from "../admin/AddProduct";
+import AuthForm from "../auth/AuthForm";
 
 const ReactRoute = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/home" element={<Home />} />
-      <Route path ='/addprod' element={<AddProduct/>}/>
+      <Route path="/addprod" element={<AddProduct />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/about" element={<About />} />
       <Route path="/refund" element={<Refund />} />
       <Route path="/product/:id" element={<SingleProductView />} />
       <Route path="/category/:id" element={<Category />} />
       <Route path="/cart" element={<CartView />} />
+      <Route
+        path="/login"
+        element={<AuthForm name="login" displayName="Login" />}
+      />
     </Routes>
   );
 };
