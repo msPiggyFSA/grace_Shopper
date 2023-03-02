@@ -27,8 +27,7 @@ const SingleProduct = (props) => {
   return (
     <div className="product-list">
       <div onClick={() => navigate(`/product/${product.id}`)}>
-        {product.name}
-        {product.price}
+        {product.name}: ${product.price}
       </div>
 
       {admin === true ? (
