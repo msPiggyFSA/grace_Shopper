@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAllProducts } from "../../app/slices/productsSlice";
-
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
@@ -17,13 +16,16 @@ const Men = (props) => {
 
   const username = useSelector((state) => state.auth.me.username);
   const products = useSelector((state) => {
-    state.products.products.filter((product) => {
-      product.categoryId === 2;
-    });
-    console.log("filtered products", state.products.products);
+    // state.products.products.filter((product) => {
+    //   product.categoryId === 2;
+    // });
+    // console.log("filtered products", state.products.products);
     return state.products.products.flat();
   });
-
+const filter = products.filter(product=> 
+  product.categoryId === 1
+);
+  console.log(filter)
   return (
     <div
       onClick={() => {
@@ -31,12 +33,12 @@ const Men = (props) => {
       }}
     >
       <h3>Welcome, {username}</h3>
-      {products.map((product) => {
+      {filter.map((product) => {
         return (
           <>
-            <div class="card">
+            <div className="card" >
               <p>{product.name}</p>
-              <p>{product.imageUrl}</p>
+              <img src="{product.imageUrl}"/>
               <p>{product.price}</p>
               <p>{product.description}</p>
               <button>product Details</button>
