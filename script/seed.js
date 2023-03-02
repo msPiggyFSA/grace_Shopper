@@ -15,7 +15,7 @@ const users = [
     username: "johndoe",
     password: "password",
     email: "johndoe@example.com",
-    admin: false,
+    admin: true,
   },
   {
     fName: "Jane",

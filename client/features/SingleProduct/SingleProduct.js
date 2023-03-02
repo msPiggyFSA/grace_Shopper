@@ -3,7 +3,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { fetchSingleProduct, deleteProduct, fetchAllProducts } from "../../app/slices/productsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Add2Cart from "../cart/Add2Cart";
-import DeleteProduct from "../admin/DeleteProduct"
+
 import "./css/SingleProduct.css";
 
 const SingleProduct = (props) => {
@@ -12,7 +12,8 @@ const SingleProduct = (props) => {
   const navigate = useNavigate();
   const params = useParams();
   const dispatch = useDispatch();
-
+  const admin = useSelector((state) => state.auth.me.admin);
+  console.log(admin)
   const handleDelete = (id) => {
     dispatch(deleteProduct(id))
     dispatch(fetchAllProducts());
@@ -26,8 +27,11 @@ const SingleProduct = (props) => {
         {product.name}
       </div>
 
-      <Add2Cart props={product} />
-      <button onClick={() => handleDelete(product.id)}>X</button>
+      
+      {admin===true?
+      <><Add2Cart props={product} /><button onClick={() => handleDelete(product.id)}>X</button></>:
+      <Add2Cart props={product} />}
+      
     </div>
   );
 };
