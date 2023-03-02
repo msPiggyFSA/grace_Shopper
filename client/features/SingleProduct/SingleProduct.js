@@ -40,7 +40,7 @@ const SingleProduct = (props) => {
 
       {admin === true ? (
         <>
-          <Add2Cart props={product} />
+          <Add2Cart props={product} /> |{" "}
           <button onClick={() => handleDelete(product.id)}>X</button>
         </>
       ) : (
