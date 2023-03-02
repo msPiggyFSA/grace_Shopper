@@ -17,7 +17,7 @@ const CartView = (props) => {
         return (<>
         <SingleProduct key={uuidv4()} props={product} /><CartDelete props={product}/>
         </>
-        );
+        )
       })}
     </div>
   );
