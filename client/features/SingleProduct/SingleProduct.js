@@ -8,12 +8,12 @@ import "./css/SingleProduct.css";
 
 const SingleProduct = (props) => {
   const product = props.props;
-  console.log(product);
+
   const navigate = useNavigate();
   const params = useParams();
   const dispatch = useDispatch();
   const admin = useSelector((state) => state.auth.me.admin);
-  console.log(admin)
+ 
   const handleDelete = (id) => {
     dispatch(deleteProduct(id))
     dispatch(fetchAllProducts());
