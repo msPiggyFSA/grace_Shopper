@@ -13,7 +13,7 @@ const CartView = (props) => {
     <div>
       {currentCart.map((product) => {
         console.log(product);
-        return <SingleProduct key={uuidv4()} props={product} />;
+        return <SingleProduct key={uuidv4()} cart="cart" props={product} />;
       })}
     </div>
   );

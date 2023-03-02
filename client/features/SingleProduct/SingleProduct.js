@@ -43,6 +43,8 @@ const SingleProduct = (props) => {
           <Add2Cart props={product} /> |{" "}
           <button onClick={() => handleDelete(product.id)}>X</button>
         </>
+      ) : props.cart === "cart" ? (
+        <div>X</div>
       ) : (
         <Add2Cart props={product} />
       )}
