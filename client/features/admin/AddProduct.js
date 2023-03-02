@@ -9,9 +9,10 @@ function AddProduct() {
         imageUrl:"",
         price:"",
         description:'',
+        categoryId:'',
       
 })
-
+console.log(form)
 const changeValue = (prop)=>(event)=>{
     setForm({
         ...form,
@@ -30,7 +31,7 @@ const changeValue = (prop)=>(event)=>{
 			<input
 				placeholder="product price?"
 				type="number"
-                step='0.01'
+				step="0.01"
 				value={form.price}
 				onChange={changeValue("price")}
 			/>
@@ -45,12 +46,18 @@ const changeValue = (prop)=>(event)=>{
 				value={form.description}
 				onChange={changeValue("description")}
 			/>
-			<button
+            <div>Choose product category</div>
+            <label htmlFor="createMenCat">Men</label>
+            <input type='radio' id='createMenCat' name='productCat'value={1} onChange={changeValue('categoryId')}/>
+            <label htmlFor="createWomenCat">Women</label>
+            <input type='radio' id='createWomennCat' name='productCat'value={2} onChange={changeValue('categoryId')}/>
+			<div><button
 				onClick={() => {
 					dispatch(createNewProduct({ form }));
 				}}>
 				Submit
 			</button>
+            </div>
 		</div>
 	);
 }

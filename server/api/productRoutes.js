@@ -36,12 +36,13 @@ router.get("/:id", async (req, res) => {
 
 //add new products
 router.post('/', async(req, res)=>{
+  console.log(req.body, 'this is req.body')
   try {
     res.status(201).send(await Product.create(req.body))
   } catch (error) {
     res.status(404).json({
 			status: "error",
-			message: err.message,
+			message: error.message,
 		});
   }
 })

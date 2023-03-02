@@ -31,18 +31,12 @@ export const fetchSingleProduct = createAsyncThunk(
 
 export const createNewProduct = createAsyncThunk(
   'createproduct',
-  async({prodName, imgUrl, price, description})=>{
+  async({form})=>{
     try {
-      const response = await axios.post("http://localhost:8080/api/products", {
-      prodName,
-      imgUrl,
-      price,
-      description
-      });
-      console.log(response," this is reponse")
-      return response
+      await axios.post("http://localhost:8080/api/products", form);
+console.log(form)
     } catch (error) {
-      console.log(error)
+      console.log(error.message)
     }
   }
 )
@@ -64,7 +58,13 @@ const productSlice = createSlice({
       })
       .addCase(fetchSingleProduct.fulfilled, (state, action) => {
         state.singleProduct = action.payload;
-      });
+      })
+      .addCase(createNewProduct.pending, (state, action) => {
+				state.createproduct = {};
+			})
+      .addCase(createNewProduct.fulfilled, (state, action) => {
+				state.createproduct = action.payload;
+			});
   },
 });
 
