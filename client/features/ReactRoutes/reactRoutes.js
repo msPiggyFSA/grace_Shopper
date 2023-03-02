@@ -26,6 +26,10 @@ const ReactRoute = () => {
         path="/login"
         element={<AuthForm name="login" displayName="Login" />}
       />
+      <Route
+        path="/signup"
+        element={<AuthForm name="signup" displayName="Signup" />}
+      />
     </Routes>
   );
 };
