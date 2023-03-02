@@ -7,7 +7,7 @@ import {
 } from "../../app/slices/productsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Add2Cart from "../cart/Add2Cart";
-
+import XButton from "../cart/XButton";
 import "./css/SingleProduct.css";
 
 const SingleProduct = (props) => {
@@ -44,7 +44,7 @@ const SingleProduct = (props) => {
           <button onClick={() => handleDelete(product.id)}>X</button>
         </>
       ) : props.cart === "cart" ? (
-        <div>X</div>
+        <XButton />
       ) : (
         <Add2Cart props={product} />
       )}
