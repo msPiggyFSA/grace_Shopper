@@ -8,7 +8,8 @@ const Add2Cart = (props) => {
   const cartState = useSelector((state) => state.cart.currentCart);
 
   const addHandler = () => {
-    dispatch(cartActions.addToCart({ name: obj.name, price: obj.price }));
+    dispatch(cartActions.addToCart(obj));
+    console.log(obj);
   };
   return (
     <div>
