@@ -49,5 +49,15 @@ router.post('/', async(req, res)=>{
 //edit current product
 
 //delete product
+router.delete('/:id', async(req, res)=>{
+  console.log(req.params.id, 'this is req.params.id')
+  try{
+    const product = await Product.findByPk(req.params.id)
+    await product.destroy()
+    res.status(200).send(product)
+  }catch(error){
+    next (error)
+  }
+})
 
 module.exports = router;

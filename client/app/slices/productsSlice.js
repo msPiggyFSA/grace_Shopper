@@ -41,6 +41,17 @@ console.log(form)
   }
 )
 
+export const deleteProduct = createAsyncThunk(
+  'deleteproduct', async(id)=>{ try {
+    await axios.delete(`http://localhost:8080/api/products/${id}`);
+    return id;
+  } catch (error) {
+    console.log(error.message)
+  }
+  }
+)
+
+
 const productSlice = createSlice({
   name: "products",
   initialState,
@@ -63,6 +74,9 @@ const productSlice = createSlice({
 				state.createproduct = {};
 			})
       .addCase(createNewProduct.fulfilled, (state, action) => {
+				state.createproduct = action.payload;
+			})
+      .addCase(deleteProduct.fulfilled, (state, action) => {
 				state.createproduct = action.payload;
 			});
   },
