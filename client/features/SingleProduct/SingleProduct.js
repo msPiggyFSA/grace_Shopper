@@ -18,17 +18,8 @@ const SingleProduct = (props) => {
     dispatch(fetchAllProducts());
   }
 
+  console.log(product);
 
-
-  //   useEffect(() => {
-  //     if (params === "number") {
-  //       dispatch(fetchSingleProduct(params));
-  //     }
-  //   }, []);
-  //   const single = useSelector((state) => {
-  //     return state.products.singleProduct;
-  //   });
-  // console.log(product);
   return (
     <div className="product-list">
       <div onClick={() => navigate(`/product/${product.id}`)}>
