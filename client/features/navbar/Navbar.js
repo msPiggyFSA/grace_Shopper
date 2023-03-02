@@ -35,9 +35,9 @@ const Navbar = () => {
             <Link to="/signup">Sign Up</Link>
           </div>
         )}
+        <Cart />
       </nav>
       <hr />
-      <Cart />
     </div>
   );
 };
