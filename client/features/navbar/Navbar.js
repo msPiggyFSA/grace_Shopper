@@ -1,7 +1,7 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import { logout } from '../../app/store';
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { logout } from "../../app/store";
 
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -9,35 +9,35 @@ const Navbar = () => {
   const navigate = useNavigate();
   const logoutAndRedirectHome = () => {
     dispatch(logout());
-    navigate('/login');
+    navigate("/login");
   };
 
   return (
-		<div>
-			<h1>FS-App-Template</h1>
-			<nav>
-				<Link to="/home">Home</Link>
-				<Link to="/men">Men</Link>
-				<Link to="/women">Women</Link>
-				{isLoggedIn ? (
-					<div>
-						{/* The navbar will show these links after you log in */}
-						<Link to="/home">Home</Link>
-						<button type="button" onClick={logoutAndRedirectHome}>
-							Logout
-						</button>
-					</div>
-				) : (
-					<div>
-						{/* The navbar will show these links before you log in */}
-						<Link to="/login">Login</Link>
-						<Link to="/signup">Sign Up</Link>
-					</div>
-				)}
-			</nav>
-			<hr />
-		</div>
-	);
+    <div>
+      <h1>FS-App-Template</h1>
+      <nav>
+        <Link to="/home">Home</Link>
+        <Link to="/category/1">Men</Link>
+        <Link to="/category/2">Women</Link>
+        {isLoggedIn ? (
+          <div>
+            {/* The navbar will show these links after you log in */}
+            <Link to="/home">Home</Link>
+            <button type="button" onClick={logoutAndRedirectHome}>
+              Logout
+            </button>
+          </div>
+        ) : (
+          <div>
+            {/* The navbar will show these links before you log in */}
+            <Link to="/login">Login</Link>
+            <Link to="/signup">Sign Up</Link>
+          </div>
+        )}
+      </nav>
+      <hr />
+    </div>
+  );
 };
 
 export default Navbar;

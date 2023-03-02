@@ -5,6 +5,7 @@ import About from "../footer/About";
 import Refund from "../footer/Refund";
 import Home from "../home/Home";
 import SingleProductView from "../SingleProduct/SingleProductView";
+import Category from "../section/Category";
 
 const ReactRoute = () => {
   return (
@@ -14,6 +15,7 @@ const ReactRoute = () => {
       <Route path="/refund" element={<Refund />} />
       <Route path="/home" element={<Home />} />
       <Route path="/product/:id" element={<SingleProductView />} />
+      <Route path="/category/:id" element={<Category />} />
     </Routes>
   );
 };

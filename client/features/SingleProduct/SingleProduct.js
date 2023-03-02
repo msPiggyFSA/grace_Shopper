@@ -18,7 +18,7 @@ const SingleProduct = (props) => {
   //   const single = useSelector((state) => {
   //     return state.products.singleProduct;
   //   });
-  console.log(product);
+  // console.log(product);
   return (
     <div className="product-list">
       <div onClick={() => navigate(`/product/${product.id}`)}>
