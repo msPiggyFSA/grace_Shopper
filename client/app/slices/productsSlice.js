@@ -29,6 +29,24 @@ export const fetchSingleProduct = createAsyncThunk(
   }
 );
 
+export const createNewProduct = createAsyncThunk(
+  'createproduct',
+  async({prodName, imgUrl, price, description})=>{
+    try {
+      const response = await axios.post("http://localhost:8080/api/products", {
+      prodName,
+      imgUrl,
+      price,
+      description
+      });
+      console.log(response," this is reponse")
+      return response
+    } catch (error) {
+      console.log(error)
+    }
+  }
+)
+
 const productSlice = createSlice({
   name: "products",
   initialState,

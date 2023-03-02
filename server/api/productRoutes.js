@@ -34,8 +34,19 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// router.get("/:category", async (req, res, next) => {
+//add new products
+router.post('/', async(req, res)=>{
+  try {
+    res.status(201).send(await Product.create(req.body))
+  } catch (error) {
+    res.status(404).json({
+			status: "error",
+			message: err.message,
+		});
+  }
+})
+//edit current product
 
-// });
+//delete product
 
 module.exports = router;
