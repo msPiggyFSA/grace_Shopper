@@ -25,7 +25,8 @@ const CartView = (props) => {
       })}
       {currentCart.length === 0 && <div>Add items to your cart!</div>}
       {currentCart.length > 0 && <CartTotal />}
-      {currentCart.length > 0 && <Checkout />}
+      {currentCart.length > 0 && <Checkout currentCart={currentCart}/>}
+      <Checkout currentCart={currentCart}/>
     </div>
   );
 };

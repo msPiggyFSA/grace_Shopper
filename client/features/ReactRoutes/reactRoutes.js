@@ -9,6 +9,8 @@ import Category from "../section/Category";
 import CartView from "../cart/CartView";
 import AddProduct from "../admin/AddProduct";
 import AuthForm from "../auth/AuthForm";
+import SignUpForm from "../auth/SignUpForm";
+import CartProducts from "../cart/CartProducts";
 
 const ReactRoute = () => {
   return (
@@ -22,13 +24,14 @@ const ReactRoute = () => {
       <Route path="/product/:id" element={<SingleProductView />} />
       <Route path="/category/:id" element={<Category />} />
       <Route path="/cart" element={<CartView />} />
+      <Route path="/cartProducts" element={<CartProducts />} />
       <Route
         path="/login"
         element={<AuthForm name="login" displayName="Login" />}
       />
       <Route
         path="/signup"
-        element={<AuthForm name="signup" displayName="Signup" />}
+        element={<SignUpForm name="signup" displayName="Signup" />}
       />
     </Routes>
   );

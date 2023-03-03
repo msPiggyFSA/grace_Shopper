@@ -20,6 +20,10 @@ const cartSlice = createSlice({
       console.log(index, 'this is index')
       state.currentCart.splice(index, 1)
     },
+    cartTotal(state, action) {
+      let here = state.currentCart.length(action.payload);
+      console.log(here, 'this is here')
+    },
   },
 });
 

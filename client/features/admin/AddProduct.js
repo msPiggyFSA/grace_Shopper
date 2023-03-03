@@ -6,13 +6,13 @@ import { createNewProduct } from '../../app/slices/productsSlice'
 function AddProduct() {
 	const navigate = useNavigate()
     const dispatch = useDispatch()
-    const [form, setForm] = useState({ 
+    const [form, setForm] = useState({
         name: '',
         imageUrl:"",
         price:"",
         description:'',
         categoryId:'',
-      
+
 })
 console.log(form)
 const changeValue = (prop)=>(event)=>{
@@ -52,7 +52,7 @@ const changeValue = (prop)=>(event)=>{
             <label htmlFor="createMenCat">Men</label>
             <input type='radio' id='createMenCat' name='productCat'value={1} onChange={changeValue('categoryId')}/>
             <label htmlFor="createWomenCat">Women</label>
-            <input type='radio' id='createWomennCat' name='productCat'value={2} onChange={changeValue('categoryId')}/>
+            <input type='radio' id='createWomenCat' name='productCat'value={2} onChange={changeValue('categoryId')}/>
 			<div><button
 				onClick={() => {
 					dispatch(createNewProduct({ form }));
