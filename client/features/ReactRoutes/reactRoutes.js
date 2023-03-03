@@ -10,7 +10,7 @@ import CartView from "../cart/CartView";
 import AddProduct from "../admin/AddProduct";
 import AuthForm from "../auth/AuthForm";
 import SignUpForm from "../auth/SignUpForm";
-import CartProducts from "../cart/CartProduct";
+// import CartProducts from "../cart/CartProduct";
 import EditProduct from "../admin/EditProduct";
 
 const ReactRoute = () => {
@@ -25,7 +25,7 @@ const ReactRoute = () => {
       <Route path="/product/:id" element={<SingleProductView />} />
       <Route path="/category/:id" element={<Category />} />
       <Route path="/cart" element={<CartView />} />
-      <Route path="/cartProducts" element={<CartProducts />} />
+      {/* <Route path="/cartProducts" element={<CartProducts />} /> */}
       <Route path="/product/edit/:id" element={<EditProduct/>}/>
       <Route
         path="/login"

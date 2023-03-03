@@ -22,9 +22,8 @@ Product.belongsToMany(Cart, { through: "Cart_Product" });
 
 //can log at http://localhost:8080/api/cartProducts
 CartProduct.belongsTo(Cart, { through: "Cart_Product" });
-
-
-
+Product.belongsTo(CartProduct, { through: "Cart_Product" });
+CartProduct.hasMany(Product)
 
 Cart.belongsTo(User)
 User.hasMany(Cart, {foreignKey:'userId'})
