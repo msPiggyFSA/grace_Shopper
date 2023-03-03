@@ -21,7 +21,8 @@ const CartView = (props) => {
         </>
         )
       })}
-      <CartTotal props={currentCart.product}/>
+      <CartTotal />
+      <Checkout />
     </div>
   );
 };
