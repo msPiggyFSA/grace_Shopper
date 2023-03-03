@@ -9,6 +9,10 @@ const CartProduct = db.define("Cart_Product", {
 		primaryKey: true,
 		autoIncrement: true,
 		allowNull: false
+	},
+	quantity:{
+		type: Sequelize.INTEGER,
+		defaultValue: 0
 	}
 });
 
