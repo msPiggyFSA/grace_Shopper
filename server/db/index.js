@@ -23,6 +23,9 @@ Product.belongsToMany(Cart, {
   constraints: false,
 });
 
+Cart.hasMany(CartProduct, {foreignKey: "cartId"})
+CartProduct.belongsTo(Cart)
+
 //column carts->Cart_Product.CartProductCartId does not exist
 //CartProduct.belongsToMany(Cart, { through: "Cart_Product" });
 

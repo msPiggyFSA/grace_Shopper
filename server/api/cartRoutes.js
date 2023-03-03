@@ -6,7 +6,7 @@ const router = require('express').Router()
 router.get("/", async(req, res, next)=>{
     try {
         const cart = await Cart.findAll({
-            
+            include: CartProduct
         })
         res.send(cart)
     } catch (error) {
