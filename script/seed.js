@@ -7,7 +7,6 @@ const {
 const Cart = require("../server/db/models/Cart");
 const Category = require("../server/db/models/Category");
 const Product = require("../server/db/models/Product");
-const cartProducts = require("../server/db/models/CartProduct");
 
 const users = [
   {
@@ -238,8 +237,6 @@ const categories = [
 ];
 
 // let cat_product = [{ product: 1, categoryId: 1 }];
-const cart_product = [{
-  CartProductCartId: 2, cartId:2, productId:1}];
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
@@ -268,12 +265,6 @@ const seed = async () => {
     await Promise.all(
       cart.map((cart) => {
         return Cart.create(cart);
-      })
-    );
-
-    await Promise.all(
-      cart_product.map((cartproduct) => {
-        return cartProducts.create(cartproduct);
       })
     );
 

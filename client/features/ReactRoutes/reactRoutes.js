@@ -10,7 +10,7 @@ import CartView from "../cart/CartView";
 import AddProduct from "../admin/AddProduct";
 import AuthForm from "../auth/AuthForm";
 import SignUpForm from "../auth/SignUpForm";
-import CartProducts from "../cart/CartProducts";
+import CartProducts from "../cart/CartProduct";
 import EditProduct from "../admin/EditProduct";
 
 const ReactRoute = () => {

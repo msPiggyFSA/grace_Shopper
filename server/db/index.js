@@ -9,14 +9,22 @@ const User = require('./models/User')
 
 //associations could go here!
 
+//one to one
 Product.belongsTo(Category);
+//one to many
 Category.hasMany(Product, {foreignKey: 'categoryId'} );
 
 Cart.belongsToMany(Product, { through: "Cart_Product" });
-
 Product.belongsToMany(Cart, { through: "Cart_Product" });
 
-CartProduct.belongsToMany(Cart, { through: "Cart_Product" });
+//column carts->Cart_Product.CartProductCartId does not exist
+//CartProduct.belongsToMany(Cart, { through: "Cart_Product" });
+
+//can log at http://localhost:8080/api/cartProducts
+CartProduct.belongsTo(Cart, { through: "Cart_Product" });
+
+
+
 
 Cart.belongsTo(User)
 User.hasMany(Cart, {foreignKey:'userId'})
