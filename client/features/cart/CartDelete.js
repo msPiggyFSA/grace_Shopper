@@ -11,8 +11,6 @@ const CartDelete=(props)=> {
     const handleDelete = ()=>{
         dispatch(cartActions.deleteCartProduct(obj))
     }
-
-    console.log(props, 'this is props in delete')
   return (
     <button onClick={handleDelete}>X</button>
   )
