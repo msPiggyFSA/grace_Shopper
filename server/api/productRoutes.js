@@ -47,9 +47,14 @@ router.post('/', async(req, res)=>{
   }
 })
 //edit current product
-router.patch('/:id', async(req, res)=>{
+router.put('/:id', async(req, res)=>{
+  console.log(req.body, ' this is reqbody')
   try {
-    res.status(201).send(await Product.update(req.body))
+    res.status(201).send(await Product.update(req.body, {
+      where:{
+        id: req.params.id
+      }
+    }))
   } catch (error) {
     res.status(404).json({
 			status: "error",

@@ -42,10 +42,13 @@ console.log(form)
 )
 
 export const editProduct = createAsyncThunk('editProduct',
-async({form, id})=>{
+async({form, params})=>{
+  console.log(params, 'this is id in slice')
+  console.log(form, 'this is forms in slice')
   try {
-    await axios.patch(`http://localhost:8080/api/products/${id}`, form);
+    await axios.put(`http://localhost:8080/api/products/${params}`, form);
   } catch (error) {
+    
     console.log(error.message)
   }
 }
