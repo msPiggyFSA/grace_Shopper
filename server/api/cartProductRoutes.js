@@ -6,8 +6,10 @@ const {
 router.get("/", async (req, res, next) => {
   try {
     const cartProducts = await CartProduct.findAll({
-      include: Cart
-      // include: Product
+      include: [
+        {model:Product},
+        {model: Cart}
+      ]
     }
     );
     console.log(JSON.stringify(cartProducts))
