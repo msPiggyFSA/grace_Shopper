@@ -19,7 +19,7 @@ const CartView = (props) => {
         return (
           <div key={uuidv4()}>
             <SingleProduct cart="cart" props={product} />
-            <CartDelete props={product} />
+            {/* <CartDelete props={product} /> */}
           </div>
         );
       })}
