@@ -41,6 +41,19 @@ console.log(form)
   }
 )
 
+export const editProduct = createAsyncThunk('editProduct',
+async({form, params})=>{
+  console.log(params, 'this is id in slice')
+  console.log(form, 'this is forms in slice')
+  try {
+    await axios.put(`http://localhost:8080/api/products/${params}`, form);
+  } catch (error) {
+    
+    console.log(error.message)
+  }
+}
+)
+
 export const deleteProduct = createAsyncThunk(
   'deleteproduct', async(id)=>{ try {
     await axios.delete(`http://localhost:8080/api/products/${id}`);

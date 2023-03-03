@@ -11,6 +11,7 @@ import AddProduct from "../admin/AddProduct";
 import AuthForm from "../auth/AuthForm";
 import SignUpForm from "../auth/SignUpForm";
 import CartProducts from "../cart/CartProducts";
+import EditProduct from "../admin/EditProduct";
 
 const ReactRoute = () => {
   return (
@@ -25,6 +26,7 @@ const ReactRoute = () => {
       <Route path="/category/:id" element={<Category />} />
       <Route path="/cart" element={<CartView />} />
       <Route path="/cartProducts" element={<CartProducts />} />
+      <Route path="/product/edit/:id" element={<EditProduct/>}/>
       <Route
         path="/login"
         element={<AuthForm name="login" displayName="Login" />}

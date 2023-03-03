@@ -47,10 +47,24 @@ router.post('/', async(req, res)=>{
   }
 })
 //edit current product
-
+router.put('/:id', async(req, res)=>{
+  console.log(req.body, ' this is reqbody')
+  try {
+    res.status(201).send(await Product.update(req.body, {
+      where:{
+        id: req.params.id
+      }
+    }))
+  } catch (error) {
+    res.status(404).json({
+			status: "error",
+			message: error.message,
+		});
+  }
+})
 //delete product
 router.delete('/:id', async(req, res)=>{
-  console.log(req.params.id, 'this is req.params.id')
+  // console.log(req.params.id, 'this is req.params.id')
   try{
     const product = await Product.findByPk(req.params.id)
     await product.destroy()

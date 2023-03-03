@@ -3,11 +3,13 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSingleProduct } from "../../app/slices/productsSlice";
 import Add2Cart from "../cart/Add2Cart";
+
 import "./css/SingleProdView.css";
 
 const SingleProductView = () => {
   const params = useParams();
   const dispatch = useDispatch();
+  const isAdmin = useSelector((state)=>state.auth.me.admin===true)
 
   useEffect(() => {
     dispatch(fetchSingleProduct(params.id));
