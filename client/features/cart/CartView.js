@@ -15,13 +15,16 @@ const CartView = (props) => {
   return (
     <div>
       {currentCart.map((product) => {
-        console.log(product, 'this is product');
-        return (<>
-        <SingleProduct key={uuidv4()} props={product} /><CartDelete props={product}/>
-        </>
-        )
+        console.log(product, "this is product");
+        return (
+          <>
+            <SingleProduct key={uuidv4()} props={product} />
+            <CartDelete props={product} />
+          </>
+        );
       })}
-      <CartTotal props={currentCart.product}/>
+      <CartTotal />
+      {currentCart.length > 0 && <Checkout />}
     </div>
   );
 };
