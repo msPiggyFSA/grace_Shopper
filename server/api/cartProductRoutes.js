@@ -19,7 +19,6 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-
 //check out cartProduct
 
 // router.post('/', async(req, res)=>{
@@ -37,7 +36,6 @@ router.get("/", async (req, res, next) => {
 //     console.log(cartProducts)
 //     return res.json(cartProducts)
 
-
 //   } catch (error) {
 //     res.status(404).json({
 // 			status: "error",
@@ -48,4 +46,4 @@ router.get("/", async (req, res, next) => {
 
 //individual Checkout cart
 
-module.exports = router
+module.exports = router;

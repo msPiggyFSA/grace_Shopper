@@ -9,7 +9,7 @@ import "./css/SingleProdView.css";
 const SingleProductView = () => {
   const params = useParams();
   const dispatch = useDispatch();
-  const isAdmin = useSelector((state)=>state.auth.me.admin===true)
+  const isAdmin = useSelector((state) => state.auth.me.admin === true);
 
   useEffect(() => {
     dispatch(fetchSingleProduct(params.id));
@@ -18,14 +18,14 @@ const SingleProductView = () => {
   const single = useSelector((state) => {
     return state.products.singleProduct;
   });
-
+  console.log(single);
   return (
     <div>
       <h1>{single.name}</h1>
       <img src={single.imageUrl} />
       <h2>
         {single.price}
-        <Add2Cart />
+        <Add2Cart props={single} />
       </h2>
       <h3>{single.rating}</h3>
       <p>{single.description}</p>
