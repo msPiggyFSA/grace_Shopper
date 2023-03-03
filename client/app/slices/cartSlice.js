@@ -70,6 +70,20 @@ const cartSlice = createSlice({
   },
 });
 
+// export const checkOut = createAsyncThunk( "cartCheckOut",
+// const value= async () => {await action};
+// console.log("this is state", state);
+// console.log("this is action", action.payload);
+// console.log("this is value", action);
+// async()=>{
+//   try {
+//     await axios.post("http://localhost:8080/api/cartProducts");
+//     console.log("success")
+//   } catch (error) {
+//     console.log("sorry dude", error.message)
+//   }
+// });
+
 export const cartActions = cartSlice.actions;
 
 export default cartSlice.reducer;

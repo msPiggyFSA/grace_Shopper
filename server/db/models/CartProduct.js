@@ -1,22 +1,15 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
-const Cart = require('./Cart');
-const Product = require('./Product');
+
+console.log("hi");
 
 const CartProduct = db.define("Cart_Product", {
-	cartId: {
+	id: {
 		type: Sequelize.INTEGER,
-		references:{
-      model: Cart,
-      key: 'id',
-    },
-	},
-	productId: {
-		type: Sequelize.INTEGER,
-		references:{
-      model: Product,
-      key: 'id',
-    },
-	},
+		primaryKey: true,
+		autoIncrement: true,
+		allowNull: false
+	}
 });
+
 module.exports = CartProduct;

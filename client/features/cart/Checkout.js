@@ -2,8 +2,10 @@ import React from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { cartActions } from "../../app/slices/cartSlice";
 
-const Checkout = (prop) => {
+const Checkout = (props) => {
+  //navigate to end of transactiopn page "thank you for shopping, click here to return to homepage" or "...click here to continue shopping"
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -19,22 +21,25 @@ const Checkout = (prop) => {
   //console.log("This is current cart", currentCart);
   //console.log("This is current user", currentUser);
   const checkoutHandler = async () => {
-    try {
-      const response = await axios.post("/api/cartProducts", {
-        cartId: 1,
-        productId: 1,
-      });
-
-      const data = response.data;
-      console.log(data);
-      //https://www.youtube.com/watch?v=hw6NCvu45JA
-      await db.sync({ force: true });
-      return data;
-    } catch (error) {
-      console.log(error);
-    }
+    console.log("this is current cart", currentCart);
+    cartCheckOut();
   };
+  // try {
+  //        const cart = await Cart.findAll(
+  //        );
+
+  //       const data = response.data;
+  //       console.log("this is", data);
+  //       return data;
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  // const checkoutHandler = async () => {
+  //   dispatch(checkOut(props));
+  //   console.log("this is delete button log", props);
+  // };
   //use navigate to go to new page thank purchase
+
   return <button onClick={checkoutHandler}>Checkout</button>;
 };
 
