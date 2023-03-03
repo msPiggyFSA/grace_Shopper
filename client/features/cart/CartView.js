@@ -48,6 +48,7 @@ const CartView = (props) => {
   useEffect(() => {
     dispatch(cartActions.updateUserCart(me.id));
   }, []);
+
   return (
     <div>
       {currentCart.map((product) => {

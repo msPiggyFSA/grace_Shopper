@@ -14,19 +14,32 @@ Product.belongsTo(Category);
 //one to many
 Category.hasMany(Product, { foreignKey: "categoryId" });
 
-Cart.belongsToMany(Product, { through: "Cart_Product" });
-Product.belongsToMany(Cart, { through: "Cart_Product" });
+Cart.belongsToMany(Product, {
+  through: { model: "Cart_Product", unique: false },
+  constraints: false,
+});
+Product.belongsToMany(Cart, {
+  through: { model: "Cart_Product", unique: false },
+  constraints: false,
+});
 
 //column carts->Cart_Product.CartProductCartId does not exist
 //CartProduct.belongsToMany(Cart, { through: "Cart_Product" });
 
 //can log at http://localhost:8080/api/cartProducts
-CartProduct.belongsTo(Cart, { through: "Cart_Product", foreignKey: "cartId" });
+// CartProduct.belongsTo(Cart, {
+//   through: { model: "Cart_Product", foreignKey: "cartId", unique: false },
+//   constraints: false,
+// });
 // Product.belongsTo(CartProduct);
-CartProduct.belongsTo(Product, {
-  through: { model: "Cart_Product", foreignKey: "productId" },
-  constraints: false,
-});
+// CartProduct.belongsTo(Product, {
+//   through: {
+//     model: "Cart_Product",
+//     unique: false,
+//     foreignKey: "productId",
+//     constraints: false,
+//   },
+// });
 
 Cart.belongsTo(User);
 User.hasMany(Cart, { foreignKey: "userId" });
