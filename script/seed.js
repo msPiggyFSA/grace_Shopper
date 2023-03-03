@@ -5,6 +5,7 @@ const {
   models: { User },
 } = require("../server/db");
 const Cart = require("../server/db/models/Cart");
+const CartProduct = require("../server/db/models/CartProduct");
 const Category = require("../server/db/models/Category");
 const Product = require("../server/db/models/Product");
 
@@ -236,7 +237,14 @@ const categories = [
   // { name: "Glasses" },
 ];
 
-// let cat_product = [{ product: 1, categoryId: 1 }];
+const cart_product = [
+	{ cartId: 1, productId: 1 },
+	{ cartId: 1, productId: 2 },
+	{ cartId: 1, productId: 5 },
+	{ cartId: 2, productId: 2 },
+	{ cartId: 2, productId: 3 },
+	{ cartId: 3, productId: 4 },
+];
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
@@ -267,6 +275,12 @@ const seed = async () => {
         return Cart.create(cart);
       })
     );
+
+        await Promise.all(
+					cart_product.map((cart) => {
+						return CartProduct.create(cart);
+					})
+				);
 
     /* Below Code establishes a relationship between products */
     // const shoes = await Product.create({
@@ -328,3 +342,19 @@ if (module === require.main) {
 
 // we export the seed function for testing purposes (see `./seed.spec.js`)
 module.exports = seed;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
