@@ -4,6 +4,7 @@ import SingleProduct from "../SingleProduct/SingleProduct";
 import { v4 as uuidv4 } from "uuid";
 import CartLength from "./CartLength";
 import CartDelete from "./CartDelete";
+import CartTotal from "./CartTotal";
 import Checkout from "./Checkout";
 
 const CartView = (props) => {
@@ -13,20 +14,14 @@ const CartView = (props) => {
 
   return (
     <div>
-      {currentCart.length > 0 ? (
-        currentCart.map((product) => {
-          console.log(product, "this is product");
-          return (
-            <div key={uuidv4()}>
-              <SingleProduct cart="cart" props={product} />
-              {/* <CartDelete props={product} /> */}
-            </div>
-          );
-        })
-      ) : (
-        <div>Add items to your cart!</div>
-      )}
-      {currentCart.length > 0 && <Checkout />}
+      {currentCart.map((product) => {
+        console.log(product, 'this is product');
+        return (<>
+        <SingleProduct key={uuidv4()} props={product} /><CartDelete props={product}/>
+        </>
+        )
+      })}
+      <CartTotal props={currentCart.product}/>
     </div>
   );
 };

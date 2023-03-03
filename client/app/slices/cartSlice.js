@@ -13,13 +13,13 @@ const cartSlice = createSlice({
     },
     deleteCartProduct(state, action){
       let index = state.currentCart.lastIndexOf(action.payload)
-      
+
       if(index === -1){
         index = 0
       }
       console.log(index, 'this is index')
       state.currentCart.splice(index, 1)
-    }
+    },
   },
 });
 
