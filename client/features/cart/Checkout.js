@@ -22,7 +22,6 @@ const Checkout = (props) => {
   //console.log("This is current user", currentUser);
   const checkoutHandler = async () => {
     console.log("this is current cart", currentCart);
-    cartCheckOut();
   };
   // try {
   //        const cart = await Cart.findAll(
