@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { createNewProduct } from '../../app/slices/productsSlice'
 
 function AddProduct() {
+	const navigate = useNavigate()
     const dispatch = useDispatch()
     const [form, setForm] = useState({ 
         name: '',
@@ -54,6 +56,7 @@ const changeValue = (prop)=>(event)=>{
 			<div><button
 				onClick={() => {
 					dispatch(createNewProduct({ form }));
+					navigate('/home');
 				}}>
 				Submit
 			</button>
