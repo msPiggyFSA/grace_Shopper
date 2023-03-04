@@ -10,6 +10,6 @@ export const container = {
 
 export default container;
 
-export const navTap = {
-  border: "0px 0px 8px rgb(255, 255, 255)",
+export const navHover = {
+  boxShadow: "0px 0px 8px rgb(255, 255, 255)",
 };

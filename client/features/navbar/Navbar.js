@@ -27,13 +27,19 @@ const Navbar = () => {
       <h1 className="title">Lets F Go!!!!</h1>
       <nav className="nav-portion">
         <Link to="/home" className="nav-link">
-          <motion.span whileHover={navHover}>Home</motion.span>
+          <motion.span whileHover={navHover} whileTap={{ scale: 1.5 }}>
+            Home
+          </motion.span>
         </Link>
         <Link to="/category/1" className="nav-link">
-          <motion.span whileHover={navHover}>Men</motion.span>
+          <motion.span whileHover={navHover} whileTap={{ scale: 1.5 }}>
+            Men
+          </motion.span>
         </Link>
         <Link to="/category/2" className="nav-link">
-          <motion.span whileHover={navHover}>Women</motion.span>
+          <motion.span whileHover={navHover} whileTap={{ scale: 1.5 }}>
+            Women
+          </motion.span>
         </Link>
         {isLoggedIn ? (
           (
