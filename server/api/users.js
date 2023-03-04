@@ -3,6 +3,7 @@ const {
   models: { User },
 } = require("../db");
 const Cart = require("../db/models/Cart");
+const Product = require("../db/models/Product");
 
 router.get("/", async (req, res, next) => {
   try {
@@ -19,6 +20,16 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+
+router.post('/', async(req, res)=>{
+  try {
+    res.status(201).send(await Product.create(req.body))
+  } catch (error) {
+    res.status(404).json({
+			status: "error",
+			message: error.message
+  })
+}})
 
 
 module.exports = router;
