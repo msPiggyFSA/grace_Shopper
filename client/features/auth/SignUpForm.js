@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { authenticate } from "../../app/store";
 import { Link, useNavigate } from "react-router-dom";
@@ -31,7 +31,7 @@ const SignUpForm = ({ name, displayName }) => {
     const password = evt.target.password.value;
     dispatch(authenticate({ username, password, method: formName }));
     if (!error) {
-      // navigate("/home");
+      dispatch(createNewUser())
     } else {
       // navigate("/home");
     }
@@ -52,28 +52,28 @@ const SignUpForm = ({ name, displayName }) => {
     >
       <form onSubmit={handleSubmit} name={name}>
         <div>
-          <div>
-            <label htmlFor="fName">
-              <small>First Name</small>
-            </label>
+        <div>
+          <label htmlFor="fName">
+            <small>First Name</small>
+          </label>
             <input
               name="fName"
               type="fName"
               value={form.fName}
               onChange={changeValue("fName")}
             />
-          </div>
-          <div>
-            <label htmlFor="lName">
-              <small>Last Name</small>
-            </label>
+        </div>
+        <div>
+          <label htmlFor="lName">
+            <small>Last Name</small>
+          </label>
             <input
               name="lName"
               type="lName"
               value={form.lName}
               onChange={changeValue("lName")}
             />
-          </div>
+        </div>
           <label htmlFor="username">
             <small>Username</small>
           </label>
