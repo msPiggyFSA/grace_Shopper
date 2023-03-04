@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const initialState = { users: [], singleUser: {} };
+const initialState = { users: [], singleUser: [] };
 
 export const fetchAllUsers = createAsyncThunk("allusers", async () => {
   try {
