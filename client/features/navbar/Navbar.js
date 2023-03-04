@@ -24,7 +24,17 @@ const Navbar = () => {
       transition={{ duration: 2 }}
       className="navbar"
     >
-      <h1 className="title">Lets F Go!!!!</h1>
+      <h1 className="title">
+        Lets
+        <motion.span
+          animate={{ color: ["#ff0000", "#000000"] }}
+          transition={{ repeat: Infinity, duration: 1 }}
+        >
+          {" "}
+          F{" "}
+        </motion.span>
+        Go!!!!
+      </h1>
       <nav className="nav-portion">
         <Link to="/home" className="nav-link">
           <motion.span whileHover={navHover} whileTap={{ scale: 1.5 }}>
