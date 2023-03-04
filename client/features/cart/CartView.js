@@ -7,6 +7,8 @@ import CartTotal from "./CartTotal";
 import Checkout from "./Checkout";
 import OrderHistory from "./OrderHistory";
 import axios from "axios";
+import { motion } from "framer-motion";
+import { container } from "../variants";
 
 const CartView = (props) => {
   const dispatch = useDispatch();
@@ -50,7 +52,12 @@ const CartView = (props) => {
   }, []);
 
   return (
-    <div>
+    <motion.div
+      variants={container}
+      initial="initial"
+      animate="visible"
+      exit="exit"
+    >
       {currentCart.map((product) => {
         console.log(userfullfilled);
 
@@ -68,7 +75,7 @@ const CartView = (props) => {
         <OrderHistory props={meOrdersFulfilled} />
       )} */}
       {/* <Checkout currentCart={currentCart} /> */}
-    </div>
+    </motion.div>
   );
 };
 export default CartView;

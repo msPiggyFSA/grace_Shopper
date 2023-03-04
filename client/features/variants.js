@@ -1,7 +1,7 @@
 export const container = {
   initial: { x: -300 },
   visible: { x: 0, transition: { duration: 1.5 } },
-  exit: { x: 1000, transition: { duration: 0.5 } },
+  exit: { x: -300, transition: { duration: 0.5 } },
 };
 // initial={{ x: -300 }}
 //       animate={{ x: 0 }}

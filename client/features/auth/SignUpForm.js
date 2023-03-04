@@ -103,7 +103,7 @@ const SignUpForm = ({ name, displayName }) => {
             name="email"
             type="text"
             value={form.email}
-            onchange={changeValue("email")}
+            onChange={changeValue("email")}
           />
         </div>
         <div>
