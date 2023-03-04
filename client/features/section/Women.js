@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchAllProducts } from "../../app/slices/productsSlice";
 import SingleProduct from "../SingleProduct/SingleProduct";
 import { v4 as uuidv4 } from "uuid";
-
+import { motion } from "framer-motion";
+import { container } from "../variants.js";
 /**
  * COMPONENT
  */
@@ -23,7 +24,12 @@ const Women = (props) => {
   });
 
   return (
-    <div>
+    <motion.div
+      variants={container}
+      initial="initial"
+      animate={{ x: 0 }}
+      exit="exit"
+    >
       <h3
         onClick={() => {
           console.log(products);
@@ -36,7 +42,7 @@ const Women = (props) => {
           return <SingleProduct key={uuidv4()} props={product} />;
         }
       })}
-    </div>
+    </motion.div>
   );
 };
 

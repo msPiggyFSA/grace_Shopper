@@ -6,7 +6,7 @@ const initialState = {
   fulfilled: [],
   unfulfilled: [],
   userfulfilled: [],
-  userunfulfilled: [],
+  userunfulfilled: {},
 };
 
 export const fetchAllCarts = createAsyncThunk("fetch/usercart", async () => {
@@ -51,7 +51,7 @@ const cartSlice = createSlice({
         console.log(current(order).userId);
 
         if (current(order).userId === action.payload) {
-          state.userunfulfilled.push(current(order));
+          state.userunfulfilled = current(order);
         }
       });
     },

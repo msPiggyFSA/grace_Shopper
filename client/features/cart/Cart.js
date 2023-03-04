@@ -7,8 +7,10 @@ const Cart = () => {
 
   return (
     <>
-      <button onClick={() => navigate("/cart")}>
-      <CartLength />
+      <button className="btn-cart" onClick={() => navigate("/cart")}>
+        <span className="text">
+          <CartLength />
+        </span>
       </button>
     </>
   );

@@ -7,10 +7,10 @@ import {
 } from "../../app/slices/productsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Add2Cart from "../cart/Add2Cart";
-import XButton from "../cart/XButton";
+
 import "./css/SingleProduct.css";
 import CartDelete from "../cart/CartDelete";
-import EditProduct from "../admin/EditProduct";
+// import EditProduct from "../../admin/EditProduct";
 
 const SingleProduct = (props) => {
   const product = props.props;
@@ -33,9 +33,11 @@ const SingleProduct = (props) => {
 
       {admin === true ? (
         <>
-          <Add2Cart props={product} /> {" "}
+          <Add2Cart props={product} />{" "}
           <button onClick={() => handleDelete(product.id)}>X</button>
-          <button><Link to={`/product/edit/${product.id}`}>EditProduct</Link></button>
+          <button>
+            <Link to={`/product/edit/${product.id}`}>EditProduct</Link>
+          </button>
         </>
       ) : props.cart === "cart" ? (
         <CartDelete props={product} />

@@ -3,12 +3,12 @@ import Navbar from "../features/navbar/Navbar";
 import AppRoutes from "./AppRoutes";
 import Footer from "../features/footer/Footer";
 import ReactRoutes from "../features/ReactRoutes/reactRoutes";
-import "./body.css";
+// import "./body.css";
 
 const App = () => {
   return (
     <>
-      <div className="body">
+      <div>
         <Navbar />
         {/* <AppRoutes /> */}
         <ReactRoutes />

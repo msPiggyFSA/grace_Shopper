@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { authenticate } from "../../app/store";
 import { Link, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 /**
   The AuthForm component can be used for Login or Sign Up.
@@ -29,21 +30,25 @@ const SignUpForm = ({ name, displayName }) => {
   };
 
   return (
-    <div>
+    <motion.div
+      initial={{ x: -300 }}
+      animate={{ x: 0 }}
+      transition={{ type: "spring", stiffness: 50, duration: 1.5 }}
+    >
       <form onSubmit={handleSubmit} name={name}>
         <div>
-        <div>
-          <label htmlFor="fName">
-            <small>First Name</small>
-          </label>
-          <input name="fName" type="fName" />
-        </div>
-        <div>
-          <label htmlFor="lName">
-            <small>Last Name</small>
-          </label>
-          <input name="lName" type="lName" />
-        </div>
+          <div>
+            <label htmlFor="fName">
+              <small>First Name</small>
+            </label>
+            <input name="fName" type="fName" />
+          </div>
+          <div>
+            <label htmlFor="lName">
+              <small>Last Name</small>
+            </label>
+            <input name="lName" type="lName" />
+          </div>
           <label htmlFor="username">
             <small>Username</small>
           </label>
@@ -66,7 +71,7 @@ const SignUpForm = ({ name, displayName }) => {
         </div>
         {error && <div> {error} </div>}
       </form>
-    </div>
+    </motion.div>
   );
 };
 

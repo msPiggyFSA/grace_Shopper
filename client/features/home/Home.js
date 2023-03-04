@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAllProducts } from "../../app/slices/productsSlice";
-import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import SingleProduct from "../SingleProduct/SingleProduct";
-import { fetchAllCarts, cartActions } from "../../app/slices/cartSlice";
+import { fetchAllCarts } from "../../app/slices/cartSlice";
+import { motion } from "framer-motion";
+import { container } from "../variants.js";
 
 /**
  * COMPONENT
@@ -32,13 +33,18 @@ const Home = (props) => {
   console.log(orders);
 
   return (
-    <div>
+    <motion.div
+      variants={container}
+      initial="initial"
+      animate="visible"
+      exit="exit"
+    >
       <h3>Welcome, {username}</h3>
       {products &&
         products.map((product) => {
           return <SingleProduct key={uuidv4()} props={product} />;
         })}
-    </div>
+    </motion.div>
   );
 };
 

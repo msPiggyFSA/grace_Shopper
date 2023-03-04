@@ -2,6 +2,8 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { authenticate } from "../../app/store";
 import { Link, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { container } from "../variants.js";
 
 /**
   The AuthForm component can be used for Login or Sign Up.
@@ -29,7 +31,12 @@ const AuthForm = ({ name, displayName }) => {
   };
 
   return (
-    <div>
+    <motion.div
+      variants={container}
+      initial="initial"
+      animate="visible"
+      exit="exit"
+    >
       <form onSubmit={handleSubmit} name={name}>
         <div>
           <label htmlFor="username">
@@ -51,7 +58,7 @@ const AuthForm = ({ name, displayName }) => {
       {name === "login" && (
         <Link to="/signup">Click here to create an account!</Link>
       )}
-    </div>
+    </motion.div>
   );
 };
 

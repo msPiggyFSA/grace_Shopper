@@ -1,0 +1,86 @@
+.title {
+  font-family: "Luckiest Guy", cursive;
+  width: 100%;
+  text-align: center;
+}
+
+/* <!-- HTML !-->
+<button class="btn-cart" role="button"><span class="text">Btn-cart</span></button> */
+
+/* CSS */
+.btn-cart {
+  align-items: center;
+  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  /* height: 80px; */
+  /* max-width: 50%;
+  min-width: 50px; */
+  /* width: 50px; */
+  padding: 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.btn-cart:active,
+.btn-cart:hover {
+  outline: 0;
+}
+
+.btn-cart span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px;
+  border-radius: 6px;
+  width: 140px;
+  height: 40px;
+  transition: 300ms;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-cart:hover span {
+  background: none;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+}
+
+/* @media (min-width: 768px) {
+  .btn-cart {
+    font-size: 24px;
+    min-width: 196px;
+  }
+} */
+
+.nav-portion {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-link {
+  border: 1px solid black;
+  display: flex;
+  align-items: end;
+  text-decoration: none;
+  padding: 2px;
+}
+
+/* .nav-link:hover {
+  border: 1px solid rgba(255, 255, 255);
+  display: flex;
+  align-items: flex-start;
+} */
