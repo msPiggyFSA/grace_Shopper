@@ -70,7 +70,7 @@ router.delete('/:id', async(req, res)=>{
     await product.destroy()
     res.status(200).send(product)
   }catch(error){
-    next (error)
+    (error)
   }
 })
 

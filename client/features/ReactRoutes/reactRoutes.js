@@ -12,35 +12,34 @@ import AuthForm from "../auth/AuthForm";
 import SignUpForm from "../auth/SignUpForm";
 // import CartProducts from "../cart/CartProduct";
 import EditProduct from "../admin/EditProduct";
+import UserView from "../user/UserView";
 import { AnimatePresence } from "framer-motion";
 
 const ReactRoute = () => {
   const location = useLocation();
   console.log(location);
   return (
-    <AnimatePresence>
-      <Routes location={location} key={location.key}>
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/addprod" element={<AddProduct />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/refund" element={<Refund />} />
-        <Route path="/product/:id" element={<SingleProductView />} />
-        <Route path="/category/:id" element={<Category />} />
-        <Route path="/cart" element={<CartView />} />
-        {/* <Route path="/cartProducts" element={<CartProducts />} /> */}
-        <Route path="/product/edit/:id" element={<EditProduct />} />
-        <Route
-          path="/login"
-          element={<AuthForm name="login" displayName="Login" />}
-        />
-        <Route
-          path="/signup"
-          element={<SignUpForm name="signup" displayName="Signup" />}
-        />
-      </Routes>
-    </AnimatePresence>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/addprod" element={<AddProduct />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/refund" element={<Refund />} />
+      <Route path="/product/:id" element={<SingleProductView />} />
+      <Route path="/category/:id" element={<Category />} />
+      <Route path="/cart" element={<CartView />} />
+      {/* <Route path="/cartProducts" element={<CartProducts />} /> */}
+      <Route path="/product/edit/:id" element={<EditProduct/>}/>
+      <Route
+        path="/login"
+        element={<AuthForm name="login" displayName="Login" />}
+      />
+      <Route
+        path="/signup"
+        element={<SignUpForm name="signup" displayName="Signup" />}
+      />
+    </Routes>
   );
 };
 
