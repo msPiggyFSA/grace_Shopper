@@ -39,6 +39,10 @@ const ReactRoute = () => {
         path="/signup"
         element={<SignUpForm name="signup" displayName="Signup" />}
       />
+      <Route
+        path="/user"
+        element={<UserView />}
+      />
     </Routes>
   );
 };
