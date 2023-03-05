@@ -16,13 +16,14 @@ import UserProfile from "../user/UserProfile";
 import { AnimatePresence } from "framer-motion";
 
 const ReactRoute = () => {
+  const isAdmin = useSelector((state) => state.auth.me.admin)===true;
   const location = useLocation();
+  const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   return (
     <AnimatePresence node="wait">
       <Routes location={location} key={location.key}>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/addprod" element={<AddProduct />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/refund" element={<Refund />} />
@@ -30,7 +31,6 @@ const ReactRoute = () => {
         <Route path="/category/:id" element={<Category />} />
         <Route path="/cart" element={<CartView />} />
         {/* <Route path="/cartProducts" element={<CartProducts />} /> */}
-        <Route path="/product/edit/:id" element={<EditProduct />} />
         <Route
           path="/login"
           element={<AuthForm name="login" displayName="Login" />}
@@ -39,8 +39,15 @@ const ReactRoute = () => {
           path="/signup"
           element={<SignUpForm name="signup" displayName="Signup" />}
         />
-        <Route path="/users/:id" element={<UserProfile />} />
+        {isLoggedIn && isAdmin?(
+          <>
+        <Route path="/addprod" element={<AddProduct />} />
+        <Route path="/product/edit/:id" element={<EditProduct />} />
+        </>
+        ): {isLoggedIn?
+        ( <Route path="/users/:id" element={<UserProfile />} />)}<></>}
       </Routes>
+      
     </AnimatePresence>
   );
 };

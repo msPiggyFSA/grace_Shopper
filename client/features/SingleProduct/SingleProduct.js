@@ -34,7 +34,7 @@ const SingleProduct = (props) => {
       {admin === true ? (
         <>
           <Add2Cart props={product} />{" "}
-          <button onClick={() => handleDelete(product.id)}>X</button>
+          <button onClick={() => handleDelete(product.id)}>❎</button>
           <button>
             <Link to={`/product/edit/${product.id}`}>EditProduct</Link>
           </button>
