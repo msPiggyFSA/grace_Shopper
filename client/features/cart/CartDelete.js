@@ -9,7 +9,11 @@ const CartDelete = (props) => {
     dispatch(cartActions.deleteCartProduct(obj));
     dispatch;
   };
-  return <button onClick={handleDelete}>X</button>;
+  return (
+    <i className="cart-icon ion-bag" onClick={handleDelete}>
+      Remove From Cart
+    </i>
+  );
 };
 
 export default CartDelete;

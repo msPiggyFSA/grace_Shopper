@@ -11,6 +11,7 @@ import {
 import { motion } from "framer-motion";
 import { container } from "../variants.js";
 import { cartActions } from "../../app/slices/cartSlice";
+import "./css/Home.css";
 
 /**
  * COMPONENT
@@ -46,11 +47,13 @@ const Home = (props) => {
       animate="visible"
       exit="exit"
     >
-      <h3>Welcome, {username}</h3>
-      {products &&
-        products.map((product) => {
-          return <SingleProduct key={uuidv4()} props={product} />;
-        })}
+      <h3 className="welcome-msg">Welcome, {username}</h3>
+      <div className="product-container">
+        {products &&
+          products.map((product) => {
+            return <SingleProduct key={uuidv4()} props={product} />;
+          })}
+      </div>
     </motion.div>
   );
 };

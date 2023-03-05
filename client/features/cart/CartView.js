@@ -9,6 +9,7 @@ import OrderHistory from "./OrderHistory";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { container } from "../variants";
+import "./css/Cart.css";
 
 const CartView = (props) => {
   const dispatch = useDispatch();
@@ -57,6 +58,7 @@ const CartView = (props) => {
       initial="initial"
       animate="visible"
       exit="exit"
+      className="cart-container"
     >
       {currentCart.map((product) => {
         console.log(userfullfilled);
@@ -68,7 +70,9 @@ const CartView = (props) => {
           </div>
         );
       })}
-      {currentCart.length === 0 && <div>Add items to your cart!</div>}
+      {currentCart.length === 0 && (
+        <div className="cart-placeholder">Add items to your cart!</div>
+      )}
       {currentCart.length > 0 && <CartTotal />}
       {currentCart.length > 0 && <Checkout currentCart={currentCart} />}
       {/* {meOrdersFulfilled.length > 0 && (
