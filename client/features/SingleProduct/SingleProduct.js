@@ -20,10 +20,16 @@ const SingleProduct = (props) => {
   const dispatch = useDispatch();
   const admin = useSelector((state) => state.auth.me.admin);
 
-  const handleDelete = (id) => {
-    dispatch(deleteProduct(id));
-    dispatch(fetchAllProducts());
+  const handleDelete =async (id) => {
+    await dispatch(deleteProduct(id));
+    await dispatch(fetchAllProducts());
   };
+
+  // useEffect(()=>{
+  //   dispatch(fetchAllProducts())
+  // }, [])
+
+  
 
   return (
     <div className="product-list">
