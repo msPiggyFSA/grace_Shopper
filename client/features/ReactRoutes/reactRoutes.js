@@ -17,33 +17,31 @@ import { AnimatePresence } from "framer-motion";
 
 const ReactRoute = () => {
   const location = useLocation();
-  console.log(location);
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/addprod" element={<AddProduct />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/refund" element={<Refund />} />
-      <Route path="/product/:id" element={<SingleProductView />} />
-      <Route path="/category/:id" element={<Category />} />
-      <Route path="/cart" element={<CartView />} />
-      {/* <Route path="/cartProducts" element={<CartProducts />} /> */}
-      <Route path="/product/edit/:id" element={<EditProduct/>}/>
-      <Route
-        path="/login"
-        element={<AuthForm name="login" displayName="Login" />}
-      />
-      <Route
-        path="/signup"
-        element={<SignUpForm name="signup" displayName="Signup" />}
-      />
-      <Route
-        path="/users/:id"
-        element={<UserProfile />}
-      />
-    </Routes>
+    <AnimatePresence node="wait">
+      <Routes location={location} key={location.key}>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/addprod" element={<AddProduct />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/refund" element={<Refund />} />
+        <Route path="/product/:id" element={<SingleProductView />} />
+        <Route path="/category/:id" element={<Category />} />
+        <Route path="/cart" element={<CartView />} />
+        {/* <Route path="/cartProducts" element={<CartProducts />} /> */}
+        <Route path="/product/edit/:id" element={<EditProduct />} />
+        <Route
+          path="/login"
+          element={<AuthForm name="login" displayName="Login" />}
+        />
+        <Route
+          path="/signup"
+          element={<SignUpForm name="signup" displayName="Signup" />}
+        />
+        <Route path="/users/:id" element={<UserProfile />} />
+      </Routes>
+    </AnimatePresence>
   );
 };
 

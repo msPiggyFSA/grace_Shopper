@@ -12,31 +12,48 @@ const Checkout = (props) => {
   const currentCart = useSelector((state) => {
     return state.cart.currentCart;
   });
-  // console.log(currentCart);
 
+  const allUsersProducts = useSelector((state) => {
+    return state.cart.allCartProducts.flat();
+  });
   const currentUser = useSelector((state) => {
     return state.auth.me;
   });
 
-  //console.log("This is current cart", currentCart);
-  //console.log("This is current user", currentUser);
-  const checkoutHandler = async () => {
-    console.log("this is current cart", currentCart);
-  };
-  // try {
-  //        const cart = await Cart.findAll(
-  //        );
+  const total = currentCart.map((product) => {
+    return product.price;
+  });
 
-  //       const data = response.data;
-  //       console.log("this is", data);
-  //       return data;
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  // const checkoutHandler = async () => {
-  //   dispatch(checkOut(props));
-  //   console.log("this is delete button log", props);
-  // };
+  let totalPrice = total.reduce((a, b) => {
+    return a + b;
+  }, 0);
+
+  const checkoutHandler = async () => {
+    console.log(currentUser);
+    console.log(currentCart);
+    console.log(allUsersProducts);
+    try {
+      const cart = await axios.post("/api/carts", {
+        purchased: true,
+        billAddress: currentUser.billing,
+        shipAddress: currentUser.shipping,
+        total: totalPrice,
+        userId: currentUser.id,
+      });
+      console.log(cart.data);
+
+      currentCart.map(async (product) => {
+        await axios.post("/api/cartProducts", {
+          cartId: cart.data.id,
+          productId: product.id,
+        });
+      });
+    } catch (err) {
+      console.log(err);
+    }
+    dispatch(cartActions.checkedOut());
+  };
+
   //use navigate to go to new page thank purchase
 
   return <button onClick={checkoutHandler}>Checkout</button>;

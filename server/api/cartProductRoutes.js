@@ -5,13 +5,29 @@ const {
 
 router.get("/", async (req, res, next) => {
   try {
-    const cartProducts = await CartProduct.findAll({
-      include: [{ model: Product }, { model: Cart }],
-    });
+    // const cartProducts = await CartProduct.findAll({
+    //   include: [{ model: Product }, { model: Cart }],
+    // });
+
+    const cartProducts = await CartProduct.findAll();
     console.log(JSON.stringify(cartProducts));
-    return res.json(cartProducts);
+    res.send(cartProducts);
   } catch (err) {
     next(err);
+  }
+});
+
+router.post("/", async (req, res, next) => {
+  try {
+    console.log(req.body);
+    const { cartId, productId } = req.body;
+    const cart = await CartProduct.create({
+      cartId,
+      productId,
+    });
+    res.send(cart);
+  } catch (error) {
+    console.log(error);
   }
 });
 

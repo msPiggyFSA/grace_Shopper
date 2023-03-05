@@ -6,17 +6,49 @@ import Cart from "../cart/Cart";
 import { motion } from "framer-motion";
 import "./Navbar.css";
 import { navHover } from "../variants.js";
+import axios from "axios";
 
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isAdmin = useSelector((state) => state.auth.me.admin);
-  const logoutAndRedirectHome = () => {
+  const currentUser = useSelector((state) => state.auth.me);
+  const currentCart = useSelector((state) => {
+    return state.cart.currentCart;
+  });
+
+  const total = currentCart.map((product) => {
+    return product.price;
+  });
+
+  let totalPrice = total.reduce((a, b) => {
+    return a + b;
+  }, 0);
+
+  const logoutAndRedirectHome = async () => {
     dispatch(logout());
     navigate("/login");
-  };
+    try {
+      const cart = await axios.post("/api/carts", {
+        purchased: false,
+        billAddress: currentUser.billing,
+        shipAddress: currentUser.shipping,
+        total: totalPrice,
+        userId: currentUser.id,
+      });
+      console.log(cart.data);
 
+      currentCart.map(async (product) => {
+        await axios.post("/api/cartProducts", {
+          cartId: cart.data.id,
+          productId: product.id,
+        });
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <motion.div
       initial={{ y: -300 }}
@@ -51,10 +83,32 @@ const Navbar = () => {
             Women
           </motion.span>
         </Link>
-        {isLoggedIn ? (
+        {isLoggedIn && isAdmin ? (
+          <div>
+            <div>
+              <button type="button" onClick={logoutAndRedirectHome}>
+                Logout
+              </button>
+              <Link to="/addprod">add new product</Link>
+              <button type="button" onClick={logoutAndRedirectHome}>
+                Logout
+              </button>
+            </div>
+          </div>
+        ) : isLoggedIn ? (
+          <button type="button" onClick={logoutAndRedirectHome}>
+            Logout
+          </button>
+        ) : (
+          <div>
+            <Link to="/login" className="nav-link">
+              Login/Signup
+            </Link>
+          </div>
+        )}
+        {/* {isLoggedIn && isAdmin ? (
           (
             <div>
-              {/* The navbar will show these links after you log in */}
               <button type="button" onClick={logoutAndRedirectHome}>
                 Logout
               </button>
@@ -68,7 +122,6 @@ const Navbar = () => {
             </>
           ) : (
             <div>
-              {/* The navbar will show these links before you log in */}
               <Link to="/login" className="nav-link">
                 Login/Signup
               </Link>
@@ -80,10 +133,9 @@ const Navbar = () => {
               <motion.span whileHover={navHover}>Login/Signup</motion.span>
             </Link>
           </>
-        )}
+        )} */}
         <Cart />
       </nav>
-      {/* <hr /> */}
     </motion.div>
   );
 };

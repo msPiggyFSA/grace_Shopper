@@ -3,9 +3,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchAllProducts } from "../../app/slices/productsSlice";
 import { v4 as uuidv4 } from "uuid";
 import SingleProduct from "../SingleProduct/SingleProduct";
-import { fetchAllCarts } from "../../app/slices/cartSlice";
+import {
+  fetchAllCartProducts,
+  fetchAllCarts,
+  fetchAllThemMF,
+} from "../../app/slices/cartSlice";
 import { motion } from "framer-motion";
 import { container } from "../variants.js";
+import { cartActions } from "../../app/slices/cartSlice";
 
 /**
  * COMPONENT
@@ -14,10 +19,14 @@ const Home = (props) => {
   const dispatch = useDispatch();
   const username = useSelector((state) => state.auth.me.username);
   const userid = useSelector((state) => state.auth.me.id);
-  console.log(userid);
+  const isLoggedIn = useSelector((state) => !!state.auth.me.id);
+
   useEffect(() => {
+    isLoggedIn && dispatch(cartActions.updateUserCart(userid));
+    dispatch(fetchAllCartProducts());
     dispatch(fetchAllProducts());
     dispatch(fetchAllCarts());
+    dispatch(fetchAllThemMF());
 
     //make sure this dispatch isnt calling another dispatch (infinte loop);
   }, []);
@@ -29,8 +38,6 @@ const Home = (props) => {
   const orders = useSelector((state) => {
     return state.cart.allCarts.flat();
   });
-
-  console.log(orders);
 
   return (
     <motion.div

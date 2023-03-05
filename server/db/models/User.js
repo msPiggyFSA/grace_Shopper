@@ -18,7 +18,7 @@ const User = db.define("user", {
     type: Sequelize.STRING,
     allowNull: false,
     isEmail: true,
-    unique: true
+    unique: true,
   },
   admin: {
     type: Sequelize.BOOLEAN,
@@ -34,9 +34,15 @@ const User = db.define("user", {
     allowNull: false,
     unique: false,
   },
+  billing: {
+    type: Sequelize.STRING,
+    defaultValue: "1111 Cardboard Box",
+  },
+  shipping: {
+    type: Sequelize.STRING,
+    defaultValue: "1111 Cardboard Box",
+  },
 });
-
-module.exports = User;
 
 /**
  * instanceMethods
@@ -91,3 +97,4 @@ const hashPassword = async (user) => {
 User.beforeCreate(hashPassword);
 User.beforeUpdate(hashPassword);
 User.beforeBulkCreate((users) => Promise.all(users.map(hashPassword)));
+module.exports = User;

@@ -27,7 +27,7 @@ const Women = (props) => {
     <motion.div
       variants={container}
       initial="initial"
-      animate={{ x: 0 }}
+      animate="visible"
       exit="exit"
     >
       <h3

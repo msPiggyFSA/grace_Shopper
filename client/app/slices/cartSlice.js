@@ -3,21 +3,43 @@ import axios from "axios";
 const initialState = {
   currentCart: [],
   allCarts: [],
+  allCartProducts: [],
   fulfilled: [],
   unfulfilled: [],
   userfulfilled: [],
-  userunfulfilled: {},
+  cartProducts: [],
+  allProducts: [],
 };
 
 export const fetchAllCarts = createAsyncThunk("fetch/usercart", async () => {
   try {
     const response = await axios.get("http://localhost:8080/api/carts");
-    console.log(response.data);
     return response.data;
   } catch (error) {
     console.log(error);
   }
 });
+
+export const fetchAllThemMF = createAsyncThunk("fetch/allem", async () => {
+  try {
+    const response = await axios.get("http://localhost:8080/api/products");
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+export const fetchAllCartProducts = createAsyncThunk(
+  "fetch/cartproducts",
+  async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:8080/api/cartProducts"
+      );
+      return response.data;
+    } catch (error) {}
+  }
+);
 
 const cartSlice = createSlice({
   name: "cart",
@@ -32,14 +54,14 @@ const cartSlice = createSlice({
       if (index === -1) {
         index = 0;
       }
-      console.log(index, "this is index");
       state.currentCart.splice(index, 1);
     },
     cartTotal(state, action) {
       let here = state.currentCart.length(action.payload);
-      console.log(here, "this is here");
     },
     updateUserCart(state, action) {
+      state.currentCart.length = 0;
+      state.userfulfilled.length = 0;
       state.fulfilled.flat().forEach((order) => {
         console.log(current(order).userId);
         if (current(order).userId === action.payload) {
@@ -48,12 +70,27 @@ const cartSlice = createSlice({
       });
 
       state.unfulfilled.flat().forEach((order) => {
-        console.log(current(order).userId);
+        console.log(current(order));
+        console.log(current(state.allCartProducts));
+        console.log(action.payload);
 
         if (current(order).userId === action.payload) {
-          state.userunfulfilled = current(order);
+          state.allCartProducts.flat().forEach((prod) => {
+            console.log(current(prod));
+            if (current(order).id === current(prod).cartId) {
+              state.allProducts.flat().forEach((product) => {
+                console.log(current(product));
+                if (current(product).id === current(prod).productId) {
+                  state.currentCart.push(current(product));
+                }
+              });
+            }
+          });
         }
       });
+    },
+    checkedOut(state, action) {
+      state.currentCart.length = 0;
     },
   },
   extraReducers: (builder) => {
@@ -71,6 +108,18 @@ const cartSlice = createSlice({
         state.unfulfilled.push(
           action.payload.flat().filter((cart) => cart.purchased === false)
         );
+      })
+      .addCase(fetchAllCartProducts.pending, (state, action) => {
+        state.allCartProducts.length = 0;
+      })
+      .addCase(fetchAllCartProducts.fulfilled, (state, action) => {
+        state.allCartProducts.push(action.payload);
+      })
+      .addCase(fetchAllThemMF.pending, (state, action) => {
+        state.allProducts.length = 0;
+      })
+      .addCase(fetchAllThemMF.fulfilled, (state, action) => {
+        state.allProducts.push(action.payload);
       });
   },
 });

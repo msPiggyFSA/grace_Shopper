@@ -47,9 +47,9 @@ const CartView = (props) => {
 
   // const unfulfilled = meOrders.filter((cart) => cart.purchased === false);
 
-  useEffect(() => {
-    dispatch(cartActions.updateUserCart(me.id));
-  }, []);
+  // useEffect(() => {
+  //   dispatch(cartActions.updateUserCart(me.id));
+  // }, []);
 
   return (
     <motion.div
