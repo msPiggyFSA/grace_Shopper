@@ -86,10 +86,11 @@ const Navbar = () => {
         {isLoggedIn && isAdmin ? (
           <div>
             <div>
-              <button type="button" onClick={logoutAndRedirectHome}>
+              {/* <button type="button" onClick={logoutAndRedirectHome}>
                 Logout
-              </button>
+              </button> */}
               <Link to="/addprod">add new product</Link>
+              <Link to='/viewAllUsers'>view all users</Link>
               <button type="button" onClick={logoutAndRedirectHome}>
                 Logout
               </button>

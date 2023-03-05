@@ -1,14 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSingleProduct } from "../../app/slices/productsSlice";
 import Add2Cart from "../cart/Add2Cart";
 import { motion } from "framer-motion";
 import { container } from "../variants";
+// import "./css/SingleProduct.css";
 
 import "./css/SingleProdView.css";
 
 const SingleProductView = () => {
+  const [direction, setDirection] = useState("");
   const navigate = useNavigate();
   const params = useParams();
   const dispatch = useDispatch();
@@ -29,14 +31,18 @@ const SingleProductView = () => {
     } else {
       navigate("/product/" + 1);
     }
+    setDirection("next");
+    console.log(direction);
   };
 
-  const prevButton = () => {
+  const prevButton = (event) => {
     if (Number(params.id) > 1) {
       navigate("/product/" + (Number(params.id) - 1));
     } else {
       navigate("/product/" + productsLength);
     }
+
+    console.log(event.target.innerText);
   };
 
   const single = useSelector((state) => {
@@ -48,18 +54,37 @@ const SingleProductView = () => {
       variants={container}
       initial="initial"
       animate="visible"
-      exit="exit"
+      exit={direction === "next" ? "next" : "exit"}
+      // className="card"
     >
-      <h1>{single.name}</h1>
-      <img src={single.imageUrl} />
-      <h2>
-        {single.price}
-        <Add2Cart props={single} />
-      </h2>
-      <h3>{single.rating}</h3>
-      <p>{single.description}</p>
-      <button onClick={prevButton}>Previous</button>
-      <button onClick={nextButton}>Next</button>
+      <div className="card">
+        <div className="left">
+          <img src={single.imageUrl} />
+          <div>
+            <button onClick={prevButton}>Previous</button>
+            <button onClick={nextButton}>Next</button>
+          </div>
+        </div>
+        <div className="right">
+          <div className="product-info">
+            <div className="product-name">
+              <h1>{single.name}</h1>
+            </div>
+            <div className="details">
+              <h3>Get Your Game On, Dawg</h3>
+              <h2>{single.name}</h2>
+              <p>{single.description}</p>
+            </div>
+
+            <span className="prod-button">
+              <p>{single.price}</p>
+              <p>
+                <Add2Cart props={single} />
+              </p>
+            </span>
+          </div>
+        </div>
+      </div>
     </motion.div>
   );
 };

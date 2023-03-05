@@ -120,72 +120,72 @@ const users = [
 //raza
 const products = [
   {
-    name: "t-shirt",
-    imageUrl:
-      "https://static.nike.com/a/videos/t_PDP_1280_v1/f_auto,q_auto:eco,so_0.1/0e744966-f8f8-4aae-97a5-2761f14798a6/dri-fit-mens-fitness-t-shirt-nhgSHx.jpg",
+    name: "T-Shirt",
+    imageUrl: "/assets/img/shirt.png",
 
     size: "xs",
     price: 5,
     rating: 4.5,
     quantity: 100,
-    description: "this is new addition to collection",
+    description:
+      "Comfortable and lightweight, this 100% cotton shirt made from the sheeps in the himalayans will not let your friends and family know your next move.",
     categoryId: 1,
   },
   {
-    name: "t-shirt",
-    imageUrl:
-      "https://static.nike.com/a/videos/t_PDP_1280_v1/f_auto,q_auto:eco,so_0.1/0e744966-f8f8-4aae-97a5-2761f14798a6/dri-fit-mens-fitness-t-shirt-nhgSHx.jpg",
+    name: "T-Shirt",
+    imageUrl: "/assets/img/women-shirt.png",
 
     size: "s",
     price: 500,
     rating: 3.5,
     quantity: 10,
-    description: "this is new addition to collection",
+    description:
+      "This moisture wicking shirt is perfect for the summertime. Made out of 100% USA grown pixels, this shirt will keep your screen nice and cool.",
     categoryId: 2,
   },
   {
-    name: "jeans",
-    imageUrl:
-      "https://static.nike.com/a/videos/t_PDP_1280_v1/f_auto,q_auto:eco,so_0.1/0e744966-f8f8-4aae-97a5-2761f14798a6/dri-fit-mens-fitness-t-shirt-nhgSHx.jpg",
+    name: "Jeans",
+    imageUrl: "/assets/img/women-jean.png",
 
     size: "l",
     price: 5,
     rating: 4.5,
     quantity: 100,
-    description: "this is new addition to collection",
+    description:
+      "Women jeans so tight, you'll be accused of animal abuse for strangling your cat.",
     categoryId: 2,
   },
   {
     name: "Dress Shirt",
-    imageUrl:
-      "https://static.nike.com/a/videos/t_PDP_1280_v1/f_auto,q_auto:eco,so_0.1/0e744966-f8f8-4aae-97a5-2761f14798a6/dri-fit-mens-fitness-t-shirt-nhgSHx.jpg",
+    imageUrl: "/assets/img/men-dress.png",
     size: "xl",
     price: 55,
     rating: 5.0,
     quantity: 10,
-    description: "this is new addition to Shirts",
+    description:
+      "Not the flyest shirt, but we sell red bull if you wanna go that route",
     categoryId: 1,
   },
   {
     name: "Polo Shirt",
-    imageUrl:
-      "https://static.nike.com/a/videos/t_PDP_1280_v1/f_auto,q_auto:eco,so_0.1/0e744966-f8f8-4aae-97a5-2761f14798a6/dri-fit-mens-fitness-t-shirt-nhgSHx.jpg",
+    imageUrl: "/assets/img/men-polo.png",
     size: "m",
     price: 55,
     rating: 5.0,
     quantity: 150,
-    description: "this is new addition to Shirts",
+    description:
+      "Artisan crafted by 8 year olds in a third world country, you are guaranteed the blood and tears which give us the quality we are known for.",
     categoryId: 1,
   },
   {
     name: "Short-Sleeve",
-    imageUrl:
-      "https://static.nike.com/a/videos/t_PDP_1280_v1/f_auto,q_auto:eco,so_0.1/0e744966-f8f8-4aae-97a5-2761f14798a6/dri-fit-mens-fitness-t-shirt-nhgSHx.jpg",
+    imageUrl: "/assets/img/women-ss.png",
     size: "l",
     price: 150,
     rating: 3.0,
     quantity: 50,
-    description: "this is new addition to Shirts",
+    description:
+      "Just a regular short-sleeve shirt. Literally, nothing special about it. Like its just expensive for no reason. If you buy this shirt, you are a goofy.",
     categoryId: 2,
   },
 ];
@@ -204,28 +204,28 @@ const cart = [
     billAddress: "1428 Elm St. Springwood, OH 43212",
     shipAddress: "1428 Elm St. Springwood, OH 43212",
     total: 50.0,
-    userId: 3
+    userId: 3,
   },
   {
     purchased: true,
     billAddress: "124 Conch St., Bikini Bottom, Pacific Ocean",
     shipAddress: "124 Conch St., Bikini Bottom, Pacific Ocean",
     total: 25.0,
-    userId: 2
+    userId: 2,
   },
   {
     purchased: false,
     billAddress: "742 Evergreen Terrace, Springfield, USA",
     shipAddress: "742 Evergreen Terrace, Springfield, USA",
     total: 75.0,
-    userId: 5
+    userId: 5,
   },
   {
     purchased: false,
     billAddress: "31 Spooner Street, Quahog, Rhode Island",
     shipAddress: "31 Spooner Street, Quahog, Rhode Island",
     total: 69.69,
-    userId: 10
+    userId: 10,
   },
 ];
 //victor
@@ -238,12 +238,12 @@ const categories = [
 ];
 
 const cart_product = [
-	{ cartId: 1, productId: 1 },
-	{ cartId: 1, productId: 2 },
-	{ cartId: 1, productId: 5 },
-	{ cartId: 2, productId: 2 },
-	{ cartId: 2, productId: 3 },
-	{ cartId: 3, productId: 4 },
+  { cartId: 1, productId: 1 },
+  { cartId: 1, productId: 2 },
+  { cartId: 1, productId: 5 },
+  { cartId: 2, productId: 2 },
+  { cartId: 2, productId: 3 },
+  { cartId: 3, productId: 4 },
 ];
 /**
  * seed - this function clears the database, updates tables to
@@ -276,11 +276,11 @@ const seed = async () => {
       })
     );
 
-        await Promise.all(
-					cart_product.map((cart) => {
-						return CartProduct.create(cart);
-					})
-				);
+    await Promise.all(
+      cart_product.map((cart) => {
+        return CartProduct.create(cart);
+      })
+    );
 
     /* Below Code establishes a relationship between products */
     // const shoes = await Product.create({
@@ -342,19 +342,3 @@ if (module === require.main) {
 
 // we export the seed function for testing purposes (see `./seed.spec.js`)
 module.exports = seed;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

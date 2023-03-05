@@ -24,7 +24,7 @@ const Footer = () => {
           <motion.img
             animate={{ scale: [1.2, 1, 1.2] }}
             transition={{ repeat: Infinity, duration: 1 }}
-            src="assets/img/twitter.png"
+            src="assets/img/twitter-white.png"
             className="footer-logo"
           />
         </ExternalLink>
@@ -32,7 +32,7 @@ const Footer = () => {
           <motion.img
             animate={{ scale: [1.2, 1, 1.2] }}
             transition={{ repeat: Infinity, duration: 1 }}
-            src="assets/img/facebook.png"
+            src="assets/img/facebook-white.png"
             className="footer-logo"
           />
         </ExternalLink>
@@ -40,7 +40,7 @@ const Footer = () => {
           <motion.img
             animate={{ scale: [1.2, 1, 1.2] }}
             transition={{ repeat: Infinity, duration: 1 }}
-            src="assets/img/instagram.png"
+            src="assets/img/insta-white.png"
             className="footer-logo"
           />
         </ExternalLink>

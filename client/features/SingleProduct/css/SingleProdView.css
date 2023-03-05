@@ -1,4 +1,147 @@
 img {
-  width: 200px;
-  height: 230px;
+  height: 150px;
+  width: 150px;
+}
+
+h1 {
+  color: #ff6d39;
+  font-family: "muli";
+  font-weight: bold;
+  font-size: 22px;
+  margin-top: 21px;
+  display: inline-block;
+}
+
+h3 {
+  color: #000;
+  font-family: "muli";
+  margin-top: 84px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+h2 {
+  color: #000;
+  font-family: "muli";
+  margin-top: 10px;
+  font-weight: 800;
+  font-size: 29px;
+}
+
+h4 {
+  display: inline-block;
+  color: #000;
+  font-family: "muli";
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.product-name i {
+  color: #000;
+  transition: 0.3s all ease;
+  margin: 0px 12px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  background: rgba(20, 33, 61, 0.2);
+  height: 600px;
+  width: 800px;
+  margin: 0 auto;
+  box-shadow: 0px 15px 50px 10px rgba(229, 229, 229, 0.1);
+  margin-top: 2%;
+}
+
+.left {
+  content: "";
+  height: 395px;
+  width: 330px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fca311;
+  margin-left: 93px;
+  border-radius: 0% 50% 50% 0%;
+  position: absolute;
+  z-index: 5;
+}
+
+.left img {
+  margin-right: 40px;
+  margin-top: 100px;
+
+  height: 150px;
+  width: 150px;
+}
+
+.right {
+  content: "";
+  height: 395px;
+  width: 550px;
+  background-color: rgba(229, 229, 229, 1);
+  z-index: 3;
+  margin-left: 200px;
+}
+
+.product-info {
+  position: absolute;
+  margin-left: 245px;
+  height: 394px;
+  width: 305px;
+  z-index: 10;
+  opacity: 1;
+}
+
+.prod-button {
+  width: fit-content;
+  height: fit-content;
+  margin-top: 10px;
+}
+
+.prod-button p {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  font-size: 11px;
+  color: #111;
+  text-decoration: none;
+  padding: 10px 15px;
+  border: 1px solid #aaa;
+  font-weight: bold;
+}
+
+.prod-button p:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -10px;
+  width: 0%;
+  background: #111;
+  height: 100%;
+  z-index: -1;
+  transition: width 0.3s ease-in-out;
+  transform: skew(-25deg);
+  transform-origin: right;
+}
+
+.prod-button p:hover:after {
+  width: 150%;
+  left: -10px;
+  transform-origin: left;
+}
+.prod-button p:hover {
+  color: #fff;
+  transition: all 0.5s ease;
+  background-color: #111;
+}
+
+.prod-button p:nth-of-type(1) {
+  border-radius: 50px 0 0 50px;
+  border-right: none;
+}
+
+.prod-button p:nth-of-type(2) {
+  border-radius: 0px 50px 50px 0;
 }

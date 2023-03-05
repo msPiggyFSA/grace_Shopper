@@ -3,9 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import { fetchAllUsers, userActions } from "../../app/slices/userSlice";
+import { Link } from "react-router-dom";
 
 
-const UserView = (props) => {
+const AdminAllUserView = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -13,18 +14,25 @@ const UserView = (props) => {
   }, []);
 
     const users = useSelector((state) => {
-    return state.users.users.flat();
+    return state.users.users.flat()
     });
 
       console.log("333333333333333333333this is user 2", users);
-      console.log("single user", users[0]);
-      console.log ("props", props)
+      // console.log("single user", users[0]);
+      // console.log ("props", props)
 
   return (
     <div>
-        {users.map((user) => <p user={user} key={user.id}> {user.fName}</p>)}
+      <h1>All Users</h1>
+        {users.map((user)=>{
+          return(
+         <div>
+          <Link to={`/admin/users/${user.id}`}>{user.username}</Link>
+          </div>
+          )
+        })}
     </div>
   );
 };
 
-export default UserView;
+export default AdminAllUserView;

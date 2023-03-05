@@ -5,6 +5,7 @@ import store from "./app/store.js";
 import App from "./app/App";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./app/body.css";
+import Footer from "./features/footer/Footer.js";
 
 const root = createRoot(document.getElementById("app"));
 
@@ -12,6 +13,7 @@ root.render(
   <Router>
     <Provider store={store}>
       <App />
+      <Footer />
     </Provider>
   </Router>
 );
