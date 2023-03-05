@@ -7,7 +7,7 @@ import { editProduct } from '../../app/slices/productsSlice';
 function EditProduct() {
 	const params = useParams().id;
   const[id, setId] = useState('')
-  
+
 	const dispatch = useDispatch();
 	const [form, setForm] = useState({
 		name: "",
@@ -22,7 +22,7 @@ function EditProduct() {
       ...form,
 			[prop]: event.target.value,
 		});
-   
+
 	};
 	return (
 		<div className="addProduct">

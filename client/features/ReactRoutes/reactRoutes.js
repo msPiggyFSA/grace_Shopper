@@ -12,7 +12,7 @@ import AuthForm from "../auth/AuthForm";
 import SignUpForm from "../auth/SignUpForm";
 // import CartProducts from "../cart/CartProduct";
 import EditProduct from "../admin/EditProduct";
-import UserView from "../user/UserView";
+import UserProfile from "../user/UserProfile";
 import { AnimatePresence } from "framer-motion";
 
 const ReactRoute = () => {
@@ -40,8 +40,8 @@ const ReactRoute = () => {
         element={<SignUpForm name="signup" displayName="Signup" />}
       />
       <Route
-        path="/user"
-        element={<UserView />}
+        path="/users/:id"
+        element={<UserProfile />}
       />
     </Routes>
   );

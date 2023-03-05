@@ -19,6 +19,21 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.get("/:id", async (req, res) => {
+  try {
+    const user = await User.findByPk(req.params.id, {
+      attributes: ["id", "username", "email", "fName", "lName"],
+      include: Cart,
+    });
+    res.send(user);
+  } catch (err) {
+    res.status(404).json({
+      status: "error",
+      message: err.message,
+    });
+  }
+});
+
 
 
 module.exports = router;

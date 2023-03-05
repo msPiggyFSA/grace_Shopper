@@ -14,6 +14,40 @@ export const fetchAllUsers = createAsyncThunk("allusers", async () => {
   }
 });
 
+export const fetchSingleUser = createAsyncThunk(
+  "singleuser",
+  async (id) => {
+    try {
+      const response = await axios.get(
+        "http://localhost:8080/api/users/" + id
+      );
+      const data = response.data;
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+export const editUser = createAsyncThunk(
+  "edituser",
+  async ({form, params}) => {
+    console.log(params, 'this is id in slice')
+    console.log(form, 'this is forms in slice')
+    try {
+      const response = await axios.put(
+        "http://localhost:8080/api/users/${params}" + id
+      );
+      const data = response.data;
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
 const userSlice = createSlice({
   name: "users",
   initialState,
@@ -25,6 +59,12 @@ const userSlice = createSlice({
       })
       .addCase(fetchAllUsers.fulfilled, (state, action) => {
         state.users.push(action.payload);
+      })
+      .addCase(fetchSingleUser.pending, (state, action) => {
+        state.singleUser = {};
+      })
+      .addCase(fetchSingleUser.fulfilled, (state, action) => {
+        state.singleUser = action.payload;
       })
   },
 });
