@@ -19,6 +19,14 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.post('/', async(req, res, next)=>{
+  try {
+    res.status(201).send(await User.create(req.body))
+  } catch (error) {
+    console.log(error.message)
+  }
+})
+
 router.get("/:id", async (req, res) => {
   try {
     const user = await User.findByPk(req.params.id, {

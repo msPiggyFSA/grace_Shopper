@@ -48,6 +48,18 @@ export const editUser = createAsyncThunk(
   }
 );
 
+export const createNewUser = createAsyncThunk(
+  'createUser',
+  async({form})=>{
+    console.log(form)
+    try {
+      await axios.post('http://localhost:8080/api/users', form)
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+)
+
 const userSlice = createSlice({
   name: "users",
   initialState,

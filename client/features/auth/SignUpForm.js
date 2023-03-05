@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { authenticate } from "../../app/store";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { createNewUser } from "../../app/slices/userSlice";
 
 /**
   The AuthForm component can be used for Login or Sign Up.
@@ -18,7 +19,7 @@ const SignUpForm = ({ name, displayName }) => {
     fName: "",
     lName: "",
   });
-  console.log(form);
+ 
 
   const { error } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
@@ -29,9 +30,15 @@ const SignUpForm = ({ name, displayName }) => {
     const formName = evt.target.name;
     const username = evt.target.username.value;
     const password = evt.target.password.value;
-    dispatch(authenticate({ username, password, method: formName }));
+    const fName = evt.target.fName.value
+    const lName = evt.target.lName.value
+    const email = evt.target.email.value
+    console.log(formName, username, password, ' thisis formname, user, password')
+    dispatch(authenticate({ username, password, fName, lName, email, method: formName }));
+    // dispatch(createNewUser({form}))
     if (!error) {
-      dispatch(createNewUser())
+      dispatch(createNewUser({form}))
+      navigate('/home')
     } else {
       // navigate("/home");
     }
