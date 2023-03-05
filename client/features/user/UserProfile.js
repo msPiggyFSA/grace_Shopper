@@ -33,9 +33,9 @@ const UserProfile = (props) => {
       <p>First Name: {user.fName}</p>
       <p>Last Name: {user.lName}</p>
       <p>Email: {user.email}</p>
-      <p>Password: </p>
-      <p>Shipping Address:</p>
-      <p>Billing Address:</p>
+      <p>Password: PASSWORD PLACE HOLDER</p>
+      <p>Shipping Address: {user.billing}</p>
+      <p>Billing Address: {user.shipping}</p>
       {/* If loggin = false display error msg*/}
         <p> Sorry, It doesn't seem like you're logged in. Login or Sign Up. Otherwise, click here to return Home.</p>
     </div>

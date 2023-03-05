@@ -47,9 +47,9 @@ const ReactRoute = () => {
         </>
         ): isLoggedIn?
         (<Route path="/users/:id" element={<UserProfile />}/>) : (<></>)}
-        
+
       </Routes>
-      
+
     </AnimatePresence>
   );
 };

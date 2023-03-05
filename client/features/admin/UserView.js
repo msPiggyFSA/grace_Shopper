@@ -22,12 +22,7 @@ const UserView = (props) => {
 
   return (
     <div>
-      <h1>User information</h1>
-      First Name: {props.user.fName}
-      Last Name: {props.user.lName}
-      Username: {props.user.username}
-      Password: {props.user.password}
-      Email: {props.user.email}
+        {users.map((user) => <p user={user} key={user.id}> {user.fName}</p>)}
     </div>
   );
 };
