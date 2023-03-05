@@ -40,12 +40,13 @@ const ReactRoute = () => {
           element={<SignUpForm name="signup" displayName="Signup" />}
         />
         {isLoggedIn && isAdmin?(
-          <>
+        <>
         <Route path="/addprod" element={<AddProduct />} />
         <Route path="/product/edit/:id" element={<EditProduct />} />
         </>
-        ): {isLoggedIn?
-        ( <Route path="/users/:id" element={<UserProfile />} />)}<></>}
+        ): isLoggedIn?
+        (<Route path="/users/:id" element={<UserProfile />}/>) : (<></>)}
+        
       </Routes>
       
     </AnimatePresence>
