@@ -37,9 +37,8 @@ const ReactRoute = () => {
         <Route path="/cart" element={<CartView />} />
         {/* <Route path="/cartProducts" element={<CartProducts />} /> */}
         <Route path="/login" element={<Combined />} />
-        <Route path="/edit/users/:id" element={<EditUserProfilePage />} />
+        <Route path="/signup" element={<Combined />} />
         <Route path="/users/:id" element={<UserProfile />} />
-        {/* <Route path="/orders/users/:id" element={<UserOrderHistory />} /> */}
         {isLoggedIn && isAdmin ? (
           <>
             <Route path="/addprod" element={<AddProduct />} />
@@ -47,18 +46,7 @@ const ReactRoute = () => {
             <Route path="/users/:id" element={<UserProfile />} />
             <Route path="/viewAllUsers" element={<AdminAllUserView />} />
             <Route path="/admin/users/:id" element={<AdminSingleUser />} />
-            <Route
-              path="/admin/edit/users/:id"
-              element={<EditUserProfilePage />}
-            />
-          </>
-        ) : isLoggedIn ? (
-          <>
-            <Route path="/addprod" element={<AddProduct />} />
-            <Route path="/product/edit/:id" element={<EditProduct />} />
-            <Route path="/users/:id" element={<UserProfile />} />
-            <Route path="/viewAllUsers" element={<AdminAllUserView />} />
-            <Route path="/admin/users/:id" element={<AdminSingleUser />} />
+            <Route path="/edit/users/:id" element={<EditUserProfilePage />} />
           </>
         ) : isLoggedIn ? (
           <Route path="/users/:id" element={<UserProfile />} />
