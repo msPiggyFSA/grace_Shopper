@@ -18,6 +18,8 @@ const Navbar = () => {
     return state.cart.currentCart;
   });
 
+  console.log("#########################CURRENT USER",currentUser);
+
   const total = currentCart.map((product) => {
     return product.price;
   });
@@ -89,6 +91,9 @@ const Navbar = () => {
               {/* <button type="button" onClick={logoutAndRedirectHome}>
                 Logout
               </button> */}
+              <Link to={`/admin/users/${currentUser.id}`} className="nav-link">
+              Account
+            </Link>
               <Link to="/addprod" className="nav-link">
                 add new product
               </Link>
@@ -102,7 +107,7 @@ const Navbar = () => {
           </div>
         ) : isLoggedIn ? (
           <>
-            <Link to="/users/" className="nav-link">
+            <Link to={`/users/${currentUser.id}`} className="nav-link">
               Account
             </Link>
             <button type="button" onClick={logoutAndRedirectHome}>

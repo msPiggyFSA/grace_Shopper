@@ -49,7 +49,10 @@ const ReactRoute = () => {
 						<Route path="/admin/edit/users/:id" element={<EditUserProfilePage />} />
 					</>
 				) : isLoggedIn ? (
-					<Route path="/users/:id" element={<UserProfile />} />
+          <>
+            <Route path="/users/:id" element={<UserProfile />} />
+            <Route path="/edit/users/:id" element={<EditUserProfilePage />} />
+          </>
 				) : (
 					<></>
 				)}
