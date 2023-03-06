@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk, current } from "@reduxjs/toolkit";
 import axios from "axios";
 const initialState = {
   currentCart: [],
+  currentCartInfo: {},
   allCarts: [],
   allCartProducts: [],
   fulfilled: [],
@@ -75,6 +76,8 @@ const cartSlice = createSlice({
         console.log(action.payload);
 
         if (current(order).userId === action.payload) {
+          state.currentCartInfo = current(order);
+          console.log(current(state.currentCartInfo));
           state.allCartProducts.flat().forEach((prod) => {
             console.log(current(prod));
             if (current(order).id === current(prod).cartId) {

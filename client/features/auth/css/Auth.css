@@ -1,7 +1,7 @@
 .main-container {
   width: 350px;
   height: 500px;
-  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+  background-image: linear-gradient(144deg, #000, #fca311 50%, #000);
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 5px 20px 50px #000;
@@ -49,7 +49,7 @@
   justify-content: center;
   display: block;
   color: #fff;
-  background: #5b42f3;
+  background: #14213d;
   font-size: 1em;
   font-weight: bold;
   margin-top: 20px;
@@ -60,11 +60,11 @@
   cursor: pointer;
 }
 .btn-form:hover {
-  background: #6d44b8;
+  background: #14213d;
 }
 .login {
   height: 400px;
-  background: #fca311;
+  background-image: linear-gradient(144deg, #000, #e5e5e5 50%, #000);
   border-radius: 60% / 10%;
   transform: translateY(-180px);
   transition: 0.8s ease-in-out;

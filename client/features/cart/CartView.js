@@ -9,7 +9,7 @@ import OrderHistory from "./OrderHistory";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { container } from "../variants";
-import "./css/Cart.css";
+import "../home/css/Home.css";
 
 const CartView = (props) => {
   const dispatch = useDispatch();
@@ -60,25 +60,29 @@ const CartView = (props) => {
       exit="exit"
       className="cart-container"
     >
-      {currentCart.map((product) => {
-        console.log(userfullfilled);
+      <div className="product-container">
+        {currentCart.map((product) => {
+          console.log(userfullfilled);
 
-        return (
-          <div key={uuidv4()}>
-            <SingleProduct cart="cart" props={product} />
-            {/* <CartDelete props={product} /> */}
-          </div>
-        );
-      })}
-      {currentCart.length === 0 && (
-        <div className="cart-placeholder">Add items to your cart!</div>
-      )}
-      {currentCart.length > 0 && <CartTotal />}
-      {currentCart.length > 0 && <Checkout currentCart={currentCart} />}
-      {/* {meOrdersFulfilled.length > 0 && (
+          return (
+            <div key={uuidv4()}>
+              <SingleProduct cart="cart" props={product} />
+              {/* <CartDelete props={product} /> */}
+            </div>
+          );
+        })}
+        {currentCart.length === 0 && (
+          <div className="cart-placeholder">Add items to your cart!</div>
+        )}
+
+        {/* {meOrdersFulfilled.length > 0 && (
         <OrderHistory props={meOrdersFulfilled} />
       )} */}
-      {/* <Checkout currentCart={currentCart} /> */}
+        {/* <Checkout currentCart={currentCart} /> */}
+      </div>
+      {currentCart.length > 0 && <CartTotal />}
+
+      {currentCart.length > 0 && <Checkout currentCart={currentCart} />}
     </motion.div>
   );
 };
