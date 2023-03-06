@@ -91,7 +91,6 @@ const userSlice = createSlice({
       })
       .addCase(editUserProfile.fulfilled, (state, action) => {
         state.singleUser = action.payload;
-<<<<<<< HEAD
       })
       .addCase(fetchAllUserCarts.pending, (state, action) => {
         state.userCarts = {};
@@ -99,9 +98,6 @@ const userSlice = createSlice({
       .addCase(fetchAllUserCarts.fulfilled, (state, action) => {
         state.userCarts = action.payload;
       })
-=======
-      });
->>>>>>> dc39e8ca25bf0ce36c60aee20333395bb97fe75a
   },
 });
 
