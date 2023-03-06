@@ -29,6 +29,7 @@ const Women = (props) => {
       initial="initial"
       animate="visible"
       exit="exit"
+      className="product-container"
     >
       <h3
         onClick={() => {

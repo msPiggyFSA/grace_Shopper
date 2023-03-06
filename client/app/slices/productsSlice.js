@@ -30,40 +30,49 @@ export const fetchSingleProduct = createAsyncThunk(
 );
 
 export const createNewProduct = createAsyncThunk(
-  'createproduct',
-  async({form})=>{
+  "createproduct",
+  async ({ form }) => {
     try {
-      await axios.post("http://localhost:8080/api/products", form);
-console.log(form)
+      const newProd = await axios.post(
+        "http://localhost:8080/api/products",
+        form
+      );
+      console.log(form);
+      return newProd.data;
     } catch (error) {
-      console.log(error.message)
+      console.log(error.message);
     }
   }
-)
+);
 
-export const editProduct = createAsyncThunk('editProduct',
-async({form, params})=>{
-  console.log(params, 'this is id in slice')
-  console.log(form, 'this is forms in slice')
+export const editProduct = createAsyncThunk(
+  "editProduct",
+  async ({ form, params }) => {
+    console.log(params, "this is id in slice");
+    console.log(form, "this is forms in slice");
+    try {
+      const update = await axios.put(
+        `http://localhost:8080/api/products/${params}`,
+        form
+      );
+
+      return update.data;
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+);
+
+export const deleteProduct = createAsyncThunk("deleteproduct", async (id) => {
   try {
-    await axios.put(`http://localhost:8080/api/products/${params.id}`, form);
+    const deleted = await axios.delete(
+      `http://localhost:8080/api/products/${id}`
+    );
+    return deleted.data;
   } catch (error) {
-
-    console.log(error.message)
+    console.log(error.message);
   }
-}
-)
-
-export const deleteProduct = createAsyncThunk(
-  'deleteproduct', async(id)=>{ try {
-    await axios.delete(`http://localhost:8080/api/products/${id}`);
-    return id;
-  } catch (error) {
-    console.log(error.message)
-  }
-  }
-)
-
+});
 
 const productSlice = createSlice({
   name: "products",
@@ -84,14 +93,14 @@ const productSlice = createSlice({
         state.singleProduct = action.payload;
       })
       .addCase(createNewProduct.pending, (state, action) => {
-				state.createproduct = {};
-			})
+        state.createproduct = {};
+      })
       .addCase(createNewProduct.fulfilled, (state, action) => {
-				state.createproduct = action.payload;
-			})
+        state.createproduct = action.payload;
+      })
       .addCase(deleteProduct.fulfilled, (state, action) => {
-				state.createproduct = action.payload;
-			});
+        state.createproduct = action.payload;
+      });
   },
 });
 

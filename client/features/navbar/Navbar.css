@@ -2,6 +2,7 @@
   font-family: "Luckiest Guy", cursive;
   width: 100%;
   text-align: center;
+  color: #fca311;
 }
 
 .btn-cart {
@@ -49,6 +50,10 @@
 .navbar {
   display: flex;
   flex-direction: column;
+  position: relative;
+  top: 0;
+  left: 0;
+  background-color: #000;
 }
 
 .nav-portion {

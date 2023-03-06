@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className="foot">
       <div>
         <Link to="/about" className="footer-link">
           About

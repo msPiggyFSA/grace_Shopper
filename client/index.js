@@ -6,12 +6,14 @@ import App from "./app/App";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./app/body.css";
 import Footer from "./features/footer/Footer.js";
+import Navbar from "./features/navbar/Navbar.js";
 
 const root = createRoot(document.getElementById("app"));
 
 root.render(
   <Router>
     <Provider store={store}>
+      <Navbar />
       <App />
       <Footer />
     </Provider>

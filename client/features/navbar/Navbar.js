@@ -89,8 +89,12 @@ const Navbar = () => {
               {/* <button type="button" onClick={logoutAndRedirectHome}>
                 Logout
               </button> */}
-              <Link to="/addprod">add new product</Link>
-              <Link to='/viewAllUsers'>view all users</Link>
+              <Link to="/addprod" className="nav-link">
+                add new product
+              </Link>
+              <Link to="/viewAllUsers" className="nav-link">
+                view all users
+              </Link>
               <button type="button" onClick={logoutAndRedirectHome}>
                 Logout
               </button>
@@ -101,11 +105,11 @@ const Navbar = () => {
             Logout
           </button>
         ) : (
-          <div>
-            <Link to="/login" className="nav-link">
+          <Link to="/login" className="nav-link">
+            <motion.span whileHover={navHover} whileTap={{ scale: 1.5 }}>
               Login/Signup
-            </Link>
-          </div>
+            </motion.span>
+          </Link>
         )}
         {/* {isLoggedIn && isAdmin ? (
           (

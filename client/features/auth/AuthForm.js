@@ -22,6 +22,7 @@ const AuthForm = ({ name, displayName }) => {
     const username = evt.target.username.value;
     const password = evt.target.password.value;
     dispatch(authenticate({ username, password, method: formName }));
+    console.log(formName);
     if (!error) {
       navigate("/home");
     } else {
@@ -51,9 +52,11 @@ const AuthForm = ({ name, displayName }) => {
           <input name="password" type="password" />
         </div>
         <div>
-          <button type="submit">{displayName}</button>
+          <button type="submit" className="btn-form">
+            {displayName}
+          </button>
         </div>
-        {error && <div> {error} </div>}
+        {error && <div> {error.message} </div>}
       </form>
       {name === "login" && (
         <Link to="/signup">Click here to create an account!</Link>

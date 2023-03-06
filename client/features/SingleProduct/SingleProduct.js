@@ -70,7 +70,6 @@ const SingleProduct = (props) => {
           </div>
         </div>
       </motion.div>
-      <p className="footer">More description</p>
     </div>
 
     // <div className="product-list">

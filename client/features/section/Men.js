@@ -5,6 +5,7 @@ import SingleProduct from "../SingleProduct/SingleProduct";
 import { v4 as uuidv4 } from "uuid";
 import { motion } from "framer-motion";
 import { container } from "../variants.js";
+import "../home/css/Home.css";
 
 /**
  * COMPONENT
@@ -31,6 +32,7 @@ const Women = (props) => {
       initial="initial"
       animate="visible"
       exit="exit"
+      className="product-container"
     >
       <h3
         onClick={() => {

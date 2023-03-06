@@ -17,31 +17,24 @@ export const fetchAllUsers = createAsyncThunk("allusers", async () => {
   }
 });
 
-export const fetchSingleUser = createAsyncThunk(
-  "singleuser",
-  async (id) => {
-    try {
-      const response = await axios.get(
-        "http://localhost:8080/api/users/" + id
-      );
-      const data = response.data;
-      console.log(data);
-      return data;
-    } catch (error) {
-      console.log(error);
-    }
+export const fetchSingleUser = createAsyncThunk("singleuser", async (id) => {
+  try {
+    const response = await axios.get("http://localhost:8080/api/users/" + id);
+    const data = response.data;
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.log(error);
   }
-);
+});
 
 export const editUserProfile = createAsyncThunk(
   "edituserprofile",
-  async ({edit, params}) => {
-    console.log(params, 'this is id in slice###############')
-    console.log(edit, 'this is edit in slice############')
+  async ({ edit, params }) => {
+    console.log(params, "this is id in slice###############");
+    console.log(edit, "this is edit in slice############");
     try {
-      await axios.patch(
-        `http://localhost:8080/api/users/${edit.id}`, edit
-      );
+      await axios.patch(`http://localhost:8080/api/users/${edit.id}`, edit);
     } catch (error) {
       console.log(error);
     }
@@ -63,16 +56,17 @@ export const fetchAllUserCarts = createAsyncThunk("allusercarts", async () => {
 });
 
 export const createNewUser = createAsyncThunk(
-  'createUser',
-  async({form})=>{
-    console.log(form)
+  "createUser",
+  async ({ form }) => {
+    console.log(form);
     try {
-      await axios.post('http://localhost:8080/api/users', form)
+      const newUser = await axios.post("http://localhost:8080/api/users", form);
+      return newUser.data;
     } catch (error) {
-      console.log(error.message)
+      console.log(error.message);
     }
   }
-)
+);
 
 const userSlice = createSlice({
   name: "users",
@@ -97,6 +91,7 @@ const userSlice = createSlice({
       })
       .addCase(editUserProfile.fulfilled, (state, action) => {
         state.singleUser = action.payload;
+<<<<<<< HEAD
       })
       .addCase(fetchAllUserCarts.pending, (state, action) => {
         state.userCarts = {};
@@ -104,6 +99,9 @@ const userSlice = createSlice({
       .addCase(fetchAllUserCarts.fulfilled, (state, action) => {
         state.userCarts = action.payload;
       })
+=======
+      });
+>>>>>>> dc39e8ca25bf0ce36c60aee20333395bb97fe75a
   },
 });
 
