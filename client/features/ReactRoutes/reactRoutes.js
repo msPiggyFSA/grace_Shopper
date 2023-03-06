@@ -18,7 +18,6 @@ import { AnimatePresence } from "framer-motion";
 import { useSelector } from "react-redux";
 import AdminSingleUser from "../admin/AdminSingleUser";
 import AdminAllUserView from "../admin/AdminAllUserView";
-
 import Combined from "../auth/Combined.js";
 
 const ReactRoute = () => {

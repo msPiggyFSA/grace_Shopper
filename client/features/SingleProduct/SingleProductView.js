@@ -72,7 +72,7 @@ const SingleProductView = () => {
             </div>
             <div className="details">
               <h3>Get Your Game On, Dawg</h3>
-              <h2>{single.name}</h2>
+              {/* <h2>{single.name}</h2> */}
               <p>{single.description}</p>
             </div>
 

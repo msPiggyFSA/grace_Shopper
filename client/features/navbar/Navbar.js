@@ -57,15 +57,15 @@ const Navbar = () => {
       className="navbar"
     >
       <h1 className="title">
-        Lets
+        THE
         <motion.span
           animate={{ color: ["#ff0000", "#000000"] }}
           transition={{ repeat: Infinity, duration: 1 }}
         >
           {" "}
-          F{" "}
+          AMAZON{" "}
         </motion.span>
-        Go!!!!
+        KILLER
       </h1>
       <nav className="nav-portion">
         <Link to="/home" className="nav-link">

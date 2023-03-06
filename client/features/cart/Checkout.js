@@ -52,6 +52,7 @@ const Checkout = (props) => {
       console.log(err);
     }
     dispatch(cartActions.checkedOut());
+    navigate("/home");
   };
 
   //use navigate to go to new page thank purchase

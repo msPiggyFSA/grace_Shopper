@@ -1,14 +1,16 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const initialState = { users: [], singleUser: [], userCarts: []};
+const initialState = { users: [], singleUser: [], userCarts: [] };
 
 export const fetchAllUsers = createAsyncThunk("allusers", async () => {
   try {
     const response = await axios.get("http://localhost:8080/api/users");
     const data = response.data;
     console.log("######THIS IS###### CARTS", data);
-    const cart = data.map((user) => { return user.carts})
+    const cart = data.map((user) => {
+      return user.carts;
+    });
 
     console.log("######THIS IS####", cart);
     return data;
@@ -46,7 +48,9 @@ export const fetchAllUserCarts = createAsyncThunk("allusercarts", async () => {
     const response = await axios.get("http://localhost:8080/api/users/:id");
     const data = response.data;
     console.log("######THIS IS### DATA", data);
-    const userCarts = data.map((user) => { return user.carts})
+    const userCarts = data.map((user) => {
+      return user.carts;
+    });
 
     console.log("######THIS IS####### CARTS", userCarts);
     return userCarts;
@@ -97,7 +101,7 @@ const userSlice = createSlice({
       })
       .addCase(fetchAllUserCarts.fulfilled, (state, action) => {
         state.userCarts = action.payload;
-      })
+      });
   },
 });
 
