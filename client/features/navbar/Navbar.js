@@ -92,7 +92,7 @@ const Navbar = () => {
               <Link to="/addprod" className="nav-link">
                 add new product
               </Link>
-              <Link to="/viewAllUsers" className="nav-link">
+              <Link to="/admin/viewAllUsers" className="nav-link">
                 view all users
               </Link>
               <button type="button" onClick={logoutAndRedirectHome}>
@@ -101,9 +101,14 @@ const Navbar = () => {
             </div>
           </div>
         ) : isLoggedIn ? (
-          <button type="button" onClick={logoutAndRedirectHome}>
-            Logout
-          </button>
+          <>
+            <Link to="/users/" className="nav-link">
+              Account
+            </Link>
+            <button type="button" onClick={logoutAndRedirectHome}>
+              Logout
+            </button>
+          </>
         ) : (
           <Link to="/login" className="nav-link">
             <motion.span whileHover={navHover} whileTap={{ scale: 1.5 }}>

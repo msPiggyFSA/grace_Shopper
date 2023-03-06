@@ -29,7 +29,7 @@ const AdminAllUserView = (props) => {
          <div>
           <Link to={`/admin/users/${user.id}`}>{user.username}</Link>
           <button>
-            <Link to={`/edit/users/${user.id}`}>
+            <Link to={`/admin/edit/users/${user.id}`}>
               Edit User
             </Link>
           </button>

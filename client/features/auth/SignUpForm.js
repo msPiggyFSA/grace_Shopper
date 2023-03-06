@@ -19,7 +19,6 @@ const SignUpForm = ({ name, displayName }) => {
     fName: "",
     lName: "",
   });
- 
 
   const { error } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
@@ -33,8 +32,11 @@ const SignUpForm = ({ name, displayName }) => {
     const fName = evt.target.fName.value
     const lName = evt.target.lName.value
     const email = evt.target.email.value
+    const billing = evt.target.billing.value
+    const shipping = evt.target.shipping.value
+
     console.log(formName, username, password, ' thisis formname, user, password')
-    dispatch(authenticate({ username, password, fName, lName, email, method: formName }));
+    dispatch(authenticate({ username, password, fName, lName, email, billing, shipping, method: formName }));
     // dispatch(createNewUser({form}))
     if (!error) {
       dispatch(createNewUser({form}))
@@ -111,6 +113,28 @@ const SignUpForm = ({ name, displayName }) => {
             type="text"
             value={form.email}
             onChange={changeValue("email")}
+          />
+        </div>
+        <div>
+          <label htmlFor="shipping">
+            <small>Shipping Address</small>
+          </label>
+          <input
+            name="shipping"
+            type="text"
+            value={form.shipping}
+            onChange={changeValue("shipping")}
+          />
+        </div>
+        <div>
+          <label htmlFor="billing">
+            <small>Billing Address</small>
+          </label>
+          <input
+            name="billing"
+            type="text"
+            value={form.billing}
+            onChange={changeValue("billing")}
           />
         </div>
         <div>
