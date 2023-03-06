@@ -10,8 +10,10 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import { container } from "../variants";
 import "../home/css/Home.css";
+import { useNavigate } from "react-router-dom";
 
 const CartView = (props) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const currentCart = useSelector((state) => {
     return state.cart.currentCart;
@@ -37,20 +39,9 @@ const CartView = (props) => {
     return state.cart.userfulfilled.flat();
   });
 
-  // const meOrders = allCarts.flat().filter((cart) => {
-  //   console.log(cart);
-  //   console.log(me.id);
-  //   return cart.userId === me.id;
-  // });
-
-  // const meOrdersFulfilled = meOrders.filter((cart) => cart.purchased === true);
-  // console.log(meOrdersFulfilled);
-
-  // const unfulfilled = meOrders.filter((cart) => cart.purchased === false);
-
-  // useEffect(() => {
-  //   dispatch(cartActions.updateUserCart(me.id));
-  // }, []);
+  const orderBtnHandler = () => {
+    navigate("/pastorders");
+  };
 
   return (
     <motion.div
@@ -60,6 +51,7 @@ const CartView = (props) => {
       exit="exit"
       className="cart-container"
     >
+      <button onClick={orderBtnHandler}>View Past Orders!</button>
       <div className="product-container">
         {currentCart.map((product) => {
           console.log(userfullfilled);
