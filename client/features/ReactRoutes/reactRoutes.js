@@ -41,15 +41,9 @@ const ReactRoute = () => {
         <Route path="/pastorders/:id" element={<SingleOrder />} />
         {isLoggedIn && isAdmin ? (
           <>
-            <Route path="/addprod" element={<AddProduct />} />
-            <Route path="/product/edit/:id" element={<EditProduct />} />
             <Route path="/users/:id" element={<UserProfile />} />
-            <Route path="/viewAllUsers" element={<AdminAllUserView />} />
-            <Route path="/admin/users/:id" element={<AdminSingleUser />} />
             <Route path="/edit/users/:id" element={<EditUserProfilePage />} />
           </>
-        ) : isLoggedIn ? (
-          <Route path="/users/:id" element={<UserProfile />} />
         ) : (
           <></>
         )}

@@ -1,7 +1,7 @@
 .main-container {
   width: 350px;
-  height: 500px;
-  background-image: linear-gradient(144deg, #000, #fca311 50%, #000);
+  height: 650px;
+  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 5px 20px 50px #000;
