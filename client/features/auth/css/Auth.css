@@ -1,7 +1,7 @@
 .main-container {
   width: 350px;
   height: 500px;
-  background: #14213d;
+  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 5px 20px 50px #000;
@@ -49,7 +49,7 @@
   justify-content: center;
   display: block;
   color: #fff;
-  background: #14213d;
+  background: #5b42f3;
   font-size: 1em;
   font-weight: bold;
   margin-top: 20px;
