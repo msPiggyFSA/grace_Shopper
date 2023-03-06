@@ -18,7 +18,11 @@ import { AnimatePresence } from "framer-motion";
 import { useSelector } from "react-redux";
 import AdminSingleUser from "../admin/AdminSingleUser";
 import AdminAllUserView from "../admin/AdminAllUserView";
+<<<<<<< HEAD
+import UserOrderHistory from "../user/UserOrderHistory";
+=======
 import Combined from "../auth/Combined.js";
+>>>>>>> dc39e8ca25bf0ce36c60aee20333395bb97fe75a
 
 const ReactRoute = () => {
   const isAdmin = useSelector((state) => state.auth.me.admin) === true;
