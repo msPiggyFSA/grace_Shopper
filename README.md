@@ -43,5 +43,4 @@ Sync and seed your database by running `npm run seed`. Running `npm run start:de
 - start:dev:logger is the same as start:dev, but you will see your SQL queries (can be helpful for debugging)
 - start:dev:seed will start your server and also seed your database (this is useful when you are making schema changes and you don't want to run your seed script separately)
 
-https://coolors.co/palette/03045e-023e8a-0077b6-0096c7-00b4d8-48cae4-90e0ef-ade8f4-caf0f8
 https://coolors.co/palette/000000-14213d-fca311-e5e5e5-ffffff

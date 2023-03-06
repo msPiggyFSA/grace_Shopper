@@ -2,9 +2,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  position: fixed;
+  background-color: #000;
   bottom: 0;
-  width: 99%;
+  left: 0;
+  width: 100vw;
 }
 
 .footer-link {

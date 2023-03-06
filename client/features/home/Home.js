@@ -46,6 +46,7 @@ const Home = (props) => {
       initial="initial"
       animate="visible"
       exit="exit"
+      className="home-container"
     >
       <h3 className="welcome-msg">Welcome, {username}</h3>
       <div className="product-container">

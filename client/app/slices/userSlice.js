@@ -14,27 +14,22 @@ export const fetchAllUsers = createAsyncThunk("allusers", async () => {
   }
 });
 
-export const fetchSingleUser = createAsyncThunk(
-  "singleuser",
-  async (id) => {
-    try {
-      const response = await axios.get(
-        "http://localhost:8080/api/users/" + id
-      );
-      const data = response.data;
-      console.log(data);
-      return data;
-    } catch (error) {
-      console.log(error);
-    }
+export const fetchSingleUser = createAsyncThunk("singleuser", async (id) => {
+  try {
+    const response = await axios.get("http://localhost:8080/api/users/" + id);
+    const data = response.data;
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.log(error);
   }
-);
+});
 
 export const editUser = createAsyncThunk(
   "edituser",
-  async ({form, params}) => {
-    console.log(params, 'this is id in slice')
-    console.log(form, 'this is forms in slice')
+  async ({ form, params }) => {
+    console.log(params, "this is id in slice");
+    console.log(form, "this is forms in slice");
     try {
       const response = await axios.put(
         "http://localhost:8080/api/users/${params}" + id
@@ -49,16 +44,17 @@ export const editUser = createAsyncThunk(
 );
 
 export const createNewUser = createAsyncThunk(
-  'createUser',
-  async({form})=>{
-    console.log(form)
+  "createUser",
+  async ({ form }) => {
+    console.log(form);
     try {
-      await axios.post('http://localhost:8080/api/users', form)
+      const newUser = await axios.post("http://localhost:8080/api/users", form);
+      return newUser.data;
     } catch (error) {
-      console.log(error.message)
+      console.log(error.message);
     }
   }
-)
+);
 
 const userSlice = createSlice({
   name: "users",
@@ -77,7 +73,7 @@ const userSlice = createSlice({
       })
       .addCase(fetchSingleUser.fulfilled, (state, action) => {
         state.singleUser = action.payload;
-      })
+      });
   },
 });
 

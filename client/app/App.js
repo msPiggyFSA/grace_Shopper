@@ -8,7 +8,7 @@ import "./body.css";
 const App = () => {
   return (
     <div className="body-ig">
-      <Navbar />
+      {/* <Navbar /> */}
       <ReactRoutes />
     </div>
     //  <><Footer /></>

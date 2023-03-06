@@ -1,10 +1,13 @@
 body {
-  height: 90vh;
+  height: 80vh;
   background-color: #000;
+  color: white;
+  width: 99%;
 }
 
 .body-ig {
   min-height: 100%;
+  /* min-width: 100%; */
 }
 
 #app {
