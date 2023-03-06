@@ -1,13 +1,16 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const initialState = { users: [], singleUser: [] };
+const initialState = { users: [], singleUser: [], userCarts: []};
 
 export const fetchAllUsers = createAsyncThunk("allusers", async () => {
   try {
     const response = await axios.get("http://localhost:8080/api/users");
     const data = response.data;
-    console.log("######THIS IS######", data);
+    console.log("######THIS IS###### CARTS", data);
+    const cart = data.map((user) => { return user.carts})
+
+    console.log("######THIS IS####", cart);
     return data;
   } catch (error) {
     console.log(error);
@@ -45,6 +48,20 @@ export const editUserProfile = createAsyncThunk(
   }
 );
 
+export const fetchAllUserCarts = createAsyncThunk("allusercarts", async () => {
+  try {
+    const response = await axios.get("http://localhost:8080/api/users/:id");
+    const data = response.data;
+    console.log("######THIS IS### DATA", data);
+    const userCarts = data.map((user) => { return user.carts})
+
+    console.log("######THIS IS####### CARTS", userCarts);
+    return userCarts;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 export const createNewUser = createAsyncThunk(
   'createUser',
   async({form})=>{
@@ -80,6 +97,12 @@ const userSlice = createSlice({
       })
       .addCase(editUserProfile.fulfilled, (state, action) => {
         state.singleUser = action.payload;
+      })
+      .addCase(fetchAllUserCarts.pending, (state, action) => {
+        state.userCarts = {};
+      })
+      .addCase(fetchAllUserCarts.fulfilled, (state, action) => {
+        state.userCarts = action.payload;
       })
   },
 });

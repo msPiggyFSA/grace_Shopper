@@ -18,6 +18,7 @@ import { AnimatePresence } from "framer-motion";
 import { useSelector } from "react-redux";
 import AdminSingleUser from "../admin/AdminSingleUser";
 import AdminAllUserView from "../admin/AdminAllUserView";
+import UserOrderHistory from "../user/UserOrderHistory";
 
 const ReactRoute = () => {
   const isAdmin = useSelector((state) => state.auth.me.admin)===true;
@@ -45,6 +46,7 @@ const ReactRoute = () => {
 				/>
         <Route path="/edit/users/:id" element={<EditUserProfilePage />} />
 				<Route path="/users/:id" element={<UserProfile />} />
+				<Route path="/orders/users/:id" element={<UserOrderHistory />} />
 				{isLoggedIn && isAdmin ? (
 					<>
 						<Route path="/addprod" element={<AddProduct />} />
