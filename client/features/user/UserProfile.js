@@ -7,7 +7,7 @@ import { fetchSingleUser, userActions } from "../../app/slices/userSlice";
 import UserNavbar from "./UserNavbar"
 
 
-const UserProfile = (props) => {
+const UserProfile = () => {
   const navigate = useNavigate();
   const params = useParams();
   const dispatch = useDispatch();
@@ -29,13 +29,13 @@ const UserProfile = (props) => {
       {/*Add user profile tab to navbar, add order history, cart, edit profile page as subcats*/}
       <h1>Your Account</h1>
       <UserNavbar />
-      <p>Username: {user.username}</p>
       <p>First Name: {user.fName}</p>
       <p>Last Name: {user.lName}</p>
+      <p>Username: {user.username}</p>
       <p>Email: {user.email}</p>
-      <p>Password: </p>
-      <p>Shipping Address:</p>
-      <p>Billing Address:</p>
+      <p>Password: PASSWORD PLACE HOLDER</p>
+      <p>Shipping Address: {user.billing}</p>
+      <p>Billing Address: {user.shipping}</p>
       {/* If loggin = false display error msg*/}
         <p> Sorry, It doesn't seem like you're logged in. Login or Sign Up. Otherwise, click here to return Home.</p>
     </div>

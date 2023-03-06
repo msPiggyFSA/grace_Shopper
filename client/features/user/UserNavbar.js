@@ -1,13 +1,17 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import { logout } from "../../app/store";
+import { useDispatch } from "react-redux";
+import { Link, useParams } from "react-router-dom";
 
 
 const UserNavbar = () => {
+  const params = useParams()
+
+  console.log(params)
   return (
   <div>
-    <p>Edit Profile</p>
+    <Link to = {`/edit/users/${params.id}`} className="nav-link">
+          Edit Profile
+    </Link>
     <p>View Order History</p>
   </div>
   )

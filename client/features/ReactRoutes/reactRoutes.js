@@ -13,6 +13,7 @@ import SignUpForm from "../auth/SignUpForm";
 // import CartProducts from "../cart/CartProduct";
 import EditProduct from "../admin/EditProduct";
 import UserProfile from "../user/UserProfile";
+import EditUserProfilePage from "../user/EditUserProfilePage";
 import { AnimatePresence } from "framer-motion";
 import { useSelector } from "react-redux";
 import AdminSingleUser from "../admin/AdminSingleUser";

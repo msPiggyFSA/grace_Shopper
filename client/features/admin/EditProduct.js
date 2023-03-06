@@ -1,14 +1,25 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
-
-import { editProduct } from '../../app/slices/productsSlice';
+import { editProduct, fetchSingleProduct } from '../../app/slices/productsSlice';
 
 function EditProduct() {
-	const params = useParams().id;
+	const params = useParams();
+
   const[id, setId] = useState('')
 
 	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(fetchSingleProduct(params.id));
+	}, [form]);
+
+	const product = useSelector((state) => {
+		return state.products.singleProduct;
+	});
+
+	useEffect(() => {setForm(product)}, [product]);
+
 	const [form, setForm] = useState({
 		name: "",
 		imageUrl: "",
