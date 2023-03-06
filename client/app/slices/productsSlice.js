@@ -46,9 +46,9 @@ async({form, params})=>{
   console.log(params, 'this is id in slice')
   console.log(form, 'this is forms in slice')
   try {
-    await axios.put(`http://localhost:8080/api/products/${params}`, form);
+    await axios.put(`http://localhost:8080/api/products/${params.id}`, form);
   } catch (error) {
-    
+
     console.log(error.message)
   }
 }

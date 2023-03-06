@@ -17,6 +17,8 @@ const users = [
     password: "password",
     email: "johndoe@example.com",
     admin: true,
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "Jane",
@@ -24,6 +26,8 @@ const users = [
     username: "janedoe",
     password: "password",
     email: "janedoe@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "Bob",
@@ -31,6 +35,8 @@ const users = [
     username: "bobsmith",
     password: "password",
     email: "bobsmith@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "Alice",
@@ -38,6 +44,8 @@ const users = [
     username: "alicejones",
     password: "password",
     email: "alicejones@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "Mike",
@@ -45,6 +53,8 @@ const users = [
     username: "mikejohnson",
     password: "password",
     email: "mikejohnson@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "Sarah",
@@ -52,6 +62,8 @@ const users = [
     username: "sarahdavis",
     password: "password",
     email: "sarahdavis@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "David",
@@ -59,6 +71,8 @@ const users = [
     username: "davidbrown",
     password: "password",
     email: "davidbrown@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "Karen",
@@ -66,6 +80,8 @@ const users = [
     username: "karentaylor",
     password: "password",
     email: "karentaylor@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "Chris",
@@ -73,6 +89,8 @@ const users = [
     username: "chriswilson",
     password: "password",
     email: "chriswilson@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "Amy",
@@ -80,6 +98,8 @@ const users = [
     username: "amymartinez",
     password: "password",
     email: "amymartinez@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "Ryan",
@@ -87,6 +107,8 @@ const users = [
     username: "ryananderson",
     password: "password",
     email: "ryananderson@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "Kelly",
@@ -94,6 +116,8 @@ const users = [
     username: "kellyclark",
     password: "password",
     email: "kellyclark@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "Mark",
@@ -101,6 +125,8 @@ const users = [
     username: "markperez",
     password: "password",
     email: "markperez@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "Laura",
@@ -108,6 +134,8 @@ const users = [
     username: "lauragarcia",
     password: "password",
     email: "lauragarcia@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "Eric",
@@ -115,6 +143,8 @@ const users = [
     username: "ericrivera",
     password: "password",
     email: "ericrivera@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
 ];
 //raza

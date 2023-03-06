@@ -4,9 +4,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import { fetchSingleUser, userActions } from "../../app/slices/userSlice";
+import UserNavbar from "../user/UserNavbar"
 
 
-const AdminSingleUser = (props) => {
+const AdminSingleUser = () => {
 	const navigate = useNavigate();
 	const params = useParams();
 	const dispatch = useDispatch();
@@ -27,6 +28,7 @@ const AdminSingleUser = (props) => {
 			{/* If loggin = true show user profile with editing options*/}
 			{/*Add user profile tab to navbar, add order history, cart, edit profile page as subcats*/}
 			<h1>User Information</h1>
+			<UserNavbar />
 			<p>Username: {user.username}</p>
 			<p>First Name: {user.fName}</p>
 			<p>Last Name: {user.lName}</p>

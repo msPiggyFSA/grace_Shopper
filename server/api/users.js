@@ -30,7 +30,7 @@ router.post('/', async(req, res, next)=>{
 router.get("/:id", async (req, res) => {
   try {
     const user = await User.findByPk(req.params.id, {
-      attributes: ["id", "username", "email", "fName", "lName"],
+      attributes: ["id", "username", "email", "fName", "lName", "billing", "shipping"],
       include: Cart,
     });
     res.send(user);
@@ -41,6 +41,18 @@ router.get("/:id", async (req, res) => {
     });
   }
 });
+
+router.patch('/:id', async(req, res)=>{
+  try {
+    res.status(201).set(await User.update(req.body, {
+      where:{
+        id: req.params.id
+      }
+    }))
+  } catch (error) {
+    console.log(error.message)
+  }
+})
 
 
 
