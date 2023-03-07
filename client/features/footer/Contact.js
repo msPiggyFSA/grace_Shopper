@@ -50,13 +50,8 @@ const Contact = () => {
           <label htmlFor="message">Message:</label>
           <textarea id="message" required />
         </div>
-        <motion.div
-          whileHover={{
-            y: 1000,
-          }}
-        >
-          <button type="submit">{status}</button>
-        </motion.div>
+
+        <button type="submit">{status}</button>
       </form>
     </motion.div>
   );

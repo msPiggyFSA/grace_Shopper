@@ -18,7 +18,7 @@ const Navbar = () => {
     return state.cart.currentCart;
   });
 
-  console.log("#########################CURRENT USER",currentUser);
+  console.log("#########################CURRENT USER", currentUser);
 
   const total = currentCart.map((product) => {
     return product.price;
@@ -92,13 +92,16 @@ const Navbar = () => {
                 Logout
               </button> */}
               <Link to={`/admin/users/${currentUser.id}`} className="nav-link">
-              Account
-            </Link>
+                Account
+              </Link>
               <Link to="/addprod" className="nav-link">
                 add new product
               </Link>
               <Link to="/admin/viewAllUsers" className="nav-link">
                 view all users
+              </Link>
+              <Link to="/feedback" className="nav-link">
+                Feedback
               </Link>
               <button type="button" onClick={logoutAndRedirectHome}>
                 Logout
