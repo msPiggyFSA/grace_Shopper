@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk, current } from "@reduxjs/toolkit";
 import axios from "axios";
 const initialState = {
   currentCart: [],
+  currentCartInfo: {},
   allCarts: [],
   allCartProducts: [],
   fulfilled: [],
@@ -37,7 +38,9 @@ export const fetchAllCartProducts = createAsyncThunk(
         "http://localhost:8080/api/cartProducts"
       );
       return response.data;
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   }
 );
 
@@ -63,7 +66,7 @@ const cartSlice = createSlice({
       state.currentCart.length = 0;
       state.userfulfilled.length = 0;
       state.fulfilled.flat().forEach((order) => {
-        console.log(current(order).userId);
+        // console.log(current(order).userId);
         if (current(order).userId === action.payload) {
           state.userfulfilled.push(current(order));
         }
@@ -75,6 +78,8 @@ const cartSlice = createSlice({
         console.log(action.payload);
 
         if (current(order).userId === action.payload) {
+          state.currentCartInfo = current(order);
+
           state.allCartProducts.flat().forEach((prod) => {
             console.log(current(prod));
             if (current(order).id === current(prod).cartId) {
