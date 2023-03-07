@@ -1,40 +1,42 @@
-import { response } from "express";
 import React from "react";
+import contact from "./Contact";
 import { useState, useEffect } from "react";
-import "./Feedback.css";
+import "../footer/Feedback.css";
+import { useNavigate } from "react-router-dom";
 
 const Feedback = () => {
+  const navigate = useNavigate();
+  // return <div>Refund Page</div>;
   console.log("hello Feedback");
+
   const [feedback, setFeedback] = useState([]);
 
-  useEffect(async () => {
-    // make async call
-    const data = await axios.get("/api/contact");
-    console.log(data.data);
-    setFeedback((prev) => {
-      return [...data.data];
-    })();
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch("/api/contact");
+      const json = await response.json();
+      setFeedback(json);
+    }
+
+    fetchData();
   }, []);
 
-  // const response = await fetch("/api/contact");
-  // const Feedbackjson = await response.json();
-  // console.log("contcat inside feedback", Feedbackjson);
-
-  // setFeedback(Feedbackjson.data);
+  console.log("jasonnn", feedback);
 
   return (
-    <div className="new">
-      {feedback && (
-        <>
-          <div className="card">
-            <h1>Name: {feedback.name}</h1>
-            <p>Email: {feedback.email}</p>
-            <p>Message: {feedback.message}</p>
+    <>
+      {feedback.map((comp) => {
+        console.log(comp);
+
+        return (
+          <div className="feedback-card">
+            <h1>Name: {comp.name}</h1>
+            <p>Email: {comp.email}</p>
+            <p>Message: {comp.message}</p>
           </div>
-        </>
-      )}
-    </div>
+        );
+      })}
+    </>
   );
 };
-
 export default Feedback;
