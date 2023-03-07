@@ -1,7 +1,7 @@
 .main-container {
   width: 350px;
-  height: 500px;
-  background: #14213d;
+  height: 650px;
+  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 5px 20px 50px #000;
@@ -60,11 +60,11 @@
   cursor: pointer;
 }
 .btn-form:hover {
-  background: #6d44b8;
+  background: #14213d;
 }
 .login {
   height: 400px;
-  background: #fca311;
+  background-image: linear-gradient(144deg, #000, #e5e5e5 50%, #000);
   border-radius: 60% / 10%;
   transform: translateY(-180px);
   transition: 0.8s ease-in-out;

@@ -4,10 +4,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { cartActions } from "../../app/slices/cartSlice";
 
+// import {useStripe, CardElement, useElements} from '@stripe/react-stripe-js'
+
+
+
 const Checkout = (props) => {
   //navigate to end of transactiopn page "thank you for shopping, click here to return to homepage" or "...click here to continue shopping"
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
 
   const currentCart = useSelector((state) => {
     return state.cart.currentCart;
@@ -29,9 +34,11 @@ const Checkout = (props) => {
   }, 0);
 
   const checkoutHandler = async () => {
-    console.log(currentUser);
-    console.log(currentCart);
+    
+    console.log(currentUser, 'currentUser');
+    console.log(currentCart, 'current cart');
     console.log(allUsersProducts);
+
     try {
       const cart = await axios.post("/api/carts", {
         purchased: true,
@@ -52,6 +59,7 @@ const Checkout = (props) => {
       console.log(err);
     }
     dispatch(cartActions.checkedOut());
+    // navigate("/home");
   };
 
   const handleStripe = async()=>{
@@ -82,7 +90,11 @@ const Checkout = (props) => {
 
   //use navigate to go to new page thank purchase
 
-  return <button onClick={checkoutHandler}>Checkout</button>;
+  return (
+  // <form onSubmit={handleStripe}>
+  <button type="submit" onClick={()=>{checkoutHandler(); handleStripe();}}>Checkout</button>
+  // </form>
+  )
 };
 
 export default Checkout;

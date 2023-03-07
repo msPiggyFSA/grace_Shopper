@@ -6,6 +6,7 @@ const Category = require("./models/Category");
 const Product = require("./models/Product");
 const CartProduct = require("./models/CartProduct");
 const User = require("./models/User");
+const Contact = require("./models/Contact");
 
 //associations could go here!
 
@@ -23,8 +24,8 @@ Product.belongsToMany(Cart, {
   constraints: false,
 });
 
-Cart.hasMany(CartProduct, {foreignKey: "cartId"})
-CartProduct.belongsTo(Cart)
+Cart.hasMany(CartProduct, { foreignKey: "cartId" });
+CartProduct.belongsTo(Cart);
 
 //column carts->Cart_Product.CartProductCartId does not exist
 //CartProduct.belongsToMany(Cart, { through: "Cart_Product" });
@@ -58,5 +59,6 @@ module.exports = {
     Category,
     Cart,
     CartProduct,
+    Contact,
   },
 };

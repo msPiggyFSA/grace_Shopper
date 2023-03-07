@@ -5,22 +5,26 @@ import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import { fetchSingleUser, userActions } from "../../app/slices/userSlice";
 import UserNavbar from "./UserNavbar"
+import { fetchAllCarts } from "../../app/slices/cartSlice";
 
 
-const UserProfile = () => {
+const UserOrderHistory = () => {
   const navigate = useNavigate();
   const params = useParams();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchSingleUser(params.id));
+    dispatch(fetchAllCarts(params.id));
   }, []);
 
-    const user = useSelector((state) => {
-    return state.users.singleUser;
+    const orders = useSelector((state) => {
+    return state.carts;
     });
 
-      console.log("##############################single user", user);
+
+  console.log(params)
+  console.log("carts babyyyyyyyyyy", orders)
+
 
   return (
     <div>
@@ -29,17 +33,18 @@ const UserProfile = () => {
       {/*Add user profile tab to navbar, add order history, cart, edit profile page as subcats*/}
       <h1>Your Account</h1>
       <UserNavbar />
-      <p>First Name: {user.fName}</p>
-      <p>Last Name: {user.lName}</p>
-      <p>Username: {user.username}</p>
-      <p>Email: {user.email}</p>
-      <p>Password: PASSWORD PLACE HOLDER</p>
-      <p>Shipping Address: {user.billing}</p>
-      <p>Billing Address: {user.shipping}</p>
+      {orders.map((order)=>{
+          return(
+            <div>
+              {order.createdAt}
+            </div>
+          )
+        })}
+
       {/* If loggin = false display error msg*/}
         <p> Sorry, It doesn't seem like you're logged in. Login or Sign Up. Otherwise, click here to return Home.</p>
     </div>
   );
 };
 
-export default UserProfile;
+export default UserOrderHistory;

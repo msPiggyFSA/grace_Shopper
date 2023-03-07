@@ -8,6 +8,7 @@ const Cart = require("../server/db/models/Cart");
 const CartProduct = require("../server/db/models/CartProduct");
 const Category = require("../server/db/models/Category");
 const Product = require("../server/db/models/Product");
+const Contact = require("../server/db/models/Contact");
 
 const users = [
   {
@@ -17,6 +18,8 @@ const users = [
     password: "password",
     email: "johndoe@example.com",
     admin: true,
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "Jane",
@@ -24,6 +27,8 @@ const users = [
     username: "janedoe",
     password: "password",
     email: "janedoe@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "Bob",
@@ -31,6 +36,8 @@ const users = [
     username: "bobsmith",
     password: "password",
     email: "bobsmith@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "Alice",
@@ -38,6 +45,8 @@ const users = [
     username: "alicejones",
     password: "password",
     email: "alicejones@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "Mike",
@@ -45,6 +54,8 @@ const users = [
     username: "mikejohnson",
     password: "password",
     email: "mikejohnson@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "Sarah",
@@ -52,6 +63,8 @@ const users = [
     username: "sarahdavis",
     password: "password",
     email: "sarahdavis@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "David",
@@ -59,6 +72,8 @@ const users = [
     username: "davidbrown",
     password: "password",
     email: "davidbrown@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "Karen",
@@ -66,6 +81,8 @@ const users = [
     username: "karentaylor",
     password: "password",
     email: "karentaylor@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "Chris",
@@ -73,6 +90,8 @@ const users = [
     username: "chriswilson",
     password: "password",
     email: "chriswilson@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "Amy",
@@ -80,6 +99,8 @@ const users = [
     username: "amymartinez",
     password: "password",
     email: "amymartinez@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "Ryan",
@@ -87,6 +108,8 @@ const users = [
     username: "ryananderson",
     password: "password",
     email: "ryananderson@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "Kelly",
@@ -94,6 +117,8 @@ const users = [
     username: "kellyclark",
     password: "password",
     email: "kellyclark@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "Mark",
@@ -101,6 +126,8 @@ const users = [
     username: "markperez",
     password: "password",
     email: "markperez@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "Laura",
@@ -108,6 +135,8 @@ const users = [
     username: "lauragarcia",
     password: "password",
     email: "lauragarcia@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
   {
     fName: "Eric",
@@ -115,6 +144,8 @@ const users = [
     username: "ericrivera",
     password: "password",
     email: "ericrivera@example.com",
+    billing: "1111 Cardboard Box",
+    shipping: "1111 Cardboard Box",
   },
 ];
 //raza
@@ -236,6 +267,18 @@ const categories = [
   // { name: "Bottom" },
   // { name: "Glasses" },
 ];
+const contact = [
+  {
+    name: "John",
+    email: "johndoe@example.com",
+    message: "hello i am your new customer and i was at the store today",
+  },
+  {
+    name: "Jane",
+    email: "janedoe@example.com",
+    message: "hello i am your new customer and i was at the store today",
+  },
+];
 
 const cart_product = [
   { cartId: 1, productId: 1 },
@@ -279,6 +322,13 @@ const seed = async () => {
     await Promise.all(
       cart_product.map((cart) => {
         return CartProduct.create(cart);
+      })
+    );
+
+    await Promise.all(
+      contact.map((cont) => {
+        console.log("Single Cont:", cont);
+        return Contact.create(cont);
       })
     );
 
