@@ -160,7 +160,6 @@ const Combined = () => {
               placeholder="Shipping Address"
             />
 
-
             <input
               name="shipping"
               type="checkbox"
@@ -168,7 +167,9 @@ const Combined = () => {
               onChange={changeValue("shipping")}
               className="form-input"
             />
-            <label for="shipping"><small>My billing and shipping address are the same</small></label>
+            <label htmlFor="shipping">
+              <small>My billing and shipping address are the same</small>
+            </label>
 
             <button type="submit" className="btn-form">
               Sign Up
