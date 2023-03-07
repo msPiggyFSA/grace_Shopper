@@ -24,6 +24,7 @@
     "@stripe/stripe-js": "^1.48.0",
     "bcrypt": "^5.1.0",
     "compression": "^1.7.4",
+    "cors": "^2.8.5",
     "css-loader": "^6.7.3",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",

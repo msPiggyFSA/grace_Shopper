@@ -2,7 +2,21 @@ const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
 const app = express();
+import cors from "cors";
 
+
+app.use(cors());
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE"
+    );
+    res.header("Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    );
+    next();
+})
 // logging middleware
 app.use(morgan("dev"));
 
