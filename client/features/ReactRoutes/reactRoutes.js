@@ -19,21 +19,17 @@ import { useSelector } from "react-redux";
 import AdminSingleUser from "../admin/AdminSingleUser";
 import AdminAllUserView from "../admin/AdminAllUserView";
 import Combined from "../auth/Combined.js";
-<<<<<<< HEAD
 import Feedback from "../footer/Feedback";
-=======
 import OrderHistory from "../cart/OrderHistory";
 import SingleOrder from "../cart/SingleOrder";
 import CheckoutSuccess from "../cart/checkoutConfirm/CheckoutSuccess";
 import CheckoutUnsuccess from "../cart/checkoutConfirm/CheckoutUnsuccess";
->>>>>>> e6c438feb6aabd9929c8c2f5d21af90b566d1c9a
 
 const ReactRoute = () => {
   const isAdmin = useSelector((state) => state.auth.me.admin) === true;
   const location = useLocation();
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   return (
-<<<<<<< HEAD
     <AnimatePresence node="wait">
       <Routes location={location} key={location.key}>
         <Route path="/" element={<Home />} />
@@ -72,52 +68,6 @@ const ReactRoute = () => {
       </Routes>
     </AnimatePresence>
   );
-=======
-		<AnimatePresence node="wait">
-			<Routes location={location} key={location.key}>
-				<Route path="/" element={<Home />} />
-				<Route path="/home" element={<Home />} />
-				<Route path="/contact" element={<Contact />} />
-				<Route path="/about" element={<About />} />
-				<Route path="/refund" element={<Refund />} />
-				<Route path="/product/:id" element={<SingleProductView />} />
-				<Route path="/category/:id" element={<Category />} />
-				<Route path="/cart" element={<CartView />} />
-				{/* <Route path="/cartProducts" element={<CartProducts />} /> */}
-				<Route path="/login" element={<Combined />} />
-				<Route path="/signup" element={<Combined />} />
-				{/* <Route path="/users/:id" element={<UserProfile />} />
-				<Route path="/pastorders" element={<OrderHistory />} />
-				<Route path="/pastorders/:id" element={<SingleOrder />} /> */}
-				<Route path="order/success" element={<CheckoutSuccess/>} />
-				<Route path="order/unsuccess" element={<CheckoutUnsuccess/>}/>
-				{isLoggedIn && isAdmin ? (
-					<>
-						<Route path="/addprod" element={<AddProduct />} />
-						<Route path="/product/edit/:id" element={<EditProduct />} />
-						<Route path="/users/:id" element={<UserProfile />} />
-						<Route path="/admin/viewAllUsers" element={<AdminAllUserView />} />
-						<Route path="/admin/users/:id" element={<AdminSingleUser />} />
-						<Route
-							path="/admin/edit/users/:id"
-							element={<EditUserProfilePage />}
-						/>
-					</>
-				) : isLoggedIn ? (
-					<>
-						<Route path="/users/:id" element={<UserProfile />} />
-						<Route path="/edit/users/:id" element={<EditUserProfilePage />} />
-            <Route path="/users/:id" element={<UserProfile />} />
-            <Route path="/pastorders" element={<OrderHistory />} />
-            <Route path="/pastorders/:id" element={<SingleOrder />} />
-					</>
-				) : (
-					<></>
-				)}
-			</Routes>
-		</AnimatePresence>
-	);
->>>>>>> e6c438feb6aabd9929c8c2f5d21af90b566d1c9a
 };
 
 export default ReactRoute;

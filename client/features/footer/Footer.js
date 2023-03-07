@@ -14,12 +14,11 @@ const Footer = () => {
         <Link to="/contact" className="footer-link">
           Contact
         </Link>
-{/* 
         {
           <Link to="/feedback" className="footer-link">
             Feedback
           </Link>
-        } */}
+        }
       </div>
       <div className="logo-container">
         <ExternalLink href="https://www.twitter.com">

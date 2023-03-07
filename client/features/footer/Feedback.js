@@ -33,7 +33,10 @@ const Feedback = () => {
             <h1>Name: {comp.name}</h1>
             <p>Email: {comp.email}</p>
             <p>Message: {comp.message}</p>
+            <button>Delete</button>
+            
           </div>
+         
         );
       })}
     </>
