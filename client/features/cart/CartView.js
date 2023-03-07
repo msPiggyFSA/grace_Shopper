@@ -22,6 +22,7 @@ const CartView = (props) => {
   const me = useSelector((state) => {
     return state.auth.me;
   });
+  const isLoggedIn = useSelector((state) => !!state.auth.me.id);
 
   const allCarts = useSelector((state) => {
     return state.cart.allCarts.flat();
@@ -51,7 +52,9 @@ const CartView = (props) => {
       exit="exit"
       className="cart-container"
     >
-      <button onClick={orderBtnHandler}>View Past Orders!</button>
+      {isLoggedIn && (
+        <button onClick={orderBtnHandler}>View Past Orders!</button>
+      )}
       <div className="product-container">
         {currentCart.map((product) => {
           console.log(userfullfilled);

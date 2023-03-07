@@ -3,7 +3,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 const Contact = () => {
-
   const [status, setStatus] = useState("Submit");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -51,7 +50,13 @@ const Contact = () => {
           <label htmlFor="message">Message:</label>
           <textarea id="message" required />
         </div>
-        <button type="submit">{status}</button>
+        <motion.div
+          whileHover={{
+            y: 1000,
+          }}
+        >
+          <button type="submit">{status}</button>
+        </motion.div>
       </form>
     </motion.div>
   );

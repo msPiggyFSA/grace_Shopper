@@ -6,13 +6,10 @@ import { cartActions } from "../../app/slices/cartSlice";
 
 // import {useStripe, CardElement, useElements} from '@stripe/react-stripe-js'
 
-
-
 const Checkout = (props) => {
   //navigate to end of transactiopn page "thank you for shopping, click here to return to homepage" or "...click here to continue shopping"
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
 
   const currentCart = useSelector((state) => {
     return state.cart.currentCart;
@@ -34,9 +31,8 @@ const Checkout = (props) => {
   }, 0);
 
   const checkoutHandler = async () => {
-    
-    console.log(currentUser, 'currentUser');
-    console.log(currentCart, 'current cart');
+    console.log(currentUser, "currentUser");
+    console.log(currentCart, "current cart");
     console.log(allUsersProducts);
 
     try {
@@ -59,42 +55,54 @@ const Checkout = (props) => {
       console.log(err);
     }
     dispatch(cartActions.checkedOut());
+    dispatch(fetchAllCartProducts());
+    dispatch(fetchAllProducts());
+    dispatch(fetchAllCarts());
+    dispatch(fetchAllThemMF());
+
     // navigate("/home");
   };
 
-  const handleStripe = async()=>{
-
-    console.log(currentUser, 'currentUser');
-    console.log(currentCart, 'current cart');
+  const handleStripe = async () => {
+    console.log(currentUser, "currentUser");
+    console.log(currentCart, "current cart");
     console.log(allUsersProducts);
     fetch("http://localhost:8080/api/create-checkout-session", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				items: currentCart,
-			}),
-		})
-			.then((res) => {
-				if (res.ok) return res.json();
-				return res.json().then((json) => Promise.reject(json));
-			})
-			.then(({ url }) => {
-				window.location = url;
-			})
-			.catch((e) => {
-				console.log(e.error);
-			});
-  }
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        items: currentCart,
+      }),
+    })
+      .then((res) => {
+        if (res.ok) return res.json();
+        return res.json().then((json) => Promise.reject(json));
+      })
+      .then(({ url }) => {
+        window.location = url;
+      })
+      .catch((e) => {
+        console.log(e.error);
+      });
+  };
 
   //use navigate to go to new page thank purchase
 
   return (
-  // <form onSubmit={handleStripe}>
-  <button type="submit" onClick={()=>{checkoutHandler(); handleStripe();}}>Checkout</button>
-  // </form>
-  )
+    // <form onSubmit={handleStripe}>
+    <button
+      type="submit"
+      onClick={() => {
+        checkoutHandler();
+        handleStripe();
+      }}
+    >
+      Checkout
+    </button>
+    // </form>
+  );
 };
 
 export default Checkout;

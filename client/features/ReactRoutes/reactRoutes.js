@@ -42,9 +42,9 @@ const ReactRoute = () => {
 				{/* <Route path="/cartProducts" element={<CartProducts />} /> */}
 				<Route path="/login" element={<Combined />} />
 				<Route path="/signup" element={<Combined />} />
-				<Route path="/users/:id" element={<UserProfile />} />
+				{/* <Route path="/users/:id" element={<UserProfile />} />
 				<Route path="/pastorders" element={<OrderHistory />} />
-				<Route path="/pastorders/:id" element={<SingleOrder />} />
+				<Route path="/pastorders/:id" element={<SingleOrder />} /> */}
 				<Route path="order/success" element={<CheckoutSuccess/>} />
 				<Route path="order/unsuccess" element={<CheckoutUnsuccess/>}/>
 				{isLoggedIn && isAdmin ? (
@@ -63,6 +63,9 @@ const ReactRoute = () => {
 					<>
 						<Route path="/users/:id" element={<UserProfile />} />
 						<Route path="/edit/users/:id" element={<EditUserProfilePage />} />
+            <Route path="/users/:id" element={<UserProfile />} />
+            <Route path="/pastorders" element={<OrderHistory />} />
+            <Route path="/pastorders/:id" element={<SingleOrder />} />
 					</>
 				) : (
 					<></>
