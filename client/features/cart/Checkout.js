@@ -34,7 +34,7 @@ const Checkout = (props) => {
   }, 0);
 
   const checkoutHandler = async () => {
-    
+
     console.log(currentUser, 'currentUser');
     console.log(currentCart, 'current cart');
     console.log(allUsersProducts);
@@ -67,7 +67,7 @@ const Checkout = (props) => {
     console.log(currentUser, 'currentUser');
     console.log(currentCart, 'current cart');
     console.log(allUsersProducts);
-    fetch("http://localhost:8080/api/create-checkout-session", {
+    fetch("http://localhost:10000/api/create-checkout-session", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",

@@ -50,7 +50,7 @@ export const editUserProfile = createAsyncThunk(
 
 export const fetchAllUserCarts = createAsyncThunk("allusercarts", async () => {
   try {
-    const response = await axios.get("http://localhost:8080/api/users/:id");
+    const response = await axios.get("http://localhost:10000/api/users/:id");
     const data = response.data;
     console.log("######THIS IS### DATA", data);
     const userCarts = data.map((user) => {
