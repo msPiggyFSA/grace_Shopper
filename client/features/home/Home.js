@@ -50,10 +50,13 @@ const Home = (props) => {
     >
       <h3 className="welcome-msg">Welcome, {username}</h3>
       <div className="product-container">
-        {products &&
+        {products ? (
           products.map((product) => {
             return <SingleProduct key={uuidv4()} props={product} />;
-          })}
+          })
+        ) : (
+          <div>Nothing to see here</div>
+        )}
       </div>
     </motion.div>
   );

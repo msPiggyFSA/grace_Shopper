@@ -44,53 +44,37 @@ const SingleProduct = (props) => {
           }
         }}
       >
-        <div className="content">
-          <span className="icon">JUST IN</span>
-          <img src={product.imageUrl} className="product-img" />
+        {product && (
+          <div className="content">
+            <span className="icon">JUST IN</span>
+            <img src={product.imageUrl} className="product-img" />
 
-          <h1>{product.name}</h1>
-          <p className="prod-description">{product.description}</p>
+            <h1>{product.name}</h1>
+            <p className="prod-description">{product.description}</p>
 
-          <div className="prod-button">
-            <p>${product.price}</p>
-            <p>
-              {admin === true ? (
-                <>
-                  <button onClick={() => handleDelete(product.id)}>X</button>
-                  <button>
-                    <Link to={`/product/edit/${product.id}`}>EditProduct</Link>
-                  </button>
-                </>
-              ) : props.cart === "cart" ? (
-                <CartDelete props={product} />
-              ) : (
-                <Add2Cart props={product} />
-              )}
-            </p>
+            <div className="prod-button">
+              <p>${product.price}</p>
+              <p>
+                {admin === true ? (
+                  <>
+                    <button onClick={() => handleDelete(product.id)}>X</button>
+                    <button>
+                      <Link to={`/product/edit/${product.id}`}>
+                        EditProduct
+                      </Link>
+                    </button>
+                  </>
+                ) : props.cart === "cart" ? (
+                  <CartDelete props={product} />
+                ) : (
+                  <Add2Cart props={product} />
+                )}
+              </p>
+            </div>
           </div>
-        </div>
+        )}
       </motion.div>
     </div>
-
-    // <div className="product-list">
-    //   <div onClick={() => navigate(`/product/${product.id}`)}>
-    //     {product.name}: ${product.price}
-    //   </div>
-
-    //   {admin === true ? (
-    //     <>
-    //       <Add2Cart props={product} />{" "}
-    //       <button onClick={() => handleDelete(product.id)}>X</button>
-    //       <button>
-    //         <Link to={`/product/edit/${product.id}`}>EditProduct</Link>
-    //       </button>
-    //     </>
-    //   ) : props.cart === "cart" ? (
-    //     <CartDelete props={product} />
-    //   ) : (
-    //     <Add2Cart props={product} />
-    //   )}
-    // </div>
   );
 };
 

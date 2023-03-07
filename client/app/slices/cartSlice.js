@@ -73,10 +73,6 @@ const cartSlice = createSlice({
       });
 
       state.unfulfilled.flat().forEach((order) => {
-        console.log(current(order));
-        console.log(current(state.allCartProducts));
-        console.log(action.payload);
-
         if (current(order).userId === action.payload) {
           state.currentCartInfo = current(order);
 
