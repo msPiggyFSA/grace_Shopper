@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { cartActions } from "../../app/slices/cartSlice";
 
+// import {useStripe, CardElement, useElements} from '@stripe/react-stripe-js'
+
 const Checkout = (props) => {
   //navigate to end of transactiopn page "thank you for shopping, click here to return to homepage" or "...click here to continue shopping"
   const navigate = useNavigate();
@@ -29,9 +31,10 @@ const Checkout = (props) => {
   }, 0);
 
   const checkoutHandler = async () => {
-    console.log(currentUser);
-    console.log(currentCart);
+    console.log(currentUser, "currentUser");
+    console.log(currentCart, "current cart");
     console.log(allUsersProducts);
+
     try {
       const cart = await axios.post("/api/carts", {
         purchased: true,
@@ -52,12 +55,54 @@ const Checkout = (props) => {
       console.log(err);
     }
     dispatch(cartActions.checkedOut());
-    navigate("/home");
+    dispatch(fetchAllCartProducts());
+    dispatch(fetchAllProducts());
+    dispatch(fetchAllCarts());
+    dispatch(fetchAllThemMF());
+
+    // navigate("/home");
+  };
+
+  const handleStripe = async () => {
+    console.log(currentUser, "currentUser");
+    console.log(currentCart, "current cart");
+    console.log(allUsersProducts);
+    fetch("http://localhost:8080/api/create-checkout-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        items: currentCart,
+      }),
+    })
+      .then((res) => {
+        if (res.ok) return res.json();
+        return res.json().then((json) => Promise.reject(json));
+      })
+      .then(({ url }) => {
+        window.location = url;
+      })
+      .catch((e) => {
+        console.log(e.error);
+      });
   };
 
   //use navigate to go to new page thank purchase
 
-  return <button onClick={checkoutHandler}>Checkout</button>;
+  return (
+    // <form onSubmit={handleStripe}>
+    <button
+      type="submit"
+      onClick={() => {
+        checkoutHandler();
+        handleStripe();
+      }}
+    >
+      Checkout
+    </button>
+    // </form>
+  );
 };
 
 export default Checkout;

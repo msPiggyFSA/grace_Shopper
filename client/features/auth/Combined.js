@@ -6,6 +6,12 @@ import { motion } from "framer-motion";
 import { container } from "../variants.js";
 import "./css/Auth.css";
 import { createNewUser } from "../../app/slices/userSlice";
+import {
+  fetchAllCartProducts,
+  fetchAllCarts,
+  fetchAllThemMF,
+} from "../../app/slices/cartSlice";
+import { fetchAllProducts } from "../../app/slices/productsSlice";
 
 /**
   The AuthForm component can be used for Login or Sign Up.
@@ -33,6 +39,10 @@ const Combined = () => {
     const password = evt.target.password.value;
     console.log(username, password, formName);
     dispatch(authenticate({ username, password, method: formName }));
+    dispatch(fetchAllCartProducts());
+    dispatch(fetchAllProducts());
+    dispatch(fetchAllCarts());
+    dispatch(fetchAllThemMF());
     if (!error) {
       navigate("/home");
     } else {
@@ -160,7 +170,6 @@ const Combined = () => {
               placeholder="Shipping Address"
             />
 
-
             <input
               name="shipping"
               type="checkbox"
@@ -168,7 +177,9 @@ const Combined = () => {
               onChange={changeValue("shipping")}
               className="form-input"
             />
-            <label for="shipping"><small>My billing and shipping address are the same</small></label>
+            <label htmlFor="shipping">
+              <small>My billing and shipping address are the same</small>
+            </label>
 
             <button type="submit" className="btn-form">
               Sign Up
