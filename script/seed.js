@@ -8,6 +8,7 @@ const Cart = require("../server/db/models/Cart");
 const CartProduct = require("../server/db/models/CartProduct");
 const Category = require("../server/db/models/Category");
 const Product = require("../server/db/models/Product");
+const Contact = require("../server/db/models/Contact");
 
 const users = [
   {
@@ -266,6 +267,18 @@ const categories = [
   // { name: "Bottom" },
   // { name: "Glasses" },
 ];
+const contact = [
+  {
+    name: "John",
+    email: "johndoe@example.com",
+    message: "hello i am your new customer and i was at the store today",
+  },
+  {
+    name: "Jane",
+    email: "janedoe@example.com",
+    message: "hello i am your new customer and i was at the store today",
+  },
+];
 
 const cart_product = [
   { cartId: 1, productId: 1 },
@@ -309,6 +322,13 @@ const seed = async () => {
     await Promise.all(
       cart_product.map((cart) => {
         return CartProduct.create(cart);
+      })
+    );
+
+    await Promise.all(
+      contact.map((cont) => {
+        console.log("Single Cont:", cont);
+        return Contact.create(cont);
       })
     );
 

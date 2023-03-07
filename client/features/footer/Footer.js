@@ -14,6 +14,7 @@ const Footer = () => {
         <Link to="/contact" className="footer-link">
           Contact
         </Link>
+      
 
         {/* <Link to="/refund" className="footer-link">
           Refund
