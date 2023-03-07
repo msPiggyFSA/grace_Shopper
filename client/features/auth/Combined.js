@@ -49,6 +49,8 @@ const Combined = () => {
     const fName = evt.target.fName.value;
     const lName = evt.target.lName.value;
     const email = evt.target.email.value;
+    const shipping = evt.target.shipping.value;
+    const billing = evt.target.billing.value;
 
     dispatch(
       authenticate({
@@ -57,6 +59,8 @@ const Combined = () => {
         fName,
         lName,
         email,
+        shipping,
+        billing,
         method: formName,
       })
     );
@@ -137,6 +141,35 @@ const Combined = () => {
               className="form-input"
               placeholder="email"
             />
+
+            <input
+              name="billing"
+              type="billing"
+              value={form.billing}
+              onChange={changeValue("billing")}
+              className="form-input"
+              placeholder="Billing Address"
+            />
+
+            <input
+              name="shipping"
+              type="shipping"
+              value={form.shipping}
+              onChange={changeValue("shipping")}
+              className="form-input"
+              placeholder="Shipping Address"
+            />
+
+            <input
+              name="shipping"
+              type="checkbox"
+              value={form.billing}
+              onChange={changeValue("shipping")}
+              className="form-input"
+            />
+            <label htmlFor="shipping">
+              <small>My billing and shipping address are the same</small>
+            </label>
 
             <button type="submit" className="btn-form">
               Sign Up

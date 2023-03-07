@@ -18,6 +18,8 @@ const Navbar = () => {
     return state.cart.currentCart;
   });
 
+  console.log("#########################CURRENT USER",currentUser);
+
   const total = currentCart.map((product) => {
     return product.price;
   });
@@ -57,15 +59,15 @@ const Navbar = () => {
       className="navbar"
     >
       <h1 className="title">
-        Lets
+        THE
         <motion.span
           animate={{ color: ["#ff0000", "#000000"] }}
           transition={{ repeat: Infinity, duration: 1 }}
         >
           {" "}
-          F{" "}
+          AMAZON{" "}
         </motion.span>
-        Go!!!!
+        KILLER
       </h1>
       <nav className="nav-portion">
         <Link to="/home" className="nav-link">
@@ -89,10 +91,13 @@ const Navbar = () => {
               {/* <button type="button" onClick={logoutAndRedirectHome}>
                 Logout
               </button> */}
+              <Link to={`/admin/users/${currentUser.id}`} className="nav-link">
+              Account
+            </Link>
               <Link to="/addprod" className="nav-link">
                 add new product
               </Link>
-              <Link to="/viewAllUsers" className="nav-link">
+              <Link to="/admin/viewAllUsers" className="nav-link">
                 view all users
               </Link>
               <button type="button" onClick={logoutAndRedirectHome}>
@@ -101,9 +106,14 @@ const Navbar = () => {
             </div>
           </div>
         ) : isLoggedIn ? (
-          <button type="button" onClick={logoutAndRedirectHome}>
-            Logout
-          </button>
+          <>
+            <Link to={`/users/${currentUser.id}`} className="nav-link">
+              Account
+            </Link>
+            <button type="button" onClick={logoutAndRedirectHome}>
+              Logout
+            </button>
+          </>
         ) : (
           <Link to="/login" className="nav-link">
             <motion.span whileHover={navHover} whileTap={{ scale: 1.5 }}>

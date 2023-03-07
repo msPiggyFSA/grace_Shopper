@@ -13,11 +13,14 @@ import SignUpForm from "../auth/SignUpForm";
 // import CartProducts from "../cart/CartProduct";
 import EditProduct from "../admin/EditProduct";
 import UserProfile from "../user/UserProfile";
+import EditUserProfilePage from "../user/EditUserProfilePage";
 import { AnimatePresence } from "framer-motion";
 import { useSelector } from "react-redux";
 import AdminSingleUser from "../admin/AdminSingleUser";
 import AdminAllUserView from "../admin/AdminAllUserView";
 import Combined from "../auth/Combined.js";
+import OrderHistory from "../cart/OrderHistory";
+import SingleOrder from "../cart/SingleOrder";
 
 const ReactRoute = () => {
   const isAdmin = useSelector((state) => state.auth.me.admin) === true;
@@ -38,16 +41,25 @@ const ReactRoute = () => {
         <Route path="/login" element={<Combined />} />
         <Route path="/signup" element={<Combined />} />
         <Route path="/users/:id" element={<UserProfile />} />
+        <Route path="/pastorders" element={<OrderHistory />} />
+        <Route path="/pastorders/:id" element={<SingleOrder />} />
         {isLoggedIn && isAdmin ? (
           <>
             <Route path="/addprod" element={<AddProduct />} />
             <Route path="/product/edit/:id" element={<EditProduct />} />
             <Route path="/users/:id" element={<UserProfile />} />
-            <Route path="/viewAllUsers" element={<AdminAllUserView />} />
+            <Route path="/admin/viewAllUsers" element={<AdminAllUserView />} />
             <Route path="/admin/users/:id" element={<AdminSingleUser />} />
+            <Route
+              path="/admin/edit/users/:id"
+              element={<EditUserProfilePage />}
+            />
           </>
         ) : isLoggedIn ? (
-          <Route path="/users/:id" element={<UserProfile />} />
+          <>
+            <Route path="/users/:id" element={<UserProfile />} />
+            <Route path="/edit/users/:id" element={<EditUserProfilePage />} />
+          </>
         ) : (
           <></>
         )}

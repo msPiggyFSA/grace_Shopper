@@ -1,13 +1,18 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const initialState = { users: [], singleUser: [] };
+const initialState = { users: [], singleUser: [], userCarts: [] };
 
 export const fetchAllUsers = createAsyncThunk("allusers", async () => {
   try {
     const response = await axios.get("http://localhost:8080/api/users");
     const data = response.data;
-    console.log("######THIS IS######", data);
+    console.log("######THIS IS###### CARTS", data);
+    const cart = data.map((user) => {
+      return user.carts;
+    });
+
+    console.log("######THIS IS####", cart);
     return data;
   } catch (error) {
     console.log(error);
@@ -25,23 +30,34 @@ export const fetchSingleUser = createAsyncThunk("singleuser", async (id) => {
   }
 });
 
-export const editUser = createAsyncThunk(
-  "edituser",
-  async ({ form, params }) => {
-    console.log(params, "this is id in slice");
-    console.log(form, "this is forms in slice");
+export const editUserProfile = createAsyncThunk(
+  "edituserprofile",
+  async ({ edit, params }) => {
+    console.log(params, "this is id in slice###############");
+    console.log(edit, "this is edit in slice############");
     try {
-      const response = await axios.put(
-        "http://localhost:8080/api/users/${params}" + id
-      );
-      const data = response.data;
-      console.log(data);
-      return data;
+      await axios.patch(`http://localhost:8080/api/users/${edit.id}`, edit);
     } catch (error) {
       console.log(error);
     }
   }
 );
+
+export const fetchAllUserCarts = createAsyncThunk("allusercarts", async () => {
+  try {
+    const response = await axios.get("http://localhost:8080/api/users/:id");
+    const data = response.data;
+    console.log("######THIS IS### DATA", data);
+    const userCarts = data.map((user) => {
+      return user.carts;
+    });
+
+    console.log("######THIS IS####### CARTS", userCarts);
+    return userCarts;
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 export const createNewUser = createAsyncThunk(
   "createUser",
@@ -73,6 +89,18 @@ const userSlice = createSlice({
       })
       .addCase(fetchSingleUser.fulfilled, (state, action) => {
         state.singleUser = action.payload;
+      })
+      .addCase(editUserProfile.pending, (state, action) => {
+        state.singleUser = {};
+      })
+      .addCase(editUserProfile.fulfilled, (state, action) => {
+        state.singleUser = action.payload;
+      })
+      .addCase(fetchAllUserCarts.pending, (state, action) => {
+        state.userCarts = {};
+      })
+      .addCase(fetchAllUserCarts.fulfilled, (state, action) => {
+        state.userCarts = action.payload;
       });
   },
 });

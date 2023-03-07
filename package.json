@@ -1,5 +1,5 @@
 {
-  "name": "fs-app-template",
+  "name": "the-amazon-killer",
   "version": "2.0.0",
   "description": "Some boilerplate code to get you started - get shakin'!",
   "main": "index.js",
@@ -20,17 +20,20 @@
   "author": "Fullstack Academy of Code",
   "license": "MIT",
   "dependencies": {
+    "@stripe/react-stripe-js": "^1.16.5",
+    "@stripe/stripe-js": "^1.48.0",
     "bcrypt": "^5.1.0",
     "compression": "^1.7.4",
     "css-loader": "^6.7.3",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "framer-motion": "^10.0.1",
+    "framer-motion": "^10.1.0",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "pg": "^8.8.0",
     "react-external-link": "^2.1.0",
     "sequelize": "^6.29.0",
+    "stripe": "^11.13.0",
     "style-loader": "^3.3.1",
     "uuid": "^9.0.0"
   },
