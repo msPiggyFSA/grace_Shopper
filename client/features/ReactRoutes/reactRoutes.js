@@ -19,46 +19,53 @@ import { useSelector } from "react-redux";
 import AdminSingleUser from "../admin/AdminSingleUser";
 import AdminAllUserView from "../admin/AdminAllUserView";
 import Combined from "../auth/Combined.js";
+import OrderHistory from "../cart/OrderHistory";
+import SingleOrder from "../cart/SingleOrder";
 
 const ReactRoute = () => {
   const isAdmin = useSelector((state) => state.auth.me.admin) === true;
   const location = useLocation();
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   return (
-		<AnimatePresence node="wait">
-			<Routes location={location} key={location.key}>
-				<Route path="/" element={<Home />} />
-				<Route path="/home" element={<Home />} />
-				<Route path="/contact" element={<Contact />} />
-				<Route path="/about" element={<About />} />
-				<Route path="/refund" element={<Refund />} />
-				<Route path="/product/:id" element={<SingleProductView />} />
-				<Route path="/category/:id" element={<Category />} />
-				<Route path="/cart" element={<CartView />} />
-				{/* <Route path="/cartProducts" element={<CartProducts />} /> */}
-				<Route path="/login" element={<Combined />} />
-				<Route path="/signup" element={<Combined />} />
-				<Route path="/users/:id" element={<UserProfile />} />
-				{isLoggedIn && isAdmin ? (
-					<>
-						<Route path="/addprod" element={<AddProduct />} />
-						<Route path="/product/edit/:id" element={<EditProduct />} />
-						<Route path="/users/:id" element={<UserProfile />} />
-						<Route path="/admin/viewAllUsers" element={<AdminAllUserView />} />
-						<Route path="/admin/users/:id" element={<AdminSingleUser />} />
-						<Route path="/admin/edit/users/:id" element={<EditUserProfilePage />} />
-					</>
-				) : isLoggedIn ? (
+    <AnimatePresence node="wait">
+      <Routes location={location} key={location.key}>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/refund" element={<Refund />} />
+        <Route path="/product/:id" element={<SingleProductView />} />
+        <Route path="/category/:id" element={<Category />} />
+        <Route path="/cart" element={<CartView />} />
+        {/* <Route path="/cartProducts" element={<CartProducts />} /> */}
+        <Route path="/login" element={<Combined />} />
+        <Route path="/signup" element={<Combined />} />
+        <Route path="/users/:id" element={<UserProfile />} />
+        <Route path="/pastorders" element={<OrderHistory />} />
+        <Route path="/pastorders/:id" element={<SingleOrder />} />
+        {isLoggedIn && isAdmin ? (
+          <>
+            <Route path="/addprod" element={<AddProduct />} />
+            <Route path="/product/edit/:id" element={<EditProduct />} />
+            <Route path="/users/:id" element={<UserProfile />} />
+            <Route path="/admin/viewAllUsers" element={<AdminAllUserView />} />
+            <Route path="/admin/users/:id" element={<AdminSingleUser />} />
+            <Route
+              path="/admin/edit/users/:id"
+              element={<EditUserProfilePage />}
+            />
+          </>
+        ) : isLoggedIn ? (
           <>
             <Route path="/users/:id" element={<UserProfile />} />
             <Route path="/edit/users/:id" element={<EditUserProfilePage />} />
           </>
-				) : (
-					<></>
-				)}
-			</Routes>
-		</AnimatePresence>
-	);
+        ) : (
+          <></>
+        )}
+      </Routes>
+    </AnimatePresence>
+  );
 };
 
 export default ReactRoute;
