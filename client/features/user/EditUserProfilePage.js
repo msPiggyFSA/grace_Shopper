@@ -31,12 +31,12 @@ function EditUserProfilePage() {
 			evt.preventDefault();
 			const formName = evt.target.name;
 			const username = evt.target.username.value;
-			// const password = evt.target.password.value;
-			// const fName = evt.target.fName.value
-			// const lName = evt.target.lName.value
-			// const email = evt.target.email.value
+			const password = evt.target.password.value;
+			const fName = evt.target.fName.value
+			const lName = evt.target.lName.value
+			const email = evt.target.email.value
 			console.log(formName, username, ' thisis formname, user, password')
-			// dispatch(authenticate({ username, fName, lName, email, method: formName }));
+			dispatch(authenticate({ username, fName, lName, email, password, method: formName }));
 			// dispatch(createNewUser({form}))
 			if (!error) {
 				dispatch(editUserProfile({edit}))
@@ -100,7 +100,7 @@ function EditUserProfilePage() {
             Password:
       </label>
       <input
-				placeholder="PASSWORD PLACE HOLDER"
+				placeholder={`${edit.password}`}
 				name="password"
 				type="text"
 				onChange={changeValue("password")}
