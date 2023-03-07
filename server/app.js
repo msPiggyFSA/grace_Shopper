@@ -2,7 +2,7 @@ const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
 const app = express();
-import cors from "cors";
+const cors = require("cors");
 
 
 app.use(cors());
