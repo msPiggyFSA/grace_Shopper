@@ -5,7 +5,7 @@ const initialState = { users: [], singleUser: [], userCarts: [] };
 
 export const fetchAllUsers = createAsyncThunk("allusers", async () => {
   try {
-    const response = await axios.get("http://localhost:10000/api/users");
+    const response = await axios.get("http://mspiggygraceshopper.onrender.com/api/users");
     const data = response.data;
     console.log("######THIS IS###### CARTS", data);
     const cart = data.map((user) => {
@@ -21,7 +21,7 @@ export const fetchAllUsers = createAsyncThunk("allusers", async () => {
 
 export const fetchSingleUser = createAsyncThunk("singleuser", async (id) => {
   try {
-    const response = await axios.get("http://localhost:10000/api/users/" + id);
+    const response = await axios.get("http://mspiggygraceshopper.onrender.com/api/users/" + id);
     const data = response.data;
     console.log(data);
     return data;
@@ -37,7 +37,7 @@ export const editUserProfile = createAsyncThunk(
     console.log(edit, "this is edit in slice############");
     try {
       const response = await axios.put(
-        "http://localhost:10000/api/users/${params}" + id
+        "http://mspiggygraceshopper.onrender.com/api/users/${params}" + id
       );
       const data = response.data;
       console.log(data);
@@ -50,7 +50,7 @@ export const editUserProfile = createAsyncThunk(
 
 export const fetchAllUserCarts = createAsyncThunk("allusercarts", async () => {
   try {
-    const response = await axios.get("http://localhost:10000/api/users/:id");
+    const response = await axios.get("http://mspiggygraceshopper.onrender.com/api/users/:id");
     const data = response.data;
     console.log("######THIS IS### DATA", data);
     const userCarts = data.map((user) => {
@@ -69,7 +69,7 @@ export const createNewUser = createAsyncThunk(
   async ({ form }) => {
     console.log(form);
     try {
-      const newUser = await axios.post("http://localhost:10000/api/users", form);
+      const newUser = await axios.post("http://mspiggygraceshopper.onrender.com/api/users", form);
       return newUser.data;
     } catch (error) {
       console.log(error.message);

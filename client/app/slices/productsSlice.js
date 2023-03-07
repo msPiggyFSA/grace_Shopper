@@ -5,7 +5,7 @@ const initialState = { products: [], singleProduct: {} };
 
 export const fetchAllProducts = createAsyncThunk("allproducts", async () => {
   try {
-    const response = await axios.get("http://localhost:10000/api/products");
+    const response = await axios.get("http://mspiggygraceshopper.onrender.com/api/products");
     const data = response.data;
     return data;
   } catch (error) {
@@ -18,7 +18,7 @@ export const fetchSingleProduct = createAsyncThunk(
   async (id) => {
     try {
       const response = await axios.get(
-        "http://localhost:10000/api/products/" + id
+        "http://mspiggygraceshopper.onrender.com/api/products/" + id
       );
       const data = response.data;
       console.log(data);
@@ -34,7 +34,7 @@ export const createNewProduct = createAsyncThunk(
   async ({ form }) => {
     try {
       const newProd = await axios.post(
-        "http://localhost:10000/api/products",
+        "http://mspiggygraceshopper.onrender.com/api/products",
         form
       );
       console.log(form);
@@ -52,7 +52,7 @@ export const editProduct = createAsyncThunk(
     console.log(form, "this is forms in slice");
     try {
       const update = await axios.put(
-        `http://localhost:10000/api/products/${params}`,
+        `http://mspiggygraceshopper.onrender.com/api/products/${params}`,
         form
       );
 
@@ -66,7 +66,7 @@ export const editProduct = createAsyncThunk(
 export const deleteProduct = createAsyncThunk("deleteproduct", async (id) => {
   try {
     const deleted = await axios.delete(
-      `http://localhost:10000/api/products/${id}`
+      `http://mspiggygraceshopper.onrender.com/api/products/${id}`
     );
     return deleted.data;
   } catch (error) {

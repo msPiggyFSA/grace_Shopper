@@ -67,7 +67,7 @@ const Checkout = (props) => {
     console.log(currentUser, 'currentUser');
     console.log(currentCart, 'current cart');
     console.log(allUsersProducts);
-    fetch("http://localhost:10000/api/create-checkout-session", {
+    fetch("http://mspiggygraceshopper.onrender.com/api/create-checkout-session", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",

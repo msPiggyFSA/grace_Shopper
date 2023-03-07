@@ -14,7 +14,7 @@ const initialState = {
 
 export const fetchAllCarts = createAsyncThunk("fetch/usercart", async () => {
   try {
-    const response = await axios.get("http://localhost:10000/api/carts");
+    const response = await axios.get("http://mspiggygraceshopper.onrender.com/api/carts");
     return response.data;
   } catch (error) {
     console.log(error);
@@ -23,7 +23,7 @@ export const fetchAllCarts = createAsyncThunk("fetch/usercart", async () => {
 
 export const fetchAllThemMF = createAsyncThunk("fetch/allem", async () => {
   try {
-    const response = await axios.get("http://localhost:10000/api/products");
+    const response = await axios.get("http://mspiggygraceshopper.onrender.com/api/products");
     return response.data;
   } catch (error) {
     console.log(error);
@@ -35,7 +35,7 @@ export const fetchAllCartProducts = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-        "http://localhost:10000/api/cartProducts"
+        "http://mspiggygraceshopper.onrender.com/api/cartProducts"
       );
       return response.data;
     } catch (error) {
@@ -136,7 +136,7 @@ const cartSlice = createSlice({
 // console.log("this is value", action);
 // async()=>{
 //   try {
-//     await axios.post("http://localhost:10000/api/cartProducts");
+//     await axios.post("http://mspiggygraceshopper.onrender.com/api/cartProducts");
 //     console.log("success")
 //   } catch (error) {
 //     console.log("sorry dude", error.message)
