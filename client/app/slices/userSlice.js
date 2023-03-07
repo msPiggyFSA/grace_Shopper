@@ -5,7 +5,7 @@ const initialState = { users: [], singleUser: [] };
 
 export const fetchAllUsers = createAsyncThunk("allusers", async () => {
   try {
-    const response = await axios.get("http://localhost:8080/api/users");
+    const response = await axios.get("http://localhost:10000/api/users");
     const data = response.data;
     console.log("######THIS IS######", data);
     return data;
@@ -16,7 +16,7 @@ export const fetchAllUsers = createAsyncThunk("allusers", async () => {
 
 export const fetchSingleUser = createAsyncThunk("singleuser", async (id) => {
   try {
-    const response = await axios.get("http://localhost:8080/api/users/" + id);
+    const response = await axios.get("http://localhost:10000/api/users/" + id);
     const data = response.data;
     console.log(data);
     return data;
@@ -32,7 +32,7 @@ export const editUser = createAsyncThunk(
     console.log(form, "this is forms in slice");
     try {
       const response = await axios.put(
-        "http://localhost:8080/api/users/${params}" + id
+        "http://localhost:10000/api/users/${params}" + id
       );
       const data = response.data;
       console.log(data);
@@ -43,12 +43,28 @@ export const editUser = createAsyncThunk(
   }
 );
 
+export const fetchAllUserCarts = createAsyncThunk("allusercarts", async () => {
+  try {
+    const response = await axios.get("http://localhost:8080/api/users/:id");
+    const data = response.data;
+    console.log("######THIS IS### DATA", data);
+    const userCarts = data.map((user) => {
+      return user.carts;
+    });
+
+    console.log("######THIS IS####### CARTS", userCarts);
+    return userCarts;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 export const createNewUser = createAsyncThunk(
   "createUser",
   async ({ form }) => {
     console.log(form);
     try {
-      const newUser = await axios.post("http://localhost:8080/api/users", form);
+      const newUser = await axios.post("http://localhost:10000/api/users", form);
       return newUser.data;
     } catch (error) {
       console.log(error.message);

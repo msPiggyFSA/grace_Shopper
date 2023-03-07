@@ -29,7 +29,7 @@ CartProduct.belongsTo(Cart)
 //column carts->Cart_Product.CartProductCartId does not exist
 //CartProduct.belongsToMany(Cart, { through: "Cart_Product" });
 
-//can log at http://localhost:8080/api/cartProducts
+//can log at http://localhost:10000/api/cartProducts
 // CartProduct.belongsTo(Cart, {
 //   through: { model: "Cart_Product", foreignKey: "cartId", unique: false },
 //   constraints: false,

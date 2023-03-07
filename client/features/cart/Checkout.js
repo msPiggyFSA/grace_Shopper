@@ -54,6 +54,32 @@ const Checkout = (props) => {
     dispatch(cartActions.checkedOut());
   };
 
+  const handleStripe = async()=>{
+
+    console.log(currentUser, 'currentUser');
+    console.log(currentCart, 'current cart');
+    console.log(allUsersProducts);
+    fetch("http://localhost:8080/api/create-checkout-session", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				items: currentCart,
+			}),
+		})
+			.then((res) => {
+				if (res.ok) return res.json();
+				return res.json().then((json) => Promise.reject(json));
+			})
+			.then(({ url }) => {
+				window.location = url;
+			})
+			.catch((e) => {
+				console.log(e.error);
+			});
+  }
+
   //use navigate to go to new page thank purchase
 
   return <button onClick={checkoutHandler}>Checkout</button>;

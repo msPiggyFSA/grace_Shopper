@@ -25,11 +25,11 @@ if (process.env.DATABASE_URL) {
 
 //RENDER
 //INTERNAL
-//`postgres://grace_db_ulq1_user:qZv5AJSpF0WqK75RP0jZoQphoGuITjc7@dpg-cfv5p7l3t39doaohcdlg-a/grace_db_ulq1?ssl=true`
+//`postgres://grace_db_ulq1_user:qZv5AJSpF0WqK75RP0jZoQphoGuITjc7@localhost/grace_db_ulq1?ssl=true`
 //EXTERNAL
-//`postgres://grace_db_ulq1_user:qZv5AJSpF0WqK75RP0jZoQphoGuITjc7@dpg-cfv5p7l3t39doaohcdlg-a.ohio-postgres.render.com/grace_db_ulq1?ssl=true`
+//`postgres://grace_db_ulq1_user:qZv5AJSpF0WqK75RP0jZoQphoGuITjc7@localhost.ohio-postgres.render.com/grace_db_ulq1?ssl=true`
 //PSQL
-//PGPASSWORD=qZv5AJSpF0WqK75RP0jZoQphoGuITjc7 psql -h dpg-cfv5p7l3t39doaohcdlg-a.ohio-postgres.render.com -U grace_db_ulq1_user grace_db_ulq1
+//PGPASSWORD=qZv5AJSpF0WqK75RP0jZoQphoGuITjc7 psql -h localhost.ohio-postgres.render.com -U grace_db_ulq1_user grace_db_ulq1
 //LOCAL
 //"postgres://localhost:5432/backupGrace"
 
