@@ -10,7 +10,7 @@ import "../home/css/Home.css";
 /**
  * COMPONENT
  */
-const Women = (props) => {
+const Men = (props) => {
   console.log(container);
   const dispatch = useDispatch();
 
@@ -41,13 +41,14 @@ const Women = (props) => {
       >
         Welcome, {username}
       </h3>
-      {products.map((product) => {
-        if (product.categoryId === 1) {
-          return <SingleProduct key={uuidv4()} props={product} />;
-        }
-      })}
+      {products &&
+        products.map((product) => {
+          if (product.categoryId === 1) {
+            return <SingleProduct key={uuidv4()} props={product} />;
+          }
+        })}
     </motion.div>
   );
 };
 
-export default Women;
+export default Men;
