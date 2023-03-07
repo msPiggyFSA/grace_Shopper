@@ -36,16 +36,12 @@ export const editUserProfile = createAsyncThunk(
     console.log(params, "this is id in slice###############");
     console.log(edit, "this is edit in slice############");
     try {
-<<<<<<< HEAD
       const response = await axios.put(
         "http://localhost:10000/api/users/${params}" + id
       );
       const data = response.data;
       console.log(data);
       return data;
-=======
-      await axios.patch(`http://localhost:8080/api/users/${edit.id}`, edit);
->>>>>>> 67e28156baec44bb4b546950a875190fdd8f0e06
     } catch (error) {
       console.log(error);
     }

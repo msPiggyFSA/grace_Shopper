@@ -27,7 +27,6 @@ const ReactRoute = () => {
   const location = useLocation();
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   return (
-<<<<<<< HEAD
 		<AnimatePresence node="wait">
 			<Routes location={location} key={location.key}>
 				<Route path="/" element={<Home />} />
@@ -53,28 +52,8 @@ const ReactRoute = () => {
 						<Route path="/admin/edit/users/:id" element={<EditUserProfilePage />} />
 					</>
 				) : isLoggedIn ? (
-=======
-    <AnimatePresence node="wait">
-      <Routes location={location} key={location.key}>
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/refund" element={<Refund />} />
-        <Route path="/product/:id" element={<SingleProductView />} />
-        <Route path="/category/:id" element={<Category />} />
-        <Route path="/cart" element={<CartView />} />
-        {/* <Route path="/cartProducts" element={<CartProducts />} /> */}
-        <Route path="/login" element={<Combined />} />
-        <Route path="/signup" element={<Combined />} />
-        <Route path="/users/:id" element={<UserProfile />} />
-        <Route path="/pastorders" element={<OrderHistory />} />
-        <Route path="/pastorders/:id" element={<SingleOrder />} />
-        {isLoggedIn && isAdmin ? (
->>>>>>> 67e28156baec44bb4b546950a875190fdd8f0e06
           <>
             <Route path="/users/:id" element={<UserProfile />} />
-<<<<<<< HEAD
             <Route path="/edit/users/:id" element={<EditUserProfilePage />} />
           </>
 				) : (
@@ -83,26 +62,6 @@ const ReactRoute = () => {
 			</Routes>
 		</AnimatePresence>
 	);
-=======
-            <Route path="/admin/viewAllUsers" element={<AdminAllUserView />} />
-            <Route path="/admin/users/:id" element={<AdminSingleUser />} />
-            <Route
-              path="/admin/edit/users/:id"
-              element={<EditUserProfilePage />}
-            />
-          </>
-        ) : isLoggedIn ? (
-          <>
-            <Route path="/users/:id" element={<UserProfile />} />
-            <Route path="/edit/users/:id" element={<EditUserProfilePage />} />
-          </>
-        ) : (
-          <></>
-        )}
-      </Routes>
-    </AnimatePresence>
-  );
->>>>>>> 67e28156baec44bb4b546950a875190fdd8f0e06
 };
 
 export default ReactRoute;
