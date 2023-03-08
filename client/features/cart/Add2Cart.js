@@ -2,6 +2,8 @@ import React from "react";
 import { cartActions } from "../../app/slices/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import "../SingleProduct/css/SingleProduct.css";
+import { Button } from "@mui/material";
+
 
 const Add2Cart = (props) => {
   const obj = props.props;
@@ -17,9 +19,9 @@ const Add2Cart = (props) => {
     console.log(cartState);
   };
   return (
-    <i className="cart-icon ion-bag" onClick={addHandler}>
+    <Button className="cart-icon ion-bag" onClick={addHandler}>
       Add to Cart
-    </i>
+    </Button>
   );
 };
 

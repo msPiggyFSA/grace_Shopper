@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import { fetchAllUsers, userActions } from "../../app/slices/userSlice";
 import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
 
 
 const AdminAllUserView = (props) => {
@@ -28,11 +29,11 @@ const AdminAllUserView = (props) => {
           return(
          <div>
           <Link to={`/admin/users/${user.id}`}>{user.username}</Link>
-          <button>
+          <Button>
             <Link to={`/admin/edit/users/${user.id}`}>
               Edit User
             </Link>
-          </button>
+          </Button>
           </div>
           )
         })}
