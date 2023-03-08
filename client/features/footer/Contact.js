@@ -17,7 +17,7 @@ const Contact = () => {
       email: email.value,
       message: message.value,
     };
-    let response = await fetch("https://mspiggygraceshopper.onrender.com/api/contact", {
+    let response = await fetch("http://mspiggygraceshopper.onrender.com/api/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",

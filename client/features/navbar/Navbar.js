@@ -32,7 +32,7 @@ const Navbar = () => {
     dispatch(logout());
     navigate("/login");
     try {
-      const cart = await axios.post("https://mspiggygraceshopper.onrender.com/api/carts", {
+      const cart = await axios.post("http://mspiggygraceshopper.onrender.com/api/carts", {
         purchased: false,
         billAddress: currentUser.billing,
         shipAddress: currentUser.shipping,
@@ -42,7 +42,7 @@ const Navbar = () => {
       console.log(cart.data);
 
       currentCart.map(async (product) => {
-        await axios.post("https://mspiggygraceshopper.onrender.com/api/cartProducts", {
+        await axios.post("http://mspiggygraceshopper.onrender.com/api/cartProducts", {
           cartId: cart.data.id,
           productId: product.id,
         });

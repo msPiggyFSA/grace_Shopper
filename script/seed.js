@@ -336,7 +336,7 @@ const seed = async () => {
     // const shoes = await Product.create({
     //   name: "Polo Shirt",
     //   imageUrl:
-    //     "https://static.nike.com/a/videos/t_PDP_1280_v1/f_auto,q_auto:eco,so_0.1/0e744966-f8f8-4aae-97a5-2761f14798a6/dri-fit-mens-fitness-t-shirt-nhgSHx.jpg",
+    //     "http://static.nike.com/a/videos/t_PDP_1280_v1/f_auto,q_auto:eco,so_0.1/0e744966-f8f8-4aae-97a5-2761f14798a6/dri-fit-mens-fitness-t-shirt-nhgSHx.jpg",
     //   size: "m",
     //   price: 55,
     //   rating: 5.0,

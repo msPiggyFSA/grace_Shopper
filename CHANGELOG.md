@@ -106,7 +106,7 @@
 - @babel/register update to 7.4.0 from 7.0.0-beta.55
 - babel-loader update to 8.0.5 from 8.0.0-beta.4
 
-`npm i enzyme` to fix lodash dependency: [Prototype Polution](https://www.npmjs.com/advisories/782)
+`npm i enzyme` to fix lodash dependency: [Prototype Polution](http://www.npmjs.com/advisories/782)
 
 ## Wednesday, April 10th, 2019
 

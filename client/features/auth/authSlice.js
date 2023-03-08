@@ -13,7 +13,7 @@ export const me = createAsyncThunk("auth/me", async (thunkAPI) => {
   const token = window.localStorage.getItem(TOKEN);
   try {
     if (token) {
-      const res = await axios.get("https://mspiggygraceshopper.onrender.com/auth/me", {
+      const res = await axios.get("http://mspiggygraceshopper.onrender.com/auth/me", {
         headers: {
           authorization: token,
         },
@@ -35,7 +35,7 @@ export const authenticate = createAsyncThunk(
   "auth/authenticate",//issue here?????????
   async ({ username, password, fName, lName, email, billing, shipping, method }, thunkAPI) => {
     try {
-      const res = await axios.post(`https://mspiggygraceshopper.onrender.com/auth/${method}`, {
+      const res = await axios.post(`http://mspiggygraceshopper.onrender.com/auth/${method}`, {
         username,
         password,
         fName,

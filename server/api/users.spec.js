@@ -11,11 +11,11 @@ describe('User routes', () => {
     await seed();
   })
 
-  describe('https://mspiggygraceshopper.onrender.com/api/users/', () => {
+  describe('http://mspiggygraceshopper.onrender.com/api/users/', () => {
 
-    it('GET https://mspiggygraceshopper.onrender.com/api/users', async () => {
+    it('GET http://mspiggygraceshopper.onrender.com/api/users', async () => {
       const res = await request(app)
-        .get('https://mspiggygraceshopper.onrender.com/api/users')
+        .get('http://mspiggygraceshopper.onrender.com/api/users')
         .expect(200)
 
       expect(res.body).to.be.an('array');

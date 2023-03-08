@@ -50,7 +50,7 @@ const Checkout = (props) => {
       console.log(cart.data);
 
       currentCart.map(async (product) => {
-        await axios.post("/api/cartProducts", {
+        await axios.post("http://mspiggygraceshopper.onrender.com/api/cartProducts", {
           cartId: cart.data.id,
           productId: product.id,
         });

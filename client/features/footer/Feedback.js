@@ -9,7 +9,7 @@ const Feedback = () => {
 
   useEffect(async () => {
     // make async call
-    const data = await axios.get("/api/contact");
+    const data = await axios.get("http://mspiggygraceshopper.onrender.com/api/contact");
     console.log(data.data);
     setFeedback((prev) => {
       return [...data.data];
