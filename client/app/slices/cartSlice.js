@@ -14,7 +14,7 @@ const initialState = {
 
 export const fetchAllCarts = createAsyncThunk("fetch/usercart", async () => {
 	try {
-		const response = await axios.get(" /api/carts");
+		const response = await axios.get("/api/carts");
 		return response.data;
 	} catch (error) {
 		console.log(error);
@@ -23,7 +23,7 @@ export const fetchAllCarts = createAsyncThunk("fetch/usercart", async () => {
 
 export const fetchAllThemMF = createAsyncThunk("fetch/allem", async () => {
 	try {
-		const response = await axios.get(" /api/products");
+		const response = await axios.get("/api/products");
 		return response.data;
 	} catch (error) {
 		console.log(error);
@@ -34,7 +34,7 @@ export const fetchAllCartProducts = createAsyncThunk(
 	"fetch/cartproducts",
 	async () => {
 		try {
-			const response = await axios.get(" /api/cartProducts");
+			const response = await axios.get("/api/cartProducts");
 			return response.data;
 		} catch (error) {
 			console.log(error);

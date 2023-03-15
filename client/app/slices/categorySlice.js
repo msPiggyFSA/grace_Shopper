@@ -5,6 +5,6 @@ const initialState = { men: [], women: [] };
 
 const fetchAllCats = createAsyncThunk("fetch/categories", async () => {
 	try {
-		const allCats = await axios.get(" /categories");
+		const allCats = await axios.get("/categories");
 	} catch (error) {}
 });

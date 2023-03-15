@@ -5,7 +5,7 @@ const initialState = { users: [], singleUser: [], userCarts: [] };
 
 export const fetchAllUsers = createAsyncThunk("allusers", async () => {
 	try {
-		const response = await axios.get(" /api/users");
+		const response = await axios.get("/api/users");
 		const data = response.data;
 		console.log("######THIS IS###### CARTS", data);
 		const cart = data.map((user) => {
@@ -21,7 +21,7 @@ export const fetchAllUsers = createAsyncThunk("allusers", async () => {
 
 export const fetchSingleUser = createAsyncThunk("singleuser", async (id) => {
 	try {
-		const response = await axios.get(" /api/users/" + id);
+		const response = await axios.get("/api/users/" + id);
 		const data = response.data;
 		console.log(data);
 		return data;
@@ -36,7 +36,7 @@ export const editUserProfile = createAsyncThunk(
 		console.log(params, "this is id in slice###############");
 		console.log(edit, "this is edit in slice############");
 		try {
-			await axios.patch(` /api/users/${edit.id}`, edit);
+			await axios.patch(`/api/users/${edit.id}`, edit);
 		} catch (error) {
 			console.log(error);
 		}
@@ -45,7 +45,7 @@ export const editUserProfile = createAsyncThunk(
 
 export const fetchAllUserCarts = createAsyncThunk("allusercarts", async () => {
 	try {
-		const response = await axios.get(" /api/users/:id");
+		const response = await axios.get("/api/users/:id");
 		const data = response.data;
 		console.log("######THIS IS### DATA", data);
 		const userCarts = data.map((user) => {
@@ -64,7 +64,7 @@ export const createNewUser = createAsyncThunk(
 	async ({ form }) => {
 		console.log(form);
 		try {
-			const newUser = await axios.post(" /api/users", form);
+			const newUser = await axios.post("/api/users", form);
 			return newUser.data;
 		} catch (error) {
 			console.log(error.message);

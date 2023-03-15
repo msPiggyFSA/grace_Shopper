@@ -5,7 +5,7 @@ const initialState = { products: [], singleProduct: {} };
 
 export const fetchAllProducts = createAsyncThunk("allproducts", async () => {
 	try {
-		const response = await axios.get(" /api/products");
+		const response = await axios.get("/api/products");
 		const data = response.data;
 		return data;
 	} catch (error) {
@@ -17,7 +17,7 @@ export const fetchSingleProduct = createAsyncThunk(
 	"singleproduct",
 	async (id) => {
 		try {
-			const response = await axios.get(" /api/products/" + id);
+			const response = await axios.get("/api/products/" + id);
 			const data = response.data;
 			console.log(data);
 			return data;
@@ -31,7 +31,7 @@ export const createNewProduct = createAsyncThunk(
 	"createproduct",
 	async ({ form }) => {
 		try {
-			const newProd = await axios.post(" /api/products", form);
+			const newProd = await axios.post("/api/products", form);
 			console.log(form);
 			return newProd.data;
 		} catch (error) {
@@ -57,7 +57,7 @@ export const editProduct = createAsyncThunk(
 
 export const deleteProduct = createAsyncThunk("deleteproduct", async (id) => {
 	try {
-		const deleted = await axios.delete(` /api/products/${id}`);
+		const deleted = await axios.delete(`/api/products/${id}`);
 		return deleted.data;
 	} catch (error) {
 		console.log(error.message);
